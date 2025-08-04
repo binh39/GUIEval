@@ -1,0 +1,8 @@
+[
+  "Open 'http://127.0.0.1:5500/public/index.html'",
+  "Check the background color of the 'Find Food' button is orange",
+  "Click 'Login' button",
+  "Verify a login box appears",
+  "Fill 'abc' into username field",
+  "Fill 'xyz' into password field"
+]

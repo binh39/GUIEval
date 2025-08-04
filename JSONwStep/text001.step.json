@@ -1,0 +1,42 @@
+[
+  {
+    "action": "interact",
+    "selector": "",
+    "value": "http://127.0.0.1:5500/public/index.html",
+    "expected": {}
+  },
+  {
+    "action": "verify",
+    "selector": "button with text 'Find Food'",
+    "value": "",
+    "expected": {
+      "property": "background-color",
+      "value": "orange",
+      "relation": ""
+    }
+  },
+  {
+    "action": "interact",
+    "selector": "button with text 'Login'",
+    "value": "",
+    "expected": {}
+  },
+  {
+    "action": "assert",
+    "selector": "login box",
+    "value": "",
+    "expected": {}
+  },
+  {
+    "action": "interact",
+    "selector": "username field",
+    "value": "abc",
+    "expected": {}
+  },
+  {
+    "action": "interact",
+    "selector": "password field",
+    "value": "xyz",
+    "expected": {}
+  }
+]
