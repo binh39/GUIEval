@@ -1,42 +1,112 @@
 [
-  {
-    "action": "interact",
-    "selector": "",
-    "value": "http://127.0.0.1:5500/public/index.html",
-    "expected": {}
-  },
-  {
-    "action": "verify",
-    "selector": "button with text 'Find Food'",
-    "value": "",
-    "expected": {
-      "property": "background-color",
-      "value": "orange",
-      "relation": ""
+  [
+    {
+      "action": "interact",
+      "selector": "",
+      "value": "http://127.0.0.1:5500/public/index.html",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Find Food'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Find Food'",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "orange",
+        "relation": ""
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Login'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "Login Box",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "true",
+        "relation": ""
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "Username field",
+      "value": "abc",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Password field",
+      "value": "xyz",
+      "expected": {}
     }
-  },
-  {
-    "action": "interact",
-    "selector": "button with text 'Login'",
-    "value": "",
-    "expected": {}
-  },
-  {
-    "action": "assert",
-    "selector": "login box",
-    "value": "",
-    "expected": {}
-  },
-  {
-    "action": "interact",
-    "selector": "username field",
-    "value": "abc",
-    "expected": {}
-  },
-  {
-    "action": "interact",
-    "selector": "password field",
-    "value": "xyz",
-    "expected": {}
-  }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "",
+      "value": "https://www.facebook.com",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "'Sign In' button",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "'Sign In' box",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "Username field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Username field",
+      "value": "abcdef",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Password field",
+      "value": "123456",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Login'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "element containing text 'Wrong username or password'",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "true",
+        "relation": ""
+      }
+    }
+  ]
 ]

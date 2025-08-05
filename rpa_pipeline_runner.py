@@ -1,37 +1,54 @@
-# rpa_pipeline_runner.py
 import json
 from pathlib import Path
 import re
-
-# gemini_api.py
-import os
+import pandas as pd
 import requests
-import dotenv
+from key import KEY_LIST
 
-dotenv.load_dotenv()
-API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL = "models/gemini-2.5-flash"
-URL = f"https://generativelanguage.googleapis.com/v1beta/{MODEL}:generateContent?key={API_KEY}"
-HEADERS = {
-    "Content-Type": "application/json"
-}
+MODEL = "models/gemini-2.5-flash-lite"
+HEADERS = {"Content-Type": "application/json"}
+
+current_key_index = 0
+used_keys = set()
+
+def rotate_api_key():
+    global current_key_index
+    used_keys.add(current_key_index)
+    print(f"🔁 Gemini key index {current_key_index} failed. Switching...")
+    if len(used_keys) == len(KEY_LIST):
+        print("❌ All Gemini API keys exhausted. Exiting.")
+        exit(1)
+    current_key_index = (current_key_index + 1) % len(KEY_LIST)
+
+def get_url():
+    return f"https://generativelanguage.googleapis.com/v1beta/{MODEL}:generateContent?key={KEY_LIST[current_key_index]}"
 
 def call_gemini(prompt: str):
-    body = {
-        "contents": [{"parts": [{"text": prompt}]}]
-    }
-    response = requests.post(URL, headers=HEADERS, json=body)
-    try:
-        content = response.json()
-        raw_text = content["candidates"][0]["content"]["parts"][0]["text"]
-        # Gỡ bỏ markdown wrapper ```json ... ``` nếu có
-        if raw_text.strip().startswith("```json"):
-            raw_text = raw_text.strip().removeprefix("```json").removesuffix("```").strip()
-        print(raw_text)
-        return raw_text
-    except Exception as e:
-        print("❌ Gemini error:", response.text)
-        return ""
+    global current_key_index
+
+    while True:
+        body = {"contents": [{"parts": [{"text": prompt}]}]}
+        response = requests.post(get_url(), headers=HEADERS, json=body)
+
+        try:
+            content = response.json()
+            if 'candidates' in content:
+                # Reset used_keys on success
+                used_keys.clear()
+                raw_text = content["candidates"][0]["content"]["parts"][0]["text"]
+                if raw_text.strip().startswith("```json"):
+                    raw_text = raw_text.strip().removeprefix("```json").removesuffix("```").strip()
+                print(raw_text)
+                return raw_text
+            elif content.get("error", {}).get("code") == 429:
+                rotate_api_key()
+            else:
+                print("❌ Gemini error:", json.dumps(content, indent=2))
+                rotate_api_key()
+        except Exception as e:
+            print("❌ Unexpected error:", e)
+            rotate_api_key()
+
 
 def load_text(path):
     with open(path, encoding="utf-8") as f:
@@ -53,8 +70,14 @@ def extract_json_from_text(text: str) -> str:
     return text.strip()
 
 def step1_analyze_task(input_file):
-    task_text = load_text(input_file)
-    prompt = f"""You are a professional UI test case generator.
+    full_text = load_text(input_file)
+    main_tasks = re.findall(r'"(.*?)"', full_text, re.DOTALL)
+    print(len(main_tasks))
+    task_list = []
+    task_trace = []
+
+    for task_text in main_tasks:
+        prompt = f"""You are a professional UI test case generator.
 Your job is to convert the following natural language test description into a list of clear, atomic UI actions.
 Follow these strict rules:
 - Output must be a JSON array.
@@ -72,15 +95,22 @@ Requirement: "{task_text}"
 Return only a JSON list like this:
 ["Atomic Task 1", "Atomic Task 2", "Atomic Task 3"]
 """
-    response = call_gemini(prompt)
-    clean_json = extract_json_from_text(response)
-    return json.loads(clean_json), task_text
+        response = call_gemini(prompt)
+        clean_json = extract_json_from_text(response)
+        subtasks = json.loads(clean_json)
+        task_list.append(subtasks)
+        task_trace.append((task_text, subtasks))
 
-def step2_generate_steps(subtask_list):
-    all_steps = []
+    print(task_list)
+    return task_list, task_trace
+
+def step2_generate_steps(subtask_groups):
+    all_step_groups = []
     step_trace = []
-    for sub in subtask_list:
-        prompt = f"""You are a professional UI test step generator.
+    for subtask_list in subtask_groups:
+        step_group = []
+        for sub in subtask_list:
+            prompt = f"""You are a professional UI test step generator.
 Your task is to convert the following atomic test instruction into a list of executable UI test steps in JSON format.
 
 Instruction: "{sub}"
@@ -138,33 +168,54 @@ Notes:
 Now generate the JSON array of steps for the instruction above.
 """
 
-        response = call_gemini(prompt)
-        clean = extract_json_from_text(response)
-        steps = json.loads(clean)
-        all_steps.extend(steps)
-        step_trace.append((sub, steps))
-    return all_steps, step_trace
+            response = call_gemini(prompt)
+            clean = extract_json_from_text(response)
+            steps = json.loads(clean)
+            step_group.extend(steps)
+            step_trace.append((sub, steps))
+        all_step_groups.append(step_group)
+    return all_step_groups, step_trace
+
+def save_excel_summary(filename, task_trace, step_groups):
+    rows = []
+    for idx, (main_task, subtasks) in enumerate(task_trace):
+        step_group = step_groups[idx] if idx < len(step_groups) else []
+        subtask_json = json.dumps(subtasks, ensure_ascii=False)
+        step_json = json.dumps(step_group, ensure_ascii=False)
+        rows.append({
+            "Main Task": main_task,
+            "Sub Tasks": subtask_json,
+            "Steps": step_json
+        })
+    df = pd.DataFrame(rows)
+    filename.parent.mkdir(parents=True, exist_ok=True)
+    df.to_excel(filename, index=False)
 
 
 def main(case_id):
-    # folders
     INPUT_DIR = Path("Input")
     TASK_DIR = Path("JSONtask")
     STEP_DIR = Path("JSONwStep")
+    REPORT_DIR = Path("Report")
 
-    for d in [TASK_DIR, STEP_DIR]:
+    for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
 
-    # Step 1: text → task JSON
     task_file = INPUT_DIR / f"{case_id}.txt"
     task_json_file = TASK_DIR / f"{case_id}.task.json"
-    task_list, task_text = step1_analyze_task(task_file)
+    task_list, task_trace = step1_analyze_task(task_file)
     save_json(task_json_file, task_list)
+    print("\n Step 1 success \n")
 
-    # Step 2: task JSON → step JSON
     step_json_file = STEP_DIR / f"{case_id}.step.json"
-    steps, step_trace = step2_generate_steps(task_list)
-    save_json(step_json_file, steps)
+    step_groups, step_trace = step2_generate_steps(task_list)
+    save_json(step_json_file, step_groups)
+    print("\n Step 2 success \n")
+
+    report_file = REPORT_DIR / f"{case_id}.summary.xlsx"
+    save_excel_summary(report_file, task_trace, step_groups)
+    print(f"✅ Excel saved to: {report_file}")
+
 
 if __name__ == "__main__":
     import sys

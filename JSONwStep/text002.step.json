@@ -1,0 +1,1432 @@
+[
+  [
+    {
+      "action": "interact",
+      "selector": "url",
+      "value": "https://www.netflix.com",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "Sign In button",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Sign In button",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "Email field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Email field",
+      "value": "testuser@example.com",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "password field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "password field",
+      "value": "Test@1234",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button[type='submit']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "url",
+      "value": "",
+      "expected": {
+        "property": "href",
+        "value": "https://www.netflix.com/browse",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "url",
+      "value": "",
+      "expected": {
+        "property": "loading_time",
+        "value": "3",
+        "relation": "less_than_or_equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div.movie-thumbnail",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "div.movie-thumbnail",
+      "value": "",
+      "expected": {
+        "property": "count",
+        "value": "5",
+        "relation": ">="
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "all input fields",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "all input fields",
+      "value": "",
+      "expected": {
+        "property": "font-family",
+        "value": "Roboto",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "all input fields",
+      "value": "",
+      "expected": {
+        "property": "font-size",
+        "value": "16px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "all input fields",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input field",
+      "value": "",
+      "expected": {
+        "property": "padding",
+        "value": "12px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "input[type='text'], input[type='email'], input[type='password'], input[type='number'], textarea",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "all located input fields",
+      "value": "",
+      "expected": {
+        "property": "margin-bottom",
+        "value": "16px",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "'Sign In' button",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#e50914",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "'Sign In' button",
+      "value": "",
+      "expected": {
+        "property": "color",
+        "value": "#ffffff",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Sign In'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Sign In'",
+      "value": "",
+      "expected": {
+        "property": "border-radius",
+        "value": "4px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "Sign In button",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "Sign In button",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "360px",
+        "relation": "less than or equal to"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "body",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "all elements",
+      "value": "",
+      "expected": {
+        "property": "contrast ratio",
+        "value": "4.5:1",
+        "relation": "at least"
+      }
+    }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "Search Amazon",
+      "value": "https://www.amazon.com",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input[type='search']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input[type='search']",
+      "value": "Bluetooth speaker",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input with placeholder 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input with placeholder 'Search'",
+      "value": "test query",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "results container",
+      "value": "",
+      "expected": {
+        "property": "performance",
+        "value": "2s",
+        "relation": "less than"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "section containing products",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "product listing element",
+      "value": "",
+      "expected": {
+        "property": "count",
+        "value": "10",
+        "relation": "greater than or equal to"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "all elements with tag 'h2'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "all elements with tag 'h2'",
+      "value": "",
+      "expected": {
+        "property": "text",
+        "value": "Bluetooth",
+        "relation": "contains"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div[class*='product-card']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "img",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "150px",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div[class*='product-card']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "div[class*='product-card']",
+      "value": "",
+      "expected": {
+        "property": "font-size",
+        "value": "18px",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {
+        "property": "color",
+        "value": "#ff9900",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {
+        "property": "border-radius",
+        "value": "4px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Add to Cart'",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#e68a00",
+        "relation": ""
+      }
+    }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "URL input",
+      "value": "https://www.khanacademy.org",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Go button",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "page title",
+      "value": "",
+      "expected": {
+        "property": "text",
+        "value": "Khan Academy",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Sign up'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input field with label 'Name'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input field with label 'Name'",
+      "value": "Jane Doe",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input field with label 'Name'",
+      "value": "",
+      "expected": {
+        "property": "value",
+        "value": "Jane Doe",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "input with label 'Email'",
+      "value": "jane.doe@example.com",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "Password field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Password field",
+      "value": "Test1234@",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button[type='submit']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button[type='submit']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "window location",
+      "value": "",
+      "expected": {
+        "property": "href",
+        "value": "https://www.khanacademy.org/profile/me",
+        "relation": "includes"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "window",
+      "value": "",
+      "expected": {
+        "property": "loadTime",
+        "value": "2",
+        "relation": "lessThanOrEqualTo"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "img[alt='Profile picture placeholder']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "img[alt='Profile picture placeholder']",
+      "value": "",
+      "expected": {
+        "property": "border-radius",
+        "value": "50%",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "img[alt='Profile picture placeholder']",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "100px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "img[alt='Profile picture placeholder']",
+      "value": "",
+      "expected": {
+        "property": "height",
+        "value": "100px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "element with text 'Welcome!'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "element with text 'Welcome!'",
+      "value": "",
+      "expected": {
+        "property": "font-family",
+        "value": "'Open Sans'",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "element with text 'Welcome!'",
+      "value": "",
+      "expected": {
+        "property": "font-size",
+        "value": "20px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "element with text 'Welcome!'",
+      "value": "",
+      "expected": {
+        "property": "font-weight",
+        "value": "bold",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "first form field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "first form field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "first form field",
+      "value": "",
+      "expected": {
+        "property": "isFocused",
+        "value": "true",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "next form field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Tab key",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "second form field",
+      "value": "",
+      "expected": {
+        "property": "isFocused",
+        "value": "true",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "all form fields",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "all form fields",
+      "value": "",
+      "expected": {
+        "property": "tabIndex",
+        "value": "0",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "input field with label 'Username'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input field with label 'Username'",
+      "value": "invalid_username",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input field with label 'Username'",
+      "value": "",
+      "expected": {
+        "property": "border-color",
+        "value": "#ff0000",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "input field with label 'Email'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input field with label 'Email'",
+      "value": "invalid_email",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input field with label 'Email'",
+      "value": "",
+      "expected": {
+        "property": "border-color",
+        "value": "#ff0000",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "input field with label 'Password'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input field with label 'Password'",
+      "value": "invalid_password",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input field with label 'Password'",
+      "value": "",
+      "expected": {
+        "property": "border-color",
+        "value": "#ff0000",
+        "relation": ""
+      }
+    }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "input[type='text']",
+      "value": "https://web.whatsapp.com",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button[type='submit']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "QR code scanner",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "QR code scanner",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "contact list",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "assert",
+      "selector": "contact list",
+      "value": "",
+      "expected": {
+        "property": "load_time",
+        "value": "5",
+        "relation": "less than or equal to"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "contact with name 'John Test'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "contact with name 'John Test'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input with placeholder 'Message'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input with placeholder 'Message'",
+      "value": "",
+      "expected": {
+        "property": "height",
+        "value": "40px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "input with placeholder 'Message'",
+      "value": "",
+      "expected": {
+        "property": "font-size",
+        "value": "14px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "input with placeholder 'Message'",
+      "value": "Hello from automation",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Send message'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Send message'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input field for message",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input field for message",
+      "value": "Hello",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Send'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Send'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "chat bubble containing 'Hello'",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "chat bubble containing 'Hello'",
+      "value": "",
+      "expected": {
+        "property": "text",
+        "value": "Hello",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "chat bubble containing 'Hello'",
+      "value": "",
+      "expected": {
+        "property": "timestamp",
+        "value": "within 1 second",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "chat bubble",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "chat bubble",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#dcf8c6",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "chat bubble",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "chat bubble",
+      "value": "",
+      "expected": {
+        "property": "alignment",
+        "value": "right",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "message timestamp",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "message timestamp",
+      "value": "",
+      "expected": {
+        "property": "text",
+        "value": "([1-9]|10|11|12):[0-5][0-9] ?(AM|PM)",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "bubble",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "message timestamp",
+      "value": "",
+      "expected": {
+        "property": "position",
+        "value": "bottom-right",
+        "relation": "inside"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "message timestamp",
+      "value": "",
+      "expected": {
+        "property": "alignment",
+        "value": "bottom-right",
+        "relation": "inside"
+      }
+    }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "url 'https://my.clinicportal.com'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "Username field",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Username field",
+      "value": "patient001",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "Password",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "Password",
+      "value": "Health@2023",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "tab with text 'Appointments'",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "220px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "tab with text 'Appointments'",
+      "value": "",
+      "expected": {
+        "property": "background",
+        "value": "#f0f0f0",
+        "relation": ""
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "tab with text 'Appointments'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "table with id 'upcoming-appointments-table'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "rows of table with id 'upcoming-appointments-table'",
+      "value": "",
+      "expected": {
+        "property": "count",
+        "value": "3",
+        "relation": "greater than or equal to"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "table of upcoming appointments",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "each row in the table of upcoming appointments",
+      "value": "",
+      "expected": {
+        "property": "font-size",
+        "value": "15px",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "table with heading 'Upcoming Appointments'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "row 1 of the table",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#ffffff",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "row 2 of the table",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#f9f9f9",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "row 3 of the table",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#ffffff",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "row 4 of the table",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#f9f9f9",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button",
+      "value": "",
+      "expected": {
+        "property": "text",
+        "value": "Cancel",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button[text='Cancel']",
+      "value": "",
+      "expected": {
+        "property": "background-color",
+        "value": "#d9534f",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button[text='Cancel']",
+      "value": "",
+      "expected": {
+        "property": "color",
+        "value": "white",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div",
+      "value": "",
+      "expected": {
+        "property": "data-testid",
+        "value": "appointment-list",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div[data-testid='appointment-item']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button[data-testid='cancel-appointment']",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "hidden",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div[data-testid='appointment-item']",
+      "value": "",
+      "expected": {
+        "property": "attribute-value",
+        "value": "future-appointment-24h+",
+        "relation": "contains"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button[data-testid='cancel-appointment']",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "div[data-testid='appointment-item']",
+      "value": "",
+      "expected": {
+        "property": "attribute-value",
+        "value": "future-appointment-<24h",
+        "relation": "contains"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button[data-testid='cancel-appointment']",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "hidden",
+        "relation": ""
+      }
+    }
+  ],
+  [
+    {
+      "action": "interact",
+      "selector": "input[type='text']",
+      "value": "https://www.booking.com",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button[type='submit']",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "locate",
+      "selector": "input with placeholder 'Destination'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "input with placeholder 'Destination'",
+      "value": "Tokyo",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input with placeholder 'Destination'",
+      "value": "",
+      "expected": {
+        "property": "value",
+        "value": "Tokyo",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "element with id 'check-in-date-picker'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'September'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text '2025'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text '1'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "input with id 'check-in-date'",
+      "value": "2025-09-01",
+      "expected": {
+        "property": "value",
+        "value": "2025-09-01",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "date picker input",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "date picker input",
+      "value": "2025-09-07",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "date picker input with value 2025-09-07",
+      "value": "",
+      "expected": {
+        "property": "value",
+        "value": "2025-09-07",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text '2 adults'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text '2 adults'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "interact",
+      "selector": "button with text 'Search'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "result page",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "result page",
+      "value": "",
+      "expected": {
+        "property": "load time",
+        "value": "4s",
+        "relation": "less than"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "hotel listing",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "number of located elements",
+      "value": "",
+      "expected": {
+        "property": "count",
+        "value": "5",
+        "relation": ">="
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "hotel cards",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "assert",
+      "selector": "badge with text 'Free Cancellation'",
+      "value": "",
+      "expected": {
+        "property": "visibility",
+        "value": "visible",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "card element representing a hotel",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "the located hotel card",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "320px",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "image",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "",
+      "value": "",
+      "expected": {
+        "property": "height",
+        "value": "180px",
+        "relation": "equal"
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "rating star icons",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "rating star icons",
+      "value": "",
+      "expected": {
+        "property": "color",
+        "value": "#febb02",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "body",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Book Now'",
+      "value": "",
+      "expected": {
+        "property": "position",
+        "value": "sticky",
+        "relation": ""
+      }
+    },
+    {
+      "action": "interact",
+      "selector": "body",
+      "value": "",
+      "expected": {
+        "property": "scroll",
+        "value": "down",
+        "relation": "by 500px"
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Book Now'",
+      "value": "",
+      "expected": {
+        "property": "position",
+        "value": "sticky",
+        "relation": ""
+      }
+    },
+    {
+      "action": "locate",
+      "selector": "button with text 'Book Now'",
+      "value": "",
+      "expected": {}
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Book Now'",
+      "value": "",
+      "expected": {
+        "property": "width",
+        "value": "48px",
+        "relation": ">="
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "button with text 'Book Now'",
+      "value": "",
+      "expected": {
+        "property": "height",
+        "value": "48px",
+        "relation": ">="
+      }
+    }
+  ]
+]
