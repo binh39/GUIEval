@@ -201,23 +201,27 @@ def main(case_id):
     for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
 
-    task_file = INPUT_DIR / f"{case_id}.txt"
-    task_json_file = TASK_DIR / f"{case_id}.task.json"
-    task_list, task_trace = step1_analyze_task(task_file)
-    save_json(task_json_file, task_list)
-    print("\n Step 1 success \n")
+    for txt_file in INPUT_DIR.glob("*.txt"):
+        case_id = txt_file.stem
+        try:
+            print(f"\n▶️ Running pipeline for: {case_id}")
 
-    step_json_file = STEP_DIR / f"{case_id}.step.json"
-    step_groups, step_trace = step2_generate_steps(task_list)
-    save_json(step_json_file, step_groups)
-    print("\n Step 2 success \n")
+            task_file = INPUT_DIR / f"{case_id}.txt"
+            task_json_file = TASK_DIR / f"{case_id}.task.json"
+            task_list, task_trace = step1_analyze_task(task_file)
+            save_json(task_json_file, task_list)
+            print("\n Step 1 success \n")
 
-    report_file = REPORT_DIR / f"{case_id}.summary.xlsx"
-    save_excel_summary(report_file, task_trace, step_groups)
-    print(f"✅ Excel saved to: {report_file}")
+            step_json_file = STEP_DIR / f"{case_id}.step.json"
+            step_groups, step_trace = step2_generate_steps(task_list)
+            save_json(step_json_file, step_groups)
+            print("\n Step 2 success \n")
 
+            report_file = REPORT_DIR / f"{case_id}.summary.xlsx"
+            save_excel_summary(report_file, task_trace, step_groups)
+            print(f"✅ Excel saved to: {report_file}")
+        except Exception as e:
+            print(f"❌ Error in {case_id}: {e}")
 
 if __name__ == "__main__":
-    import sys
-    case_id = sys.argv[1] if len(sys.argv) > 1 else "text001"
-    main(case_id)
+    main()
