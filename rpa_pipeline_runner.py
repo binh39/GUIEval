@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 from key import KEY_LIST
 
-MODEL = "models/gemini-2.5-flash-lite"
+MODEL = "models/gemini-2.5-flash"
 HEADERS = {"Content-Type": "application/json"}
 
 current_key_index = 0
@@ -41,9 +41,10 @@ def call_gemini(prompt: str):
                 print(raw_text)
                 return raw_text
             elif content.get("error", {}).get("code") == 429:
+                print("❌ Gemini error:", content)
                 rotate_api_key()
             else:
-                print("❌ Gemini error:", json.dumps(content, indent=2))
+                print("❌ Gemini error:", content)
                 rotate_api_key()
         except Exception as e:
             print("❌ Unexpected error:", e)
@@ -77,29 +78,60 @@ def step1_analyze_task(input_file):
     task_trace = []
 
     for task_text in main_tasks:
-        prompt = f"""You are a professional UI test case generator.
+        retries = 3
+        for attempt in range(retries):
+            prompt = f"""You are a professional UI test case generator.
 Your job is to convert the following natural language test description into a list of clear, atomic UI actions.
 Follow these strict rules:
 - Output must be a JSON array.
-- Each array item is a single, simple UI action.
-- Do NOT include explanations, markdown, comments, or anything else — only the JSON array.
-Example 1:
-If the requirement is "Open http://webtest.ranorex.org/wp-login.php, then Fill "abc" into Username field, then Fill "ranorex" into Password field. After that Click "Login" button.", the response should be:
-["Open 'http://webtest.ranorex.org/wp-login.php'", "Fill 'abc' into Username field", "Fill 'ranorex' into Password field", "Click 'Login' button"]
-Example 2:
-If the requirement is "Open http://127.0.0.1:5500/public/index.html and check if 'Find Food' button is orange.", the response should be:
-["Open 'http://127.0.0.1:5500/public/index.html'", "Check the background color of the 'Find Food' button is orange"]
+- Group related properties of the **same UI element in the same state** into one atomic task.
+  - This includes all visual, layout, formatting, style, alignment, and content properties (e.g. font size, color, background, border radius, timestamp format, position, alignment).
+  - Do not separate things like color, format, alignment, font, padding, size, position if they belong to the same element in the same context.
+  - Only separate tasks if:
+    - The properties relate to **different states** (e.g., hover vs normal).
+    - The properties relate to **different elements**.
+    - The instruction involves a **user action** followed by a **verification** (e.g., click then check).
+    - The behavior differs between **device types** (e.g., mobile vs desktop).
+  - (Example: the 'Add to Cart' button has color '#ff9900', rounded corners of '4px', and hover background color changes to '#e68a00')
+- Each array item is a single atomic test action string.
+  - Do NOT include explanations, markdown, comments, or anything else — only the JSON array.
 
-Requirement: "{task_text}"
+Example:
+- Requirement: "Open 'https://www.netflix.com', click on the 'Sign In' button located at the top-right corner (within 50px from top and 30px from right), enter the email 'testuser@example.com' and password 'Test@1234', submit the login form, verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds and the page displays at least 5 personalized movie thumbnails, and ensure that all input fields have font 'Roboto 16px', padding '12px', margin-bottom '16px'; the 'Sign In' button has background color '#e50914', text color '#ffffff', border radius '4px', is responsive down to 360px screen width, and all elements meet WCAG contrast ratio of at least 4.5:1."  
+- Response:
+[
+  "Open 'https://www.netflix.com'",
+  "Click on the 'Sign In' button located at the top-right corner (within 50px from top and 30px from right)",
+  "Fill 'testuser@example.com' into the email input field",
+  "Fill 'Test@1234' into the password input field",
+  "Submit the login form",
+  "Verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds",
+  "Check that the page displays at least 5 personalized movie thumbnails",
+  "Verify that all input fields have font 'Roboto 16px', padding '12px', and margin-bottom '16px'",
+  "Verify that the 'Sign In' button has background color '#e50914', text color '#ffffff', and border radius '4px'",
+  "Verify that the 'Sign In' button is responsive down to 360px screen width",
+  "Verify that all visible elements meet WCAG contrast ratio of at least 4.5:1"
+]
+
+Now generate the JSON from this requirement:
+- Requirement: "{task_text}"
 
 Return only a JSON list like this:
 ["Atomic Task 1", "Atomic Task 2", "Atomic Task 3"]
 """
-        response = call_gemini(prompt)
-        clean_json = extract_json_from_text(response)
-        subtasks = json.loads(clean_json)
-        task_list.append(subtasks)
-        task_trace.append((task_text, subtasks))
+            try:
+                print("Call gemini step 1")
+                response = call_gemini(prompt)
+                clean_json = extract_json_from_text(response)
+                subtasks = json.loads(clean_json)
+                task_list.append(subtasks)
+                task_trace.append((task_text, subtasks))
+                break
+            except Exception as e:
+                print(f"❌ Error (attempt {attempt + 1}/3): {e}")
+                print(f"⚠️ Raw response: {response}")
+                if attempt == retries - 1:
+                    print(f"⚠️ Error max 3/3")
 
     print(task_list)
     return task_list, task_trace
@@ -110,7 +142,9 @@ def step2_generate_steps(subtask_groups):
     for subtask_list in subtask_groups:
         step_group = []
         for sub in subtask_list:
-            prompt = f"""You are a professional UI test step generator.
+            retries = 3
+            for attempt in range(retries):
+                prompt = f"""You are a professional UI test step generator.
 Your task is to convert the following atomic test instruction into a list of executable UI test steps in JSON format.
 
 Instruction: "{sub}"
@@ -121,9 +155,10 @@ Each step must follow this JSON structure:
   "selector": "CSS selector or a natural description (e.g. 'button with text Login', 'Sign In' button), or empty string if not applicable",
   "value": "string value to type or expect, or empty string if not applicable",
   "expected": {{
-    "property": "e.g. 'color', 'width', 'text', 'position' (or empty string if not applicable)",
-    "value": "expected value (or empty string if not applicable)",
-    "relation": "e.g. 'above', 'near', 'left of', 'equal' (or empty string if not applicable)"
+    // This object may contain multiple properties,
+    // based only on what the instruction requires.
+    // Each key is the name of a UI property (e.g. color, font, position).
+    // Each value is the expected value or structured object.
   }}
 }}
 
@@ -133,24 +168,73 @@ Important:
   - `""` for empty strings
   - `{{}}` for empty object (when `expected` is not needed)
 - Do not omit any field from the JSON step.
+- Do not include any property in `expected` if it is not clearly mentioned in the instruction.
+- `expected` must be a valid object (`{{}}`), and can contain:
+  - 'text':
+  - 'language': e.g., `"French"`, `"Chinese"`
+  - 'position': object with `x`, `y`, `width`, `height`, etc..
+  - 'styles':
+    - 'textAlign':
+    - `color`: e.g., `"#ffffff"` or `"rgb(255, 255, 255)" or "white"
+    - `backgroundColor`
+    - `font`: an object with `family`, `size`, `weight`, `style` if mentioned 
+    - 'border': width, style, color, radius
+    - 'padding': top, right, bottom, left
+    - 'margin': top, right, bottom, left
+    - `opacity`: `"0.5"`, `"1"`, etc.
+    - Or any property related to 'styles', as long as it follows the correct format and rules stated (only declare if present in the input description).
+  - 'state':
+    - `visibility`: `"visible"` or `"hidden"`
+    - `enabled`: boolean (`true` or `false`)
+    - 'focused': boolean
+    - 'hovered': boolean     
+    - 'active': boolean
+    - Or any property related to 'state', as long as it follows the correct format and rules stated (only declare if present in the input description).   
+  - dynamics:
+    - `movement`: `"static"` or `"moves"` after an action
+    - `scroll`: "sticky" | "fixed" | "static" | "none" or something,
+    - `transition`: boolean (CSS transition)
+    - 'animate': boolean (motion effect)
+    - `focus`: boolean, (`true` if element should be focused, via Tab or click)
+    - `navigation`: destination URL if checking page redirection
+    - `loading`: `"present"`, `"loading"`, `"none"` for spinners, indicators
+    - 'progressValue': string, (% value if it is progress bar, pie chart, etc)
+    - Or any property related to 'dynamics', as long as it follows the correct format and rules stated (only declare if present in the input description).
+  - `relation`: if element is expected to be `above`, `below`, or `near` another
+  - Or any property related to expected , as long as it follows the correct format and rules stated (only declare if present in the input description).
 
 Example 1:
-{{
-  "action": "interact",
-  "selector": "button with text 'Login'",
-  "value": "",
-  "expected": {{}}
-}}
-
-Example 2:
+- Task: "Verify the 'Subscribe' button is visible, located at position (x=100, y=200) with width 300px and height 50px, has white text on a blue background, uses bold italic 'Roboto' font size 18px, remains fixed when scrolling, and has smooth transition effects."
+- Response:
 {{
   "action": "verify",
-  "selector": "header",
+  "selector": "'Subscribe' button",
   "value": "",
   "expected": {{
-    "property": "color",
-    "value": "orange",
-    "relation": ""
+    "text": "Subscribe",
+    "position": {{
+      "x": 100,
+      "y": 200,
+      "width": 300,
+      "height": 50
+    }},
+    "styles": {{
+      "color": "white",
+      "backgroundColor": "blue",
+      "font": {{
+        "size": "18px",
+        "weight": "bold",
+        "style": "italic",
+        "family": "Roboto"
+      }}
+    }},
+    "state": {{
+      "visibility": "visible"
+    }},
+    "dynamics": {{
+      "scrollEffect": "fixed",
+      "transition": true
+    }}
   }}
 }}
 
@@ -161,18 +245,25 @@ Explanation of the actions:
 - **verify**: validating properties like color, alignment, text, count, image presence, OCR output, size, position, etc.
 
 Notes:
+- Each atomic test instruction return only ONE test steps, NO splitting the instruction into multiple substeps.
 - The selector can be a CSS selector or a natural-language reference to the element.
 - UI may be implemented using any frontend framework (e.g., TailwindCSS, Bootstrap, raw HTML).
 - Return only a JSON array. No explanation. No markdown.
 
 Now generate the JSON array of steps for the instruction above.
-"""
-
-            response = call_gemini(prompt)
-            clean = extract_json_from_text(response)
-            steps = json.loads(clean)
-            step_group.extend(steps)
-            step_trace.append((sub, steps))
+"""                
+                try:
+                    response = call_gemini(prompt)
+                    clean = extract_json_from_text(response)
+                    steps = json.loads(clean)
+                    step_group.extend(steps)
+                    step_trace.append((sub, steps))
+                    break
+                except Exception as e:
+                    print(f"❌ Error (attempt {attempt + 1}/3): {e}")
+                    print(f"⚠️ Raw response: {response}")
+                    if attempt == retries - 1:
+                        print(f"⚠️ Error max 3/3")
         all_step_groups.append(step_group)
     return all_step_groups, step_trace
 
@@ -192,7 +283,7 @@ def save_excel_summary(filename, task_trace, step_groups):
     df.to_excel(filename, index=False)
 
 
-def main(case_id):
+def main():
     INPUT_DIR = Path("Input")
     TASK_DIR = Path("JSONtask")
     STEP_DIR = Path("JSONwStep")
