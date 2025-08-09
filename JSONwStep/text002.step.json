@@ -4,11 +4,13 @@
       "action": "interact",
       "selector": "",
       "value": "https://www.netflix.com",
-      "expected": {}
+      "expected": {
+        "navigation": "https://www.netflix.com"
+      }
     },
     {
       "action": "interact",
-      "selector": "'Sign In' button at top-right corner (within 50px from top and 30px from right)",
+      "selector": "'Sign In' button located at the top-right corner (within 50px from top and 30px from right)",
       "value": "",
       "expected": {}
     },
@@ -26,7 +28,7 @@
     },
     {
       "action": "interact",
-      "selector": "'login form'",
+      "selector": "login form",
       "value": "",
       "expected": {}
     },
@@ -92,8 +94,11 @@
       "selector": "'Sign In' button",
       "value": "",
       "expected": {
-        "isResponsive": true,
-        "atScreenWidth": "360px"
+        "screenWidth": "360px",
+        "state": {
+          "visibility": "visible",
+          "enabled": true
+        }
       }
     },
     {
@@ -101,8 +106,8 @@
       "selector": "all visible elements",
       "value": "",
       "expected": {
-        "styles": {
-          "contrastRatio": ">= 4.5:1"
+        "accessibility": {
+          "contrastRatio": "at least 4.5:1"
         }
       }
     }
@@ -112,55 +117,57 @@
       "action": "interact",
       "selector": "",
       "value": "https://www.amazon.com",
-      "expected": {
-        "dynamics": {
-          "navigation": "https://www.amazon.com"
-        }
-      }
+      "expected": {}
     },
     {
       "action": "interact",
-      "selector": "search input field",
+      "selector": "'Search' input field",
       "value": "Bluetooth speaker",
       "expected": {}
     },
     {
       "action": "verify",
-      "selector": "search results section",
+      "selector": "search results",
       "value": "",
       "expected": {
+        "state": {
+          "visibility": "visible"
+        },
         "dynamics": {
-          "completionTime": "under 2 seconds"
+          "duration": "<2s"
         }
       }
     },
     {
       "action": "verify",
-      "selector": "search result product titles",
+      "selector": ".search-results .product-title",
       "value": "",
       "expected": {
-        "count": ">= 10",
-        "text": "contains 'Bluetooth'"
-      }
-    },
-    {
-      "action": "verify",
-      "selector": ".product-card img",
-      "value": "",
-      "expected": {
-        "styles": {
-          "width": "150px"
+        "count": {
+          "min": 10
+        },
+        "text": {
+          "contains": "Bluetooth"
         }
       }
     },
     {
       "action": "verify",
-      "selector": ".product-card .price",
+      "selector": "'product card'",
       "value": "",
       "expected": {
-        "styles": {
-          "font": {
-            "size": "18px"
+        "descendantProperties": {
+          "img": {
+            "styles": {
+              "width": "150px"
+            }
+          },
+          ".price": {
+            "styles": {
+              "font": {
+                "size": "18px"
+              }
+            }
           }
         }
       }
@@ -225,7 +232,7 @@
     },
     {
       "action": "interact",
-      "selector": "form submit button",
+      "selector": "submit button",
       "value": "",
       "expected": {}
     },
@@ -244,14 +251,14 @@
       "selector": "profile picture placeholder",
       "value": "",
       "expected": {
+        "position": {
+          "width": "100px",
+          "height": "100px"
+        },
         "styles": {
           "border": {
             "radius": "50%"
           }
-        },
-        "position": {
-          "width": 100,
-          "height": 100
         }
       }
     },
@@ -271,12 +278,9 @@
     },
     {
       "action": "verify",
-      "selector": "form input, form select, form textarea",
+      "selector": "all form fields",
       "value": "",
       "expected": {
-        "state": {
-          "enabled": true
-        },
         "dynamics": {
           "focus": true
         }
@@ -284,7 +288,7 @@
     },
     {
       "action": "verify",
-      "selector": "form fields with invalid input",
+      "selector": "input, textarea, select",
       "value": "",
       "expected": {
         "styles": {
@@ -300,26 +304,21 @@
       "action": "interact",
       "selector": "",
       "value": "https://web.whatsapp.com",
-      "expected": {
-        "navigation": "https://web.whatsapp.com"
-      }
+      "expected": {}
     },
     {
       "action": "interact",
-      "selector": "QR code scanner",
+      "selector": "",
       "value": "",
       "expected": {}
     },
     {
       "action": "assert",
-      "selector": "contact list",
+      "selector": "the contact list",
       "value": "",
       "expected": {
         "state": {
           "visibility": "visible"
-        },
-        "dynamics": {
-          "loading": "none"
         }
       }
     },
@@ -330,17 +329,25 @@
       "expected": {}
     },
     {
-      "action": "interact",
+      "action": "verify",
       "selector": "message input",
-      "value": "Hello from automation",
+      "value": "",
       "expected": {
+        "position": {
+          "height": "40px"
+        },
         "styles": {
-          "height": "40px",
           "font": {
             "size": "14px"
           }
         }
       }
+    },
+    {
+      "action": "interact",
+      "selector": "message input",
+      "value": "Hello from automation",
+      "expected": {}
     },
     {
       "action": "interact",
@@ -350,15 +357,30 @@
     },
     {
       "action": "verify",
-      "selector": "the sent message chat bubble",
+      "selector": "the chat bubble",
       "value": "",
       "expected": {
+        "text": "the sent message",
         "state": {
           "visibility": "visible"
-        },
+        }
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "sent message chat bubble",
+      "value": "",
+      "expected": {
         "styles": {
-          "backgroundColor": "#dcf8c6",
-          "textAlign": "right"
+          "backgroundColor": "#dcf8c6"
+        },
+        "position": {
+          "horizontalAlignment": "right"
+        },
+        "timestampFormat": "12-hour",
+        "timestampPosition": {
+          "verticalAlignment": "bottom",
+          "horizontalAlignment": "right"
         }
       }
     }
@@ -384,60 +406,58 @@
     },
     {
       "action": "interact",
-      "selector": "'Login' button",
-      "value": "",
-      "expected": {}
-    },
-    {
-      "action": "interact",
-      "selector": "'Appointments' tab",
-      "value": "",
-      "expected": {}
-    },
-    {
-      "action": "verify",
-      "selector": "left-side menu",
+      "selector": "'Appointments' tab in the left-side menu",
       "value": "",
       "expected": {
+        "position": {
+          "width": "220px"
+        },
         "styles": {
-          "width": "220px",
           "backgroundColor": "#f0f0f0"
         }
       }
     },
     {
       "action": "verify",
-      "selector": "table of upcoming appointments tr",
+      "selector": "rows of the table of upcoming appointments",
       "value": "",
       "expected": {
-        "minCount": 3,
-        "styles": {
-          "font": {
-            "size": "15px"
-          }
-        },
-        "alternatingStyles": [
-          {
-            "backgroundColor": "#ffffff"
-          },
-          {
-            "backgroundColor": "#f9f9f9"
-          }
-        ]
+        "count": ">= 3"
       }
     },
     {
       "action": "verify",
-      "selector": "'Cancel' button for an appointment scheduled at least 24 hours in the future",
+      "selector": "each row in the appointments table",
       "value": "",
       "expected": {
-        "text": "Cancel",
+        "styles": {
+          "font": {
+            "size": "15px"
+          },
+          "backgroundColor": "alternating('#ffffff', '#f9f9f9')"
+        }
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "'Cancel' buttons",
+      "value": "",
+      "expected": {
         "styles": {
           "backgroundColor": "#d9534f",
           "color": "white"
-        },
+        }
+      }
+    },
+    {
+      "action": "verify",
+      "selector": "'Cancel' buttons",
+      "value": "",
+      "expected": {
         "state": {
-          "visibility": "visible"
+          "visibility": {
+            "rule": "visible if associated appointment is scheduled at least 24 hours in the future, otherwise hidden"
+          }
         }
       }
     }
@@ -457,52 +477,47 @@
     },
     {
       "action": "interact",
-      "selector": "'check-in date' field",
+      "selector": "check-in date field",
       "value": "2025-09-01",
       "expected": {}
     },
     {
       "action": "interact",
-      "selector": "'check-out date' field",
+      "selector": "'check-out date' input field",
       "value": "2025-09-07",
       "expected": {}
     },
     {
       "action": "interact",
-      "selector": "number of guests field",
-      "value": "2 adults",
+      "selector": "'2 adults'",
+      "value": "",
       "expected": {}
     },
     {
       "action": "interact",
-      "selector": "form button[type='submit'], input[type='submit']",
+      "selector": "'Search' button or 'Submit' button",
       "value": "",
       "expected": {}
     },
     {
       "action": "verify",
-      "selector": "search results page",
+      "selector": "the result page",
       "value": "",
       "expected": {
-        "dynamics": {
-          "loadTime": "<= 4s"
-        }
+        "loadTime": "<= 4s"
       }
     },
     {
       "action": "verify",
-      "selector": "hotel listing element containing 'Free Cancellation' badge",
+      "selector": "hotel listings with 'Free Cancellation' badge",
       "value": "",
       "expected": {
-        "count": {
-          "operator": "greaterThanOrEqual",
-          "value": 5
-        }
+        "minCount": 5
       }
     },
     {
       "action": "verify",
-      "selector": "hotel cards",
+      "selector": "'hotel cards'",
       "value": "",
       "expected": {
         "position": {
@@ -512,10 +527,10 @@
     },
     {
       "action": "verify",
-      "selector": "image within hotel cards",
+      "selector": "img.hotel-image",
       "value": "",
       "expected": {
-        "position": {
+        "styles": {
           "height": "180px"
         }
       }

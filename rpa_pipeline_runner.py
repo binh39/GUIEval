@@ -32,6 +32,7 @@ def call_gemini(prompt: str):
 
         try:
             content = response.json()
+            print(content['usageMetadata']['candidatesTokenCount'])
             if 'candidates' in content:
                 # Reset used_keys on success
                 used_keys.clear()
@@ -49,7 +50,6 @@ def call_gemini(prompt: str):
         except Exception as e:
             print("❌ Unexpected error:", e)
             rotate_api_key()
-
 
 def load_text(path):
     with open(path, encoding="utf-8") as f:
@@ -69,6 +69,48 @@ def extract_json_from_text(text: str) -> str:
     text = re.sub(r"^```(?:python)?\\n", "", text)
     text = re.sub(r"```$", "", text)
     return text.strip()
+
+def step0_create_task(filename: str):
+    # Chuẩn bị thư mục & file đích
+    INPUT_DIR = Path("Input")
+    INPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = INPUT_DIR / (filename if filename.endswith(".txt") else f"{filename}.txt")
+    prompt = """
+You are a professional UI tester. Generate 20 different, single-sentence UI test descriptions in English.
+Each sentence should be explicit and testable (include concrete values like pixel sizes, colors, counts, timing, URLs).
+Always return a JSON array of exactly 20 strings. Do not include markdown. Do not number the items.
+
+Example style (for inspiration, not to copy):
+"Open 'https://www.netflix.com', click on the 'Sign In' button located at the top-right corner (within 50px from top and 30px from right), enter the email 'testuser@example.com' and password 'Test@1234', submit the login form, verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds and the page displays at least 5 personalized movie thumbnails, and ensure that all input fields have font 'Roboto 16px', padding '12px', margin-bottom '16px'; the 'Sign In' button has background color '#e50914', text color '#ffffff', border radius '4px', is responsive down to 360px screen width, and all elements meet WCAG contrast ratio of at least 4.5:1'."
+"""
+
+    all_sentences = []
+    for _ in range(5):  # 5 batch -> ~100 câu
+        raw = call_gemini(prompt)
+        text = extract_json_from_text(raw) if raw else ""
+        sentences = []
+        # 1) cố parse như JSON array
+        try:
+            data = json.loads(text)
+            if isinstance(data, list):
+                sentences = [str(s) for s in data]
+        except Exception as e:
+            print(f"❌ Error parsing JSON: {e}")
+            pass
+        # 2) nếu không phải JSON array, tách theo dòng (đơn giản, không kiểm lỗi/chính tả)
+        if not sentences:
+            sentences = [ln.strip().strip(",") for ln in text.splitlines() if ln.strip()]
+        # Chuẩn hoá: thay tất cả dấu " bên trong câu thành ' ; bọc toàn bộ câu trong dấu "
+        for s in sentences:
+            s = s.replace('"', "'").strip()
+            if not (s.startswith('"') and s.endswith('"')):
+                s = f'"{s}"'
+            all_sentences.append(s)
+
+    # Ghi file: các câu cách nhau bởi dấu phẩy, vẫn giữ mỗi câu trong dấu "
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(",\n".join(all_sentences))
+    print(f"✅ Generated {len(all_sentences)} sentences -> {out_path}")
 
 def step1_analyze_task(input_file):
     full_text = load_text(input_file)
@@ -284,10 +326,19 @@ def save_excel_summary(filename, task_trace, step_groups):
 
 
 def main():
+    #"""
     INPUT_DIR = Path("Input")
     TASK_DIR = Path("JSONtask")
     STEP_DIR = Path("JSONwStep")
     REPORT_DIR = Path("Report")
+
+    for i in range(100):
+        filename = f"maintask_{i}.txt"
+        if not (INPUT_DIR / filename).exists():
+            print(f"Creating example file: {filename}")
+            step0_create_task(filename)
+        else:
+            print(f"File already exists: {filename}")
 
     for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
@@ -313,6 +364,8 @@ def main():
             print(f"✅ Excel saved to: {report_file}")
         except Exception as e:
             print(f"❌ Error in {case_id}: {e}")
+#"""
+    
 
 if __name__ == "__main__":
     main()
