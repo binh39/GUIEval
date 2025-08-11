@@ -24,8 +24,6 @@ def get_url():
     return f"https://generativelanguage.googleapis.com/v1beta/{MODEL}:generateContent?key={KEY_LIST[current_key_index]}"
 
 def call_gemini(prompt: str):
-    global current_key_index
-
     while True:
         body = {"contents": [{"parts": [{"text": prompt}]}]}
         response = requests.post(get_url(), headers=HEADERS, json=body)
@@ -42,10 +40,12 @@ def call_gemini(prompt: str):
                 print(raw_text)
                 return raw_text
             elif content.get("error", {}).get("code") == 429:
-                print("❌ Gemini error:", content)
+                print("❌ Gemini error:")
+                print(json.dumps(content, indent=2, ensure_ascii=False))
                 rotate_api_key()
             else:
-                print("❌ Gemini error:", content)
+                print("❌ Gemini error:")
+                print(json.dumps(content, indent=2, ensure_ascii=False))
                 rotate_api_key()
         except Exception as e:
             print("❌ Unexpected error:", e)
@@ -924,9 +924,8 @@ def save_excel_summary(filename, task_trace, step_groups):
     filename.parent.mkdir(parents=True, exist_ok=True)
     df.to_excel(filename, index=False)
 
-
 def main():
-  
+    inputName = input("Enter the base name for input files: ")
     INPUT_DIR = Path("Input")
     TASK_DIR = Path("JSONtask")
     STEP_DIR = Path("JSONwStep")
@@ -934,9 +933,10 @@ def main():
 
     for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
-
-    for i in range(1):
-        filename = f"maintask_{i}.txt"
+    numFile = 10
+    print(f"Generate {numFile} files")
+    for i in range(numFile):
+        filename = f"{inputName}_{i}.txt"
         if not (INPUT_DIR / filename).exists():
             print(f"Creating example file: {filename}")
             step0_create_task(filename)
@@ -962,8 +962,6 @@ def main():
             print(f"✅ Excel saved to: {report_file}")
         except Exception as e:
             print(f"❌ Error in {case_id}: {e}")
-
-  #step0_create_task("check")
 
 if __name__ == "__main__":
     main()
