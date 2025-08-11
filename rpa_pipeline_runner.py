@@ -3,18 +3,22 @@ from pathlib import Path
 import re
 import pandas as pd
 import requests
+import time
+import random
 from key import KEY_LIST
 
 MODEL = "models/gemini-2.5-flash"
 HEADERS = {"Content-Type": "application/json"}
 
-current_key_index = 0
+current_key_index = random.randint(0, len(KEY_LIST) - 1)
 used_keys = set()
 
 def rotate_api_key():
     global current_key_index
     used_keys.add(current_key_index)
     print(f"🔁 Gemini key index {current_key_index} failed. Switching...")
+    if len(used_keys) % 30 == 0:
+        time.sleep(60)
     if len(used_keys) == len(KEY_LIST):
         print("❌ All Gemini API keys exhausted. Exiting.")
         exit(1)
@@ -49,6 +53,14 @@ def call_gemini(prompt: str):
                 rotate_api_key()
         except Exception as e:
             print("❌ Unexpected error:", e)
+            try:
+                # Nếu đã có content JSON, in đầy đủ
+                print("📄 Full JSON content:")
+                print(json.dumps(content, indent=2, ensure_ascii=False))
+            except NameError:
+                # Nếu chưa parse được content thì in raw text
+                print("📄 Raw response text:")
+                print(response.text[:2000])  # Giới hạn 2000 ký tự tránh log quá dài
             rotate_api_key()
 
 def load_text(path):
@@ -933,13 +945,14 @@ def main():
 
     for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
-    numFile = 10
+    numFile = 100
     print(f"Generate {numFile} files")
     for i in range(numFile):
         filename = f"{inputName}_{i}.txt"
         if not (INPUT_DIR / filename).exists():
             print(f"Creating example file: {filename}")
             step0_create_task(filename)
+        """
         else:
             print(f"File already exists: {filename}")
         case_id = Path(filename).stem
@@ -962,6 +975,7 @@ def main():
             print(f"✅ Excel saved to: {report_file}")
         except Exception as e:
             print(f"❌ Error in {case_id}: {e}")
+            """
 
 if __name__ == "__main__":
     main()
