@@ -3,10 +3,10 @@ from pathlib import Path
 import re
 import pandas as pd
 import requests
-import time
-import random
 from key import KEY_LIST
+import random
 
+#KEY_LIST = []
 MODEL = "models/gemini-2.5-flash"
 HEADERS = {"Content-Type": "application/json"}
 
@@ -17,8 +17,6 @@ def rotate_api_key():
     global current_key_index
     used_keys.add(current_key_index)
     print(f"🔁 Gemini key index {current_key_index} failed. Switching...")
-    if len(used_keys) % 30 == 0:
-        time.sleep(60)
     if len(used_keys) == len(KEY_LIST):
         print("❌ All Gemini API keys exhausted. Exiting.")
         exit(1)
@@ -34,7 +32,7 @@ def call_gemini(prompt: str):
 
         try:
             content = response.json()
-            print(content['usageMetadata']['candidatesTokenCount'])
+            print(content['usageMetadata'])
             if 'candidates' in content:
                 # Reset used_keys on success
                 used_keys.clear()
@@ -93,23 +91,32 @@ Generate exactly 20 different UI test descriptions in English.
 
 Strong constraints (must follow all):
 - Each description is a single JSON string item, but may contain multiple sentences (10-15 sentences).
-- Absolutely forbid vague words(example: 'correctly', 'appropriately', 'fast', 'quickly', 'smooth', 'enough',...), always give specific expected values.
+- Absolutely forbid vague words (example: 'correctly', 'appropriately', 'fast', 'quickly', 'smooth', 'enough', ...). Always give explicit, measurable values.
 - The steps should be sequential and complete.
-- Always provide concrete, measurable expected values with units or counts where applicable: exact pixel sizes (e.g., 16px), RGB/HEX colors (e.g., rgb(34,139,34) or #228B22 or 'green'), timing (e.g., 800ms, 2s, 1 second), counts (e.g., at least 5 items), percentages (e.g., 75%), URLs (full), screen widths (e.g., 360px), coordinates (x,y), gaps/tolerance (e.g., 24px ±2px).
+- Each sentence must:
+  * Describe multiple attributes of the same element (e.g., font size, color, border,...), or
+  * Specify at least one explicit spatial or relational constraint between elements (e.g., 'Element A below the Element B with a gap of 10px', 'Element E placed to the right of Element F with a gap of 20px'), or both.
+- Each action must specify multiple attributes together (style, layout, state,...).
+- Always provide concrete, measurable expected values with units or counts where applicable: exact pixel sizes (e.g., 16px), RGB/HEX colors (e.g., rgb(34,139,34) or #228B22 or 'green'), timing (e.g., 800ms, 2s, 1 second), percentages (e.g., 75%), URLs (full), screen widths (e.g., 360px), coordinates (x,y), gaps/tolerance (e.g., 24px ±2px).
+- Do not combine two different actions into the same sentence if they are unrelated. If the same action applies to two unrelated elements, split them into separate sentences for clarity.
 - Inside each description string, use only single quotes (') for UI labels or literals; do not use any double quotes (") inside the string content.
 
 Coverage (ensure variety across the 20 items):
-- Visual styles: color, background, opacity, border (width/style/color/radius), font (family/size/weight/style), text alignment, padding, margin, gap.
-- Position & layout: absolute position (x, y, width, height), alignment relative to page, and relative placement to other elements (above/below/left/right/near) with exact gap/tolerance.
-- States & interactivity: visible/hidden, enabled/disabled, focused, hovered, active/selected; keyboard focus/tab order.
-- Dynamics & behavior: transitions (true/false and duration), animation (true/false), parallax factor (e.g., 0.5), scrolling behavior (sticky/fixed/static/none), element movement/static after action.
-- Content & language: exact text, placeholder, language (e.g., 'French', 'Chinese'), explicit error/notification messages.
-- Navigation: redirection to exact URL after action with max time (e.g., within 3s).
-- Data display: counts, percentage/progress values with thresholds.
-- Responsiveness & compatibility: concrete breakpoints (e.g., 360px, 768px), and cross-browser checks (e.g., Chrome 126, Firefox 128) with explicit expectations.
-- Images: file name or source URL, alt text content, load success, load time (ms), sharpness score (0–1), compression artifacts (0–1), natural/rendered/viewport dimensions (px) with tolerance, watermark (true/false).
-- Comparison: explicit comparisons of attributes (e.g., font size, color, width, position) with another element, including exact equality or numeric relations.
-- You can think of more UI test cases if you want.
+- You are only allowed to use the following 22 attributes, and no others:
+  * Styles: color, font size, border radius
+  * States & Interactivity: visible/hidden, hovered
+  * Position & Layout: width, height, alignment (absolute/relative), zIndex
+  * Content: exact text
+  * Media: playing
+  * Dynamics: transition, scroll
+  * Text: altText
+  * Data: count
+  * Image: source, renderedDimensions
+  * Accessibility: aria-label, contrastRatio
+  * Repetitive/Hierarchical: nested elements check
+  * Complex Visual: shape
+  * More: multiple attribute comparison
+- Each of the 20 descriptions must cover one or more of the above attributes. Do not generate any attributes outside this list.
 
 Output format (must be followed exactly):
 - Return ONLY a valid JSON array of exactly 20 strings.
@@ -118,7 +125,7 @@ Output format (must be followed exactly):
 - Do not include numbering, markdown, code fences, or any extra text outside the JSON array.
 
 Example style (for inspiration, not to copy):
-"Open 'https://www.netflix.com', click on the 'Sign In' button located at the top-right corner (within 50px from top and 30px from right), enter the email 'testuser@example.com' and password 'Test@1234', submit the login form, verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds and the page displays at least 5 personalized movie thumbnails, and ensure that all input fields have font 'Roboto 16px', padding '12px', margin-bottom '16px'; the 'Sign In' button has background color '#e50914', text color '#ffffff', border radius '4px', is responsive down to 360px screen width, and all elements meet WCAG contrast ratio of at least 4.5:1'."
+"Open 'https://www.shopdemo.com/product/123', verify that the product image has source equal to 'hero_image.jpg' and renderedDimensions of 400x300px ±2px, ensure the image has altText containing 'Premium Shoes', check that exactly count 6 thumbnails are displayed below with alignment centered and each thumbnail width 120px and height 80px, confirm the main title shows exact text 'Product Details' with font font size 18px and color '#000000', verify that the 'Buy Now' button is visible and changes to hovered state with background color '#ff0000', confirm the button has border radius of 6px and zIndex higher than 10, ensure a transition animation duration of 300ms applies when hovered, scroll the page and verify the header remains fixed (using 'scroll' behavior), check the language label has aria-label set to English and contrastRatio at least 4.5:1, validate that the comparison between the 'Price' label and the 'Discount' label shows multiple attribute comparison for font size equal at 16px."
 """
 
     all_sentences = []
@@ -163,51 +170,54 @@ Your job is to convert the following natural language test description into a li
 Follow these strict rules:
 - Output must be a JSON array of arrays.
 - Group related properties of the **same UI element in the same state** into one atomic task.
-  - This includes all visual, layout, formatting, style, alignment, and content properties (e.g. font size, color, background, border radius, timestamp format, position, alignment).
+  - This includes all visual, layout, formatting, style, alignment, and content properties (e.g. font size, color, background, border radius, alignment).
   - Do not split alt text, watermark, natural vs rendered size, sharpness/compression, etc — if all refer to the same image in its normal state.
   - Do not separate things like color, format, alignment, font, padding, size, position, compair with another element if they belong to the same element in the same context.
   - Only separate tasks if:
     - The properties relate to **different states** (e.g., hover vs normal).
     - The properties relate to **different elements**.
     - The instruction involves a **user action** followed by a **verification** (e.g., click then check, locate then check, locate then type), or an explicit user action in between is required.
+    - The instruction involves many actions (example: "Locate the 'Email' input field and enter 'invalid-email'" must be separated into 2 tasks: Locate the 'Email' input field, Enter 'invalid-email' into the 'Email' input field).
     - The behavior differs between **device types** (e.g., mobile vs desktop).
-    - Action requires many steps to complete (example: Log in using username 'patient001' and password 'Health@2023' must separate into 2 task: Type 'patient001' into username field, Type 'Health@2023' into password field).
-  - (Example: the 'Add to Cart' button has color '#ff9900', rounded corners of '4px', and hover background color changes to '#e68a00')
+    - Action requires many steps to complete (example: Log in with the account 'patient001' and password 'Health@2023' must be separated into 2 tasks: Enter 'patient001' into the account field, Enter 'Health@2023' into the password field).
+  - (Example: The 'Add to Cart' button has a color of '#ff9900', a border radius of '4px', and the background color changes to '#e68a00' on hover)
 - Each array item is a single atomic test action string.
 - Do not generate steps that are not described in the main task.
 - Do NOT include explanations, markdown, comments, or anything else — only the JSON array.
 
 Example:
-- Requirement: "Open 'https://www.netflix.com', click on the 'Sign In' button located at the top-right corner (within 50px from top and 30px from right), enter the email 'testuser@example.com' and password 'Test@1234', submit the login form, verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds and the page displays at least 5 personalized movie thumbnails, and ensure that all input fields have font 'Roboto 16px', padding '12px', margin-bottom '16px'; the 'Sign In' button has background color '#e50914', text color '#ffffff', border radius '4px', is responsive down to 360px screen width, and all elements meet WCAG contrast ratio of at least 4.5:1.",
-"Open 'https://www.amazon.com', search for 'Bluetooth speaker', verify that the search completes in under 2 seconds, displays at least 10 products with titles containing the word 'Bluetooth', confirm each product card has image width exactly '150px', price font-size '18px', and ensure the 'Add to Cart' button has color '#ff9900', rounded corners of '4px', and hover background color changes to '#e68a00'.",
-"Open 'https://shop.example.com/item/P123', verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Premium Leather Wallet', has no watermark, natural size 1600x1200, renders at 400x300 with tolerance ±4px, sharpness ≥ 0.85 and compression artifacts ≤ 0.1, and ensure it is positioned left of the price block '.price' with a minimum gap of 24px (±2px)."
+- Requirement:
+"Open 'https://www.netflix.com', click the 'Sign In' button located at the top-right corner (50px from the top edge and 30px from the right edge), enter the email 'testuser@example.com' and password 'Test@1234', submit the login form, verify that after submission, the user is redirected to 'https://www.netflix.com/browse' within 3 seconds and the page displays at least 5 personalized movie thumbnails, and ensure that all input fields have the font 'Roboto 16px', padding '12px', bottom margin '16px'; the 'Sign In' button has a background color '#e50914', text color '#ffffff', border radius '4px', is responsive down to a 360px screen width, and all elements meet a WCAG contrast ratio of at least 4.5:1.",
+"Open 'https://www.amazon.com', search for 'Dàn loa Bluetooth', verify that the search completes in under 2 seconds, displays at least 10 products with titles containing 'Loa Bluetooth', confirm each product card has an image width of exactly '150px', product price has a font size of '18px', and ensure the 'Add to Cart' button has a color '#ff9900', rounded corners '4px', and hover background color changes to '#e68a00'.",
+"Open 'https://shop.example.com/item/P123', verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Ví da Premium', no watermark, natural dimensions 1600x1200, displayed at 400x300 with a tolerance of ±4px, sharpness ≥ 0.85, compression artifacts ≤ 0.1, and ensure the image is positioned to the left of the price block '.price' with a minimum spacing of 24px (±2px)."
 - Response:
 [
   "Open 'https://www.netflix.com'",
-  "Locate 'Sign In' button at the top-right corner (within 50px from top and 30px from right)",
-  "Click on 'Sign In' button",
-  "Type 'testuser@example.com' into the email input field",
-  "Type 'Test@1234' into the password input field",
+  "Locate the 'Sign In' button at the top-right corner (50px from the top edge and 30px from the right edge)",
+  "Click the 'Sign In' button",
+  "Enter 'testuser@example.com' into the email input field",
+  "Enter 'Test@1234' into the password input field",
   "Submit the login form",
-  "Verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds",
+  "Verify that after submission, the user is redirected to 'https://www.netflix.com/browse' within 3 seconds",
   "Verify that the page displays at least 5 personalized movie thumbnails",
-  "Verify that all input fields have font 'Roboto 16px', padding '12px', and margin-bottom '16px'",
-  "Verify that the 'Sign In' button has background color '#e50914', text color '#ffffff', and border radius '4px'",
-  "Verify that the 'Sign In' button is responsive down to 360px screen width",
-  "Verify that all visible elements meet WCAG contrast ratio of at least 4.5:1"
+  "Verify that all input fields have the font 'Roboto 16px', padding '12px', bottom margin '16px'",
+  "Verify that the 'Sign In' button has a background color '#e50914', text color '#ffffff', border radius '4px'",
+  "Verify that the 'Sign In' button is responsive down to a 360px screen width",
+  "Verify that all elements meet a WCAG contrast ratio of at least 4.5:1"
 ],
 [
   "Open 'https://www.amazon.com'",
-  "Search for 'Bluetooth speaker'",
+  "Search for 'Dàn loa Bluetooth'",
   "Verify that the search completes in under 2 seconds",
-  "Verify that the search results display at least 10 products with titles containing the word 'Bluetooth'",
-  "Verify that each product card has an image with width exactly '150px' and a price with font-size '18px'",
-  "Verify that the 'Add to Cart' button has color '#ff9900' and rounded corners of '4px'",
+  "Verify that the search results display at least 10 products with titles containing 'Loa Bluetooth'",
+  "Verify that each product card has an image width of exactly '150px'",
+  "Verify that the product price has a font size of '18px'",
+  "Verify that the 'Add to Cart' button has a color '#ff9900' and rounded corners '4px'",
   "Verify that the 'Add to Cart' button's background color changes to '#e68a00' on hover"
 ],
 [
   "Open 'https://shop.example.com/item/P123'",
-  "Verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Premium Leather Wallet', no watermark, natural size 1600x1200, renders at 400x300 with tolerance ±4px, sharpness ≥ 0.85 and compression artifacts ≤ 0.1, positioned left of the price block '.price' with a minimum gap of 24px (±2px)"
+  "Verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Ví da Premium', no watermark, natural dimensions 1600x1200, displayed at 400x300 with a tolerance of ±4px, sharpness ≥ 0.85, compression artifacts ≤ 0.1, and ensure the image is positioned to the left of the price block '.price' with a minimum spacing of 24px (±2px)"
 ]
 
 Now generate the JSON from this requirement:
@@ -250,15 +260,15 @@ def step2_generate_steps(subtask_groups):
     step_trace = []
     for subtask_list in subtask_groups:    
         prompt = f"""You are a professional UI test step generator.
-Your task is to convert the following atomic test instruction into a list of executable UI test steps in JSON format.
+Your task is to convert the following atomic test instruction into a list of executable UI test steps in JSON format (must in English).
 
 Instruction: "{subtask_list}"
 
 Each step must follow this JSON structure:
 {{
   "action": "action to perform (e.g. click, type, hover, locate, verify, etc.)",
-  "selector": "CSS selector or a natural description (e.g. 'button with text Login', 'Sign In' button), or empty string if not applicable",
-  "value": "string value to type or expect, or empty string if not applicable",
+  "selector": "CSS selector or a natural description (keep Vietnamese text/labels if present in the instruction, e.g. 'Login' button), or empty string if not applicable",
+  "value": "string value to type or expect, or empty string if not applicable, keep Vietnamese text if provided",
   "expected": {{
     // This object may contain multiple properties,
     // based only on what the instruction requires.
@@ -273,6 +283,7 @@ Explanation of the actions:
 - verify: validating properties like color, alignment, text, count, image presence, OCR output, size, position, etc. Checking that something exists, is visible, absent, or meets a layout/appearance requirement.
 
 Important:
+- Always return output in JSON with English keys.
 - All fields (`action`, `selector`, `value`, `expected`) **must always be present**.
 - If a field has no value, use:
   - `""` for empty strings
@@ -284,42 +295,42 @@ Important:
   - 'text':
   - 'placeholder':
   - 'language': e.g., `"French"`, `"Chinese"`
-  - 'position': object with `x`, `y`, `width`, `height`, etc..
+  - 'position': object with `x`, `y`, `width`, `height`, etc.. (e.g., 'position: {{"x": 100, "y": 200, "width": "300px", "height": "150px"}}')
   - 'overflow': boolean (true if content overflows, false if not)
   - 'occluded': boolean (true if element is occluded by another, false if not)
   - 'styles':
     - 'textAlign':
-    - `color`: e.g., `"#ffffff"` or `"rgb(255, 255, 255)" or "white"
+    - `color`: e.g., "#ffffff" or "rgb(255, 255, 255)" or "white"
     - `backgroundColor`
     - `font`: an object with `family`, `size`, `weight`, `style` if mentioned 
     - 'border': width, style, color, radius
     - 'padding': top, right, bottom, left
     - 'margin': top, right, bottom, left
-    - 'alignment': `"left"`, `"center"`, `"right"`, `"justify"`, or horizontal/vertical alignment in pixels
-    - gapPx: e.g., `"10px"`
-    - `opacity`: `"0.5"`, `"1"`, etc.
+    - 'alignment': "left", "center", "right", "justify", or horizontal/vertical alignment in pixels
+    - gapPx: e.g., "10px"
+    - 'opacity': "0.5", "1", etc.
     - Or any property related to 'styles', as long as it follows the correct format and rules stated (only declare if present in the input description).
   - 'state':
-    - `visibility`: `"visible"` or `"hidden"`
-    - `enabled`: boolean (`true` or `false`)
+    - `visibility`: "visible" or "hidden"
+    - `enabled`: boolean (true or false)
     - 'focused': boolean
     - 'hovered': boolean     
     - 'active': boolean
     - Or any property related to 'state', as long as it follows the correct format and rules stated (only declare if present in the input description).   
   - dynamics:
-    - `movement`: `"static"` or `"moves"` after an action
+    - `movement`: "static" or "moves" after an action
     - `scroll`: "sticky" | "fixed" | "static" | "none" or something
     - 'parallax': number (e.g., `0.5` for parallax effect)
     - `transition`: boolean (CSS transition)
     - 'animate': boolean (motion effect)
-    - `focus`: boolean, (`true` if element should be focused, via Tab or click)
+    - `focus`: boolean, ('true' if element should be focused, via Tab or click)
     - `navigation`: destination URL if checking page redirection
-    - `loading`: `"present"`, `"loading"`, `"none"` for spinners, indicators
+    - `loading`: `"present", "loading", "none"` for spinners, indicators
     - 'progressValue': string, (% value if it is progress bar, pie chart, etc)
     - Or any property related to 'dynamics', as long as it follows the correct format and rules stated (only declare if present in the input description).
-  - If the element is image, its may contain:
+  - If the element is image (img), its may contain:
     - `source`: URL of the image
-    - 'altText': string (e.g., "Product image", "Logo")
+    - 'altText': string (e.g., "Hình ảnh sản phẩm", "Logo")
     - 'isLoaded': boolean (true if image is loaded, false if not)
     - 'loadTime': number (in milliseconds, e.g., 500 for 0.5 seconds)
     - 'shapnessScoreGTE': number (0 to 1, e.g., 0.8 for sharpness)
@@ -329,7 +340,7 @@ Important:
     - 'viewportDimensions': object with `width`, `height` (size of the image in the viewport)
     - 'watermark': boolean (true if image has a watermark, false if not)
   - 'compair': if comparing with another element, it may contain:
-    - 'element': object describing the element to compare with (must always have when `compair` is used). (if there are multiple elements to compare, use 'element1', 'element2', etc.)
+    - 'element': object describing the element to compare with (must always have when `compare` is used). (if there are multiple elements to compare, use 'element1', 'element2', etc.)
       - This object may contain `selector` (required), and may also include `action`, `value`, 'expected' only if explicitly described in the task.  
       - `expected` follows the same structure and rules as the `expected` field for the main element.
     - Properties to compare (e.g., `color`, `fontSize`, `position`, etc.)
@@ -339,12 +350,12 @@ Example 1:
 - Task list:
 [
   "Open 'https://www.amazon.com'",
-  "Search for 'Bluetooth speaker'",
+  "Search for 'Dàn loa Bluetooth'",
   "Verify that the search completes in under 2 seconds",
-  "Verify that the search results display at least 10 products with titles containing the word 'Bluetooth'",
-  "Verify that each product card has an image with width exactly '150px' and a price with font-size '18px'",
-  "Verify that the 'Add to Cart' button has color '#ff9900' and rounded corners of '4px'",
-  "Verify that the 'Add to Cart' button's background color changes to '#e68a00' on hover"
+  "Verify that the search results display at least 10 products with titles containing the word 'Loa Bluetooth'",
+  "Verify that each product card has a main image width exactly '150px'",
+  "Verify that the 'Add to Cart' button has color '#ff9900' and border radius '4px', positioned at x=120px and y=300px, with width '200px' and height '50px'",
+  "Verify that the 'Add to Cart' button background color changes to '#e68a00' when hovered"
 ]
 - Response:
 [
@@ -360,7 +371,7 @@ Example 1:
   {{
     "action": "search",
     "selector": "'Search' input field",
-    "value": "Bluetooth speaker",
+    "value": "Dàn loa Bluetooth",
     "expected": {{
       "status": true
     }}
@@ -374,7 +385,7 @@ Example 1:
         "visibility": "visible"
       }},
       "dynamics": {{
-        "duration": "<2s"
+        "duration": 2000
       }}
     }}
   }},
@@ -387,7 +398,7 @@ Example 1:
         "min": 10
       }},
       "text": {{
-        "contains": "Bluetooth"
+        "contains": "Loa Bluetooth"
       }}
     }}
   }},
@@ -396,18 +407,9 @@ Example 1:
     "selector": "'product card'",
     "value": "",
     "expected": {{
-      "descendantProperties": {{
-        "img": {{
-          "styles": {{
-            "width": "150px"
-          }}
-        }},
-        ".price": {{
-          "styles": {{
-            "font": {{
-              "size": "18px"
-            }}
-          }}
+      "img": {{
+        "styles": {{
+          "width": "150px"
         }}
       }}
     }}
@@ -423,6 +425,12 @@ Example 1:
         "border": {{
           "radius": "4px"
         }}
+      }},
+      "position": {{
+        "x": "120px",
+        "y": "300px",
+        "width": "200px",
+        "height": "50px"
       }}
     }}
   }},
@@ -445,48 +453,36 @@ Example 1:
 Example 2:
 - Task list:
 [
-  "Open 'https://www.netflix.com'",
-  "Locate 'Sign In' button at the top-right corner (within 50px from top and 30px from right)",
-  "Click on 'Sign In' button",
-  "Fill 'testuser@example.com' into the email input field",
-  "Fill 'Test@1234' into the password input field",
+  "Locate the 'Login' button at the top right corner (50px from the top and 30px from the right)",
+  "Click the 'Login' button",
+  "Type 'testuser@example.com' into the email input field",
+  "Type 'Test@1234' into the password input field",
   "Submit the login form",
-  "Verify that after submission the user is redirected to 'https://www.netflix.com/browse' within 3 seconds",
-  "Check that the page displays at least 5 personalized movie thumbnails",
+  "Verify that after submission, the user is redirected to 'https://www.netflix.com/browse' within 3 seconds",
+  "Verify that the page displays at least 5 personalized movie thumbnails",
   "Verify that all input fields have font 'Roboto 16px', padding '12px', and margin-bottom '16px'",
   "Verify that the 'Sign In' button has background color '#e50914', text color '#ffffff', and border radius '4px'",
-  "Verify that the 'Sign In' button is responsive down to 360px screen width",
-  "Verify that all visible elements meet WCAG contrast ratio of at least 4.5:1"
+  "Verify that the 'Sign In' button is responsive down to screen width 360px",
+  "Verify that all visible elements meet a WCAG contrast ratio of at least 4.5:1"
 ]
 - Response:
 [
   {{
-    "action": "goto",
-    "selector": "",
-    "value": "https://www.netflix.com",
-    "expected": {{
-      "status": true,
-      "navigation": "https://www.netflix.com"
-    }}
-  }},
-  {{
     "action": "locate",
-    "selector": "'Sign In' button",
+    "selector": "'Login' button",
     "value": "",
     "expected": {{
       "status": true,
-      "text": "Sign In",
-      "styles": {{
-        "position": {{
-          "top": "50px",
-          "right": "30px"
-        }}
+      "text": "Login",
+      "position": {{
+        "top": "50px",
+        "right": "30px"
       }}
     }}
   }},
   {{
     "action": "click",
-    "selector": "'Sign In' button",
+    "selector": "'Login' button",
     "value": "",
     "expected": {{
       "status": true,
@@ -564,10 +560,10 @@ Example 2:
   }},
   {{
     "action": "verify",
-    "selector": "'Sign In' button",
+    "selector": "'Login' button",
     "value": "",
     "expected": {{
-      "text": "Sign In",
+      "text": "Login",
       "styles": {{
         "backgroundColor": "#e50914",
         "color": "#ffffff",
@@ -579,10 +575,10 @@ Example 2:
   }},
   {{
     "action": "verify",
-    "selector": "'Sign In' button",
+    "selector": "'Login' button",
     "value": "",
     "expected": {{
-      "text": "Sign In",
+      "text": "Login",
       "screenWidth": "360px",
       "state": {{
         "visibility": "visible",
@@ -606,7 +602,7 @@ Example 3:
 - Task list:
 [
   "Open 'https://shop.example.com/item/P123'",
-  "Verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Premium Leather Wallet', no watermark, natural size 1600x1200, renders at 400x300 with tolerance ±4px, sharpness ≥ 0.85 and compression artifacts ≤ 0.1, positioned left of the price block '.price' with a minimum gap of 24px (±2px)"
+  "Verify that the main product image '#main-product-image' loads successfully within 800ms, has alt text containing 'Premium Leather Wallet', has no watermark, natural size 1600x1200, renders at 400x300 with tolerance ±4px, sharpness ≥ 0.85 and compression artifacts ≤ 0.1, and ensure the image is positioned to the left of the price block '.price' with a minimum gap of 24px (±2px)"
 ]
 - Response:
 [
@@ -664,49 +660,17 @@ Example 3:
 Example 4:
 - Task list:
 [
-  "Open 'https://web.whatsapp.com'",
-  "Scan the QR code using test device",
-  "Wait until the contact list loads (max 5 seconds)",
-  "Click on a contact named 'John Test'",
-  "Type 'Hello from automation' into the message input with height '40px' and font-size '14px'",
+  "Click on contact 'Nguyen Van An'",
+  "Type 'Hello' into the message input field with height '40px' and font size '14px'",
   "Send the message",
-  "Verify that the sent message appears in the chat bubble within 1 second, with background color '#dcf8c6', right alignment, and message timestamp displayed in '12-hour' format aligned to the bottom-right inside the bubble"
+  "Verify that the sent message appears in the chat window within 1 second, with background color '#dcf8c6', right-aligned, and the message timestamp formatted in '12-hour' style, aligned to the bottom-right corner inside the chat window"
 ]
+
 - Response:
 [
   {{
-    "action": "goto",
-    "selector": "",
-    "value": "https://web.whatsapp.com",
-    "expected": {{
-      "status": true,
-      "navigation": "https://web.whatsapp.com"
-    }}
-  }},
-  {{
-    "action": "scan",
-    "selector": "QR code",
-    "value": "",
-    "expected": {{
-      "status": true
-    }}
-  }},
-  {{
-    "action": "wait",
-    "selector": "contact list",
-    "value": "",
-    "expected": {{
-      "dynamics": {{
-        "timeout": 5000
-      }},
-      "state": {{
-        "visibility": "visible"
-      }}
-    }}
-  }},
-  {{
     "action": "click",
-    "selector": "'John Test' contact",
+    "selector": "'Nguyen Van An' contact",
     "value": "",
     "expected": {{
       "status": true
@@ -714,19 +678,19 @@ Example 4:
   }},
   {{
     "action": "type",
-    "selector": "'message input'",
-    "value": "Hello from automation",
+    "selector": "'message' input",
+    "value": "Hello",
     "expected": {{
+      "status": true,
       "styles": {{
         "height": "40px",
         "fontSize": "14px"
       }},
-      "status": true
     }}
   }},
   {{
     "action": "submit",
-    "selector": "'send message button'",
+    "selector": "'send message' button",
     "value": "",
     "expected": {{
       "status": true
@@ -760,68 +724,18 @@ Example 4:
 
 Example 5:
 - Task list:
-"Open 'https://secure.example.com/login', check that the interface language is 'Russian'. Type 'wronguser' into the 'Username' input field, type 'wrongpass' into the 'Password' input field, click the 'Sign In' button, verify that no redirection to 'https://secure.example.com/dashboard' occurs within 3s, confirm that the error message text 'Invalid username.' is visible. Compare the font size and color of the error message with the 'Username' label and the 'Password' label, ensuring they are exactly equal 20px and '#ff0000'."
+[
+  "Verify that the error message text 'Invalid account.' is displayed",
+  "Verify that the font size and color of the error message are exactly the same as the font size and color of the 'Account' label and the 'Password' label, and ensure that both are exactly 20px and '#ff0000'"
+]
 - Response:
 [
-  {{
-    "action": "goto",
-    "selector": "",
-    "value": "https://secure.example.com/login",
-    "expected": {{
-      "status": true,
-      "navigation": "https://secure.example.com/login"
-    }}
-  }},
-  {{
-    "action": "verify",
-    "selector": "interface",
-    "value": "",
-    "expected": {{
-      "language": "Russian"
-    }}
-  }},
-  {{
-    "action": "type",
-    "selector": "'Username' input field",
-    "value": "wronguser",
-    "expected": {{
-      "status": true
-    }}
-  }},
-  {{
-    "action": "type",
-    "selector": "'Password' input field",
-    "value": "wrongpass",
-    "expected": {{
-      "status": true
-    }}
-  }},
-  {{
-    "action": "click",
-    "selector": "'Sign In' button",
-    "value": "",
-    "expected": {{
-      "status": true
-    }}
-  }},
-  {{
-    "action": "verify",
-    "selector": "",
-    "value": "",
-    "expected": {{
-      "dynamics": {{
-        "status": false,
-        "navigation": "https://secure.example.com/dashboard",
-        "timeout": 3000
-      }}
-    }}
-  }},
   {{
     "action": "verify",
     "selector": "error message",
     "value": "",
     "expected": {{
-      "text": "Invalid username.",
+      "text": "Invalid account.",
       "state": {{
         "visibility": "visible"
       }}
@@ -832,9 +746,15 @@ Example 5:
     "selector": "error message",
     "value": "",
     "expected": {{
+      "style": {{
+        "font": {{
+          "size": "20px"
+        }},
+        "color": "#ff0000"
+      }},
       "compair": {{
         "element1": {{
-          "selector": "'Username' label",
+          "selector": "'Account' label",
           "expected": {{
             "style": {{
               "font": {{
@@ -854,12 +774,6 @@ Example 5:
               "color": "#ff0000"
             }}
           }}
-        }},
-        "style": {{
-          "font": {{
-            "size": "20px"
-          }},
-          "color": "#ff0000"
         }}
       }}
     }}
@@ -937,33 +851,43 @@ def save_excel_summary(filename, task_trace, step_groups):
     df.to_excel(filename, index=False)
 
 def main():
+    #global KEY_LIST
     inputName = input("Enter the base name for input files: ")
+    #key1 = input("Enter the Gemini API key1: ")
+    #key2 = input("Enter the Gemini API key2: ")
+    #key3 = input("Enter the Gemini API key3: ")
+    #key4 = input("Enter the Gemini API key4: ")
+    #key5 = input("Enter the Gemini API key5: ")
+    #key6 = input("Enter the Gemini API key6: ")
+    #key7 = input("Enter the Gemini API key7: ")
+    #key8 = input("Enter the Gemini API key8: ")
+    #KEY_LIST = [key1, key2, key3, key4, key5, key6, key7, key8]
+
     INPUT_DIR = Path("Input")
     TASK_DIR = Path("JSONtask")
     STEP_DIR = Path("JSONwStep")
     REPORT_DIR = Path("Report")
-
     for d in [TASK_DIR, STEP_DIR, REPORT_DIR]:
         d.mkdir(parents=True, exist_ok=True)
-    numFile = 100
+
+    numFile = 20
     print(f"Generate {numFile} files")
     for i in range(numFile):
         filename = f"{inputName}_{i}.txt"
         if not (INPUT_DIR / filename).exists():
             print(f"Creating example file: {filename}")
             step0_create_task(filename)
-        """
         else:
             print(f"File already exists: {filename}")
         case_id = Path(filename).stem
         try:
+            
             print(f"\n▶️ Running pipeline for: {case_id}")
-
             task_file = INPUT_DIR / f"{case_id}.txt"
             task_json_file = TASK_DIR / f"{case_id}.task.json"
             task_list, task_trace = step1_analyze_task(task_file)
             save_json(task_json_file, task_list)
-            print("\n Step 1 success \n")
+            print("\n Step 1 success \n")  
 
             step_json_file = STEP_DIR / f"{case_id}.step.json"
             step_groups, step_trace = step2_generate_steps(task_list)
@@ -975,7 +899,6 @@ def main():
             print(f"✅ Excel saved to: {report_file}")
         except Exception as e:
             print(f"❌ Error in {case_id}: {e}")
-            """
 
 if __name__ == "__main__":
     main()
