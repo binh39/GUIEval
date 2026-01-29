@@ -1,2 +1,0 @@
-"Open http://127.0.0.1:5500/public/index.html and check if 'Find Food' button is orange. Click 'Login', a login box show up successfully. Type 'abc' to the username field, 'xyz' to the password field.",
-"Open facebook.com. Click Sign In and check if Sign In box show up successfully. Type 'abcdef' to the username field, type '123456' to the password field. Click Login, a message 'Wrong username or password' must show up."

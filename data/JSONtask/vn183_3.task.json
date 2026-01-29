@@ -1,0 +1,1003 @@
+[
+  [
+    "Mở 'https://www.shopabc.com/product/123'",
+    "Xác minh rằng hình ảnh sản phẩm chính có nguồn là 'images/main-product.jpg' với kích thước hiển thị 800px chiều rộng và 600px chiều cao, văn bản thay thế là 'Áo thun nam thời trang', và đã được tải hoàn toàn trong 750ms",
+    "Kiểm tra tiêu đề sản phẩm 'Áo Thun Thời Trang Nam' hiển thị với màu chữ #1a1a1a, kích thước chữ 28px, phông chữ 'Roboto', và độ đậm chữ 700",
+    "Xác nhận nút 'Thêm vào giỏ' có màu nền #007bff, màu văn bản #ffffff, cỡ chữ 18px, khoảng đệm trong 15px theo mọi hướng, bo góc 8px, đang ở trạng thái bật, và nhãn aria-label là 'Thêm sản phẩm vào giỏ hàng của bạn'"
+  ],
+  [
+    "Điều hướng đến 'https://www.shopabc.com/category/electronics'",
+    "Xác nhận thanh điều hướng chính có màu nền #f8f9fa, chiều cao 60px",
+    "Kiểm tra liên kết 'Điện thoại' có màu chữ #343a40, kích thước chữ 16px, độ đậm chữ 500, và khoảng đệm trong 10px theo chiều dọc và 15px theo chiều ngang",
+    "Xác minh ô tìm kiếm hiển thị placeholder 'Tìm kiếm sản phẩm...', có chiều rộng 250px, chiều cao 40px, viền 1px màu #ced4da, và bo góc 5px",
+    "Kiểm tra khi ô tìm kiếm được focus, viền chuyển thành màu #80bdff với độ rộng 2px, và màu nền là #ffffff",
+    "Đảm bảo nút 'Tìm' kế bên có biểu tượng 'kính lúp' và nền hiển thị màu #007bff"
+  ],
+  [
+    "Truy cập trang hồ sơ người dùng 'https://www.shopabc.com/user/profile'",
+    "Xác minh ảnh đại diện người dùng có nguồn là 'images/avatar_user.png', kích thước hiển thị 100px x 100px và có hình dạng tròn hoàn hảo với bán kính viền 50%",
+    "Kiểm tra trường nhập liệu 'Tên người dùng' có giá trị 'Nguyễn Văn A', cỡ chữ 16px, màu chữ #333333, và viền 1px màu #cccccc",
+    "Xác nhận trường 'Email' có giá trị 'nguyen.vana@example.com', và không thể chỉnh sửa (disabled)",
+    "Đảm bảo nút 'Lưu thay đổi' có nền màu #28a745, màu chữ #ffffff, khoảng đệm trong 12px theo chiều dọc và 25px theo chiều ngang, và bo góc 6px",
+    "Khi di chuột, nút 'Lưu thay đổi' duy trì độ trong suốt 100% nhưng màu nền chuyển tiếp sang #218838 trong 300ms"
+  ],
+  [
+    "Vào trang giỏ hàng 'https://www.shopabc.com/cart'",
+    "Xác minh có tổng cộng 3 mục sản phẩm được liệt kê",
+    "Kiểm tra mỗi mục có chiều rộng 100% của khu vực chứa, có khoảng đệm trong 20px, và viền dưới 1px màu #eeeeee",
+    "Xác nhận trường số lượng của sản phẩm 'Loa Bluetooth' có giá trị 1 và có thể điều chỉnh",
+    "Kiểm tra giá tổng cộng hiển thị văn bản 'Tổng cộng: 1.500.000₫' với màu chữ #dc3545, cỡ chữ 22px, và độ đậm chữ 700",
+    "Đảm bảo nút 'Tiến hành thanh toán' nằm ở cuối trang, được căn chỉnh ở giữa, có chiều rộng 200px, chiều cao 50px, nền màu #ffc107 và màu chữ #343a40, và đang ở trạng thái bật"
+  ],
+  [
+    "Mở trình phát video trên trang 'https://www.shopabc.com/video/intro'",
+    "Xác minh video có nguồn 'videos/intro.mp4'",
+    "Kiểm tra nút 'Play/Pause' hiển thị ở tọa độ x=50, y=550 với kích thước 40px x 40px và có nhãn aria-label là 'Phát hoặc tạm dừng video'",
+    "Đảm bảo biểu tượng loa hiển thị ở trạng thái không tắt tiếng và có thể click",
+    "Click vào biểu tượng loa",
+    "Xác nhận video chuyển sang trạng thái tắt tiếng, biểu tượng thay đổi và nhãn aria-label chuyển thành 'Bật tiếng video'",
+    "Kiểm tra nút 'Toàn màn hình' hiển thị ở góc dưới bên phải của trình phát video",
+    "Xác minh khi nút 'Toàn màn hình' được kích hoạt, video chuyển sang chế độ toàn màn hình",
+    "Xác minh thời gian tải của video không vượt quá 2 giây"
+  ],
+  [
+    "Mở 'https://www.shopabc.com/register'",
+    "Nhập email không hợp lệ vào trường 'Email'",
+    "Gửi biểu mẫu đăng ký",
+    "Xác minh trường nhập liệu 'Email' hiển thị viền màu đỏ #dc3545 dày 2px",
+    "Kiểm tra thông báo lỗi 'Vui lòng nhập địa chỉ email hợp lệ' xuất hiện ngay dưới trường Email, có màu chữ #dc3545, cỡ chữ 14px, và hiển thị rõ ràng (visible)",
+    "Đảm bảo trường 'Mật khẩu' có placeholder 'Ít nhất 8 ký tự' và viền 1px màu #cccccc",
+    "Khi trường Mật khẩu được focus, viền chuyển thành màu xanh dương #007bff",
+    "Xác nhận nút 'Đăng ký' ban đầu có nền màu #6c757d và ở trạng thái tắt cho đến khi tất cả các trường hợp lệ được điền"
+  ],
+  [
+    "Truy cập trang danh sách sản phẩm 'https://www.shopabc.com/products?page=2'",
+    "Xác minh thanh phân trang hiển thị tổng cộng 5 trang",
+    "Kiểm tra nút 'Trang trước' có trạng thái bật và màu chữ #007bff",
+    "Xác nhận trang số '2' đang ở trạng thái được chọn với nền màu #007bff, màu chữ #ffffff, bo góc 4px, và khoảng đệm trong 8px theo chiều dọc và 12px theo chiều ngang",
+    "Đảm bảo nút 'Trang kế tiếp' hiển thị và có màu chữ #007bff",
+    "Xác minh khi trang số '1' được chọn, nút 'Trang trước' chuyển sang trạng thái tắt",
+    "Xác minh các nút phân trang có cỡ chữ 16px và độ đậm chữ 600"
+  ],
+  [
+    "Mở cửa sổ modal xác nhận tại 'https://www.shopabc.com/delete-item'",
+    "Xác minh lớp phủ nền (overlay) có màu nền #000000 với độ mờ 75%",
+    "Kiểm tra hộp thoại modal xuất hiện ở giữa màn hình (centered), có chiều rộng 400px, chiều cao 200px, màu nền #ffffff, bo góc 10px, và độ trong suốt 100%",
+    "Xác nhận nút 'X' để đóng modal hiển thị ở góc trên bên phải, có nhãn aria-label là 'Đóng hộp thoại'",
+    "Kiểm tra tiêu đề modal hiển thị văn bản 'Xác nhận xóa' với cỡ chữ 20px và màu chữ #343a40",
+    "Đảm bảo nút 'Hủy' và 'Xác nhận' nằm ở dưới cùng của modal với khoảng đệm trên 20px"
+  ],
+  [
+    "Trên trang 'https://www.shopabc.com/gallery'",
+    "Xác minh hình ảnh chính có nguồn là 'images/gallery_main.jpg' với kích thước hiển thị 1024px x 768px, kích thước gốc 1920px x 1080px và có văn bản thay thế 'Cảnh quan núi non hùng vĩ'",
+    "Kiểm tra hình ảnh chính đã được tải hoàn toàn",
+    "Xác nhận có 5 hình thu nhỏ hiển thị phía dưới, mỗi hình có chiều rộng 120px và chiều cao 80px, với viền 2px màu #cccccc",
+    "Xác minh khi hình thu nhỏ thứ 3 được chọn, nó có viền màu #007bff và độ đậm viền là 3px, đồng thời hình ảnh chính sẽ chuyển sang nguồn của hình thu nhỏ đã chọn với hiệu ứng chuyển tiếp trong 300ms",
+    "Đảm bảo các hình ảnh thu nhỏ có watermark 'Demo' hiển thị rõ ràng"
+  ],
+  [
+    "Chọn một ngày trên lịch tại 'https://www.shopabc.com/booking'",
+    "Xác minh ô ngày '25' của tháng hiện tại có nền màu #007bff, màu chữ #ffffff, bo góc 50% (hình tròn) khi đang được chọn",
+    "Kiểm tra các ô ngày không được chọn có màu chữ #333333 và màu nền trong suốt",
+    "Đảm bảo tiêu đề tháng 'Tháng Mười Hai 2023' hiển thị với cỡ chữ 18px và độ đậm chữ 600",
+    "Xác nhận các ô ngày có chiều rộng và chiều cao 36px, với khoảng đệm trong 5px",
+    "Khi chuyển tháng, các ngày của tháng trước/sau không hiển thị rõ ràng (opacity 50%)",
+    "Đảm bảo lịch hiển thị 7 cột cho các ngày trong tuần và 6 hàng cho các tuần"
+  ],
+  [
+    "Mở menu thả xuống 'Lựa chọn ngôn ngữ' tại 'https://www.shopabc.com/settings'",
+    "Xác minh danh sách tùy chọn hiển thị bên dưới nút kích hoạt, có chiều rộng bằng chiều rộng của nút (150px), màu nền #ffffff, viền 1px màu #cccccc, và độ cong góc 4px",
+    "Kiểm tra tùy chọn 'Tiếng Việt' đang ở trạng thái được chọn với nền màu #e9ecef và màu chữ #212529",
+    "Đảm bảo mỗi tùy chọn có khoảng đệm trong 10px theo chiều dọc và 15px theo chiều ngang, với cỡ chữ 16px",
+    "Xác nhận khi di chuột qua một tùy chọn, nền hiển thị chuyển sang màu #f8f9fa",
+    "Kiểm tra menu sẽ ẩn đi khi người dùng click ra ngoài khu vực menu"
+  ],
+  [
+    "Kiểm tra banner thông báo tại 'https://www.shopabc.com/dashboard'",
+    "Xác minh banner có nền màu #28a745, màu chữ #ffffff, chiều cao 50px, chiều rộng 100% màn hình, và khoảng đệm trong 15px",
+    "Kiểm tra văn bản 'Dữ liệu đã được lưu thành công!' hiển thị rõ ràng với cỡ chữ 16px và độ đậm chữ 500",
+    "Đảm bảo nút 'Đóng' có biểu tượng 'X' và nhãn aria-label là 'Đóng thông báo', hiển thị ở góc trên bên phải của banner",
+    "Click vào nút 'Đóng'",
+    "Xác minh banner sẽ ẩn đi với hiệu ứng chuyển tiếp độ mờ trong 500ms",
+    "Xác nhận banner có lề trên 20px và lề dưới 20px so với các phần tử xung quanh"
+  ],
+  [
+    "Trên trang 'https://www.shopabc.com/article/long-content'",
+    "Cuộn trang xuống dưới cùng (scroll-top: max)",
+    "Xác minh nội dung chính có chiều cao tối thiểu 800px và văn bản có cỡ chữ 18px, màu chữ #333333, phông chữ 'Merriweather'",
+    "Kiểm tra khi cuộn, thanh cuộn tùy chỉnh hiển thị với chiều rộng 8px và màu nền #cccccc",
+    "Đảm bảo khi cuộn đến 75% chiều cao trang, một nút 'Lên đầu trang' hiển thị ở góc dưới bên phải với tọa độ x=calc(100% - 60px), y=calc(100% - 60px) và nền màu #007bff, màu chữ #ffffff",
+    "Click vào nút 'Lên đầu trang'",
+    "Xác minh trang sẽ cuộn mượt mà lên đầu trong 800ms",
+    "Xác nhận lề ngoài của văn bản là 20px từ trái và phải"
+  ],
+  [
+    "Xem bảng dữ liệu tại 'https://www.shopabc.com/reports/sales'",
+    "Xác minh bảng có 5 cột và 10 hàng dữ liệu",
+    "Kiểm tra tiêu đề cột 'Mã đơn hàng' có nền màu #f2f2f2, màu chữ #333333, cỡ chữ 16px, độ đậm chữ 600, khoảng đệm trong 12px, và căn chỉnh văn bản sang trái",
+    "Đảm bảo các ô dữ liệu trong cột 'Số lượng' hiển thị giá trị số nguyên và căn chỉnh văn bản sang phải",
+    "Kiểm tra các hàng chẵn có màu nền #f9f9f9 và các hàng lẻ có màu nền #ffffff",
+    "Xác nhận bảng có viền 1px màu #cccccc xung quanh và các ô có viền dưới 1px màu #e0e0e0",
+    "Đảm bảo mỗi ô có khoảng đệm trong 8px"
+  ],
+  [
+    "Truy cập trang 'https://www.shopabc.com/loading-test'",
+    "Xác minh khi trang đang tải, biểu tượng loading spinner hình tròn hiển thị ở giữa màn hình tại tọa độ x=calc(50% - 20px), y=calc(50% - 20px) với chiều rộng và chiều cao 40px",
+    "Kiểm tra spinner có hoạt ảnh xoay liên tục 360 độ trong 1 giây",
+    "Đảm bảo màu của spinner là #007bff và độ trong suốt là 100%",
+    "Xác nhận văn bản 'Đang tải dữ liệu...' hiển thị ngay dưới spinner với cỡ chữ 16px, màu chữ #6c757d và độ đậm chữ 400",
+    "Xác minh khi dữ liệu được tải xong (sau 2 giây), cả spinner và văn bản sẽ ẩn đi ngay lập tức"
+  ],
+  [
+    "Mở 'https://www.shopabc.com/item/detail'",
+    "Di chuột qua biểu tượng 'Thông tin sản phẩm'",
+    "Xác minh tooltip hiển thị ngay lập tức",
+    "Kiểm tra tooltip có nền màu #333333, màu chữ #ffffff, cỡ chữ 14px, khoảng đệm trong 10px, và bo góc 4px",
+    "Đảm bảo văn bản của tooltip là 'Thông tin chi tiết về sản phẩm này'",
+    "Xác nhận tooltip hiển thị phía trên biểu tượng, với lề dưới 8px so với biểu tượng",
+    "Rời con trỏ chuột khỏi biểu tượng 'Thông tin sản phẩm'",
+    "Xác minh tooltip ẩn đi với hiệu ứng chuyển tiếp độ mờ trong 200ms",
+    "Kiểm tra chiều rộng tối đa của tooltip là 200px và chiều cao tự động điều chỉnh theo nội dung"
+  ],
+  [
+    "Trên trang 'https://www.shopabc.com/upload-progress'",
+    "Tải lên một tệp",
+    "Xác minh thanh tiến trình hiển thị",
+    "Kiểm tra thanh tiến trình có chiều rộng 400px, chiều cao 10px, màu nền #e0e0e0, và bo góc 5px",
+    "Đảm bảo phần hiển thị tiến trình bên trong có màu nền #28a745 và chiều rộng tăng dần theo phần trăm hoàn thành",
+    "Xác minh khi tiến trình đạt 50%, chiều rộng của phần hiển thị là 200px",
+    "Xác nhận có một hiệu ứng chuyển tiếp mượt mà cho sự thay đổi chiều rộng trong 300ms",
+    "Kiểm tra văn bản hiển thị phần trăm '50%' xuất hiện ngay trên thanh tiến trình với cỡ chữ 14px và màu chữ #333333"
+  ],
+  [
+    "Sử dụng widget bản đồ trên 'https://www.shopabc.com/contact'",
+    "Xác minh bản đồ có chiều rộng 100% của phần tử chứa và chiều cao 500px, với nguồn bản đồ là 'https://maps.google.com/embed...'",
+    "Kiểm tra nút 'Phóng to' (Zoom In) và 'Thu nhỏ' (Zoom Out) hiển thị ở góc trên bên phải của bản đồ, cách lề trên 10px và lề phải 10px",
+    "Đảm bảo các nút có chiều rộng và chiều cao 32px, màu nền #ffffff, màu chữ #333333, cỡ chữ 20px, và bo góc 4px",
+    "Xác minh khi nút 'Phóng to' ở trạng thái bật, nút 'Thu nhỏ' cũng ở trạng thái bật",
+    "Xác nhận nhãn aria-label của nút 'Phóng to' là 'Phóng to bản đồ'"
+  ],
+  [
+    "Trên giao diện trình phát nhạc tại 'https://www.shopabc.com/music-player'",
+    "Xác minh nút 'Play' hiển thị ở tọa độ x=20, y=20 và có nhãn aria-label là 'Phát nhạc'",
+    "Kiểm tra nút 'Tắt tiếng' (Mute) hiển thị bên cạnh nút âm lượng, có chiều rộng 30px và chiều cao 30px",
+    "Đảm bảo khi nút 'Tắt tiếng' được kích hoạt, âm thanh chuyển sang trạng thái tắt tiếng, và biểu tượng chuyển sang trạng thái 'đã tắt tiếng' với độ mờ 70%",
+    "Xác nhận thanh tiến trình bài hát có chiều rộng 300px, chiều cao 5px, màu nền #e0e0e0 và giá trị hiện tại của nó hiển thị bằng một màu nền #ff0000",
+    "Kiểm tra nút 'Play' có hoạt ảnh thay đổi màu nền nhẹ nhàng khi di chuột qua trong 200ms"
+  ],
+  [
+    "Mở 'https://www.shopabc.com/responsive-test' trên màn hình có chiều rộng 768px",
+    "Xác minh khối nội dung chính có chiều rộng 100% và không có thanh bên",
+    "Kiểm tra nút menu mobile hiển thị ở góc trên bên phải của màn hình, có chiều rộng 40px, chiều cao 40px, màu nền #007bff, màu chữ #ffffff và nhãn aria-label là 'Mở menu điều hướng'",
+    "Đảm bảo khi chiều rộng màn hình lớn hơn 768px, nút menu mobile ẩn đi và thanh điều hướng đầy đủ hiển thị rõ ràng với khoảng đệm trong 15px cho mỗi mục",
+    "Xác nhận các phần tử có lề ngoài 10px để đảm bảo khoảng cách hợp lý"
+  ],
+  [
+    "Kiểm tra việc hiển thị trang chủ khi tải lần đầu",
+    "Xác minh rằng tiêu đề chính 'Chào mừng bạn đến với cửa hàng của chúng tôi' có màu chữ rgb(0,0,0), cỡ chữ 28px, kiểu chữ 'Roboto' và độ đậm chữ là 700",
+    "Xác nhận banner quảng cáo lớn phía trên cùng có chiều rộng là 100% của khung nhìn, chiều cao cố định 350px, và hình ảnh nền có nguồn là 'banner_homepage.jpg'",
+    "Đảm bảo rằng nút 'Khám phá ngay' hiển thị ở tọa độ x=50% (căn giữa), y=200px, có màu nền #007bff, màu chữ #ffffff, và bo góc 8px",
+    "Xác minh nút 'Khám phá ngay' có khoảng đệm trong là 12px theo chiều dọc và 24px theo chiều ngang",
+    "Khi con trỏ chuột di chuyển vào nút 'Khám phá ngay', màu nền của nút phải chuyển sang #0056b3 sau 300ms với hiệu ứng chuyển tiếp mượt mà",
+    "Đảm bảo rằng thanh điều hướng phía trên cùng có chiều cao 60px, luôn hiển thị trên cùng (top=0, left=0) ngay cả khi người dùng cuộn xuống dưới, với màu nền rgb(248,249,250)"
+  ],
+  [
+    "Kiểm tra chức năng của trường nhập liệu email trong biểu mẫu đăng ký",
+    "Xác minh rằng placeholder hiển thị văn bản 'Nhập địa chỉ email của bạn' với màu #6c757d và cỡ chữ 14px",
+    "Đảm bảo chiều rộng của trường nhập liệu email là 300px, chiều cao 40px, có bo góc 4px",
+    "Khi trường nhập liệu email được focus, viền xung quanh trường phải có độ dày 2px và màu #007bff, đồng thời phần nền bên trong trường không đổi màu",
+    "Nhập 'emailkhonghople' vào trường nhập liệu email",
+    "Xác minh văn bản bên trong trường nhập liệu email vẫn hiển thị 'emailkhonghople'",
+    "Xác minh thông báo lỗi 'Địa chỉ email không hợp lệ' xuất hiện ngay bên dưới với màu chữ #dc3545, cỡ chữ 12px, và khoảng cách lề trên là 5px từ trường nhập liệu",
+    "Nhập 'test@example.com' vào trường nhập liệu email",
+    "Xác minh thông báo lỗi ẩn đi",
+    "Xác minh viền trường nhập liệu email trở về màu mặc định #ced4da với độ dày 1px"
+  ],
+  [
+    "Xác minh hiển thị của hình ảnh sản phẩm trong trang chi tiết sản phẩm",
+    "Đảm bảo hình ảnh chính có nguồn là 'product_main_1.jpg', kích thước hiển thị của nó là 600x450px, có alt text là 'Giày thể thao cao cấp màu đỏ', không có watermark hiển thị và đã tải hoàn tất trong vòng 1 giây",
+    "Xác minh phía dưới hình ảnh chính có chính xác 4 hình ảnh thu nhỏ được hiển thị theo căn chỉnh ngang",
+    "Mỗi hình ảnh thu nhỏ có kích thước hiển thị 100x75px, nguồn hình ảnh tương ứng (ví dụ: 'product_thumb_1.jpg', 'product_thumb_2.jpg'), và có viền 2px màu #ccc",
+    "Nhấp vào hình ảnh thu nhỏ thứ ba",
+    "Xác minh hình ảnh thu nhỏ thứ ba chuyển sang trạng thái được chọn với viền 2px màu #007bff",
+    "Xác minh hình ảnh chính cập nhật nguồn thành hình ảnh tương ứng của hình ảnh thu nhỏ đã chọn trong vòng 200ms"
+  ],
+  [
+    "Kiểm tra hành vi của nút 'Thêm vào giỏ hàng' trên trang sản phẩm",
+    "Đảm bảo nút 'Thêm vào giỏ hàng' hiển thị với văn bản 'Thêm vào giỏ hàng', màu nền #28a745, màu chữ #ffffff, cỡ chữ 16px, độ đậm chữ 600, bo góc 5px, khoảng đệm trong là 10px theo chiều dọc, 20px theo chiều ngang, và có nhãn aria-label là 'Thêm sản phẩm này vào giỏ hàng của bạn'",
+    "Nhấp vào nút 'Thêm vào giỏ hàng'",
+    "Xác minh nút chuyển sang trạng thái disabled, màu nền đổi thành #6c757d, màu chữ vẫn là #ffffff, và văn bản trên nút đổi thành 'Đang thêm...' trong 500ms",
+    "Xác minh sau 500ms, nút chuyển sang trạng thái enabled trở lại, màu nền trở lại #28a745, và văn bản trên nút đổi thành 'Đã thêm!' với biểu tượng dấu tích nhỏ bên cạnh"
+  ],
+  [
+    "Xác minh hiển thị của bảng dữ liệu người dùng",
+    "Đảm bảo bảng hiển thị chính xác 10 hàng dữ liệu",
+    "Kiểm tra rằng mỗi hàng có chiều height 45px và có khoảng đệm trong 15px ở mỗi ô",
+    "Xác nhận văn bản trong cột 'Tên người dùng' được căn chỉnh sang trái, với màu chữ #333, cỡ chữ 15px và kiểu chữ 'Arial'",
+    "Đảm bảo rằng hàng tiêu đề của bảng có màu nền #e9ecef và độ đậm chữ là 700 cho tất cả các tiêu đề cột",
+    "Cuộn bảng dữ liệu xuống dưới",
+    "Xác minh tiêu đề của bảng cố định ở trên cùng (top=0) với màu nền #f8f9fa và viền dưới 1px màu #dee2e6",
+    "Xác minh các nút phân trang 'Trang trước' và 'Trang sau' hiển thị ở dưới cùng của bảng, căn giữa và có khoảng cách lề trên là 20px",
+    "Xác minh nút 'Trang trước' ở trạng thái disabled khi ở trang đầu tiên"
+  ],
+  [
+    "Kiểm tra hộp thoại modal xác nhận xóa",
+    "Đảm bảo hộp thoại này ban đầu ở trạng thái ẩn",
+    "Nhấp vào nút 'Xóa tài khoản'",
+    "Xác minh hộp thoại hiển thị trên màn hình với độ mờ nền 0.5 (opacity=0.5) cho phần nền tối bao phủ toàn bộ màn hình",
+    "Xác minh hộp thoại modal chính có chiều rộng 400px, chiều cao 250px, căn giữa màn hình (x=50%, y=50%)",
+    "Xác minh văn bản tiêu đề 'Xác nhận xóa' bên trong modal có cỡ chữ 20px, độ đậm chữ 600, màu chữ #dc3545",
+    "Xác minh nút 'Hủy bỏ' có màu nền #6c757d, màu chữ #ffffff, bo góc 4px và khoảng đệm trong 10px",
+    "Xác minh nút 'Xóa' có màu nền #dc3545, màu chữ #ffffff, bo góc 4px và khoảng đệm trong 10px",
+    "Nhấn 'Hủy bỏ'",
+    "Xác minh modal ẩn đi trong vòng 300ms"
+  ],
+  [
+    "Xác minh video player trên trang sản phẩm",
+    "Đảm bảo video ban đầu ở trạng thái tắt tiếng (muted=true) và không ở chế độ toàn màn hình",
+    "Kiểm tra rằng chiều rộng hiển thị của player là 800px và chiều cao 450px",
+    "Xác minh nút 'Phát' và 'Tạm dừng' có biểu tượng riêng biệt, với biểu tượng 'Phát' hiển thị ban đầu",
+    "Xác minh thanh tiến trình của video hiển thị ở phía dưới với màu nền #e9ecef và phần tiến trình đã xem có màu #007bff",
+    "Xác minh nhãn 'Thời lượng video' có aria-label đặt thành 'Tổng thời lượng video 2 phút 30 giây'",
+    "Nhấp vào nút 'Toàn màn hình'",
+    "Xác minh video player mở rộng để chiếm toàn bộ màn hình thiết bị (fullscreen=true), và biểu tượng nút chuyển sang 'Thoát toàn màn hình'",
+    "Xác minh khi video đang phát, thanh tiến trình cập nhật theo thời gian thực mỗi 1 giây"
+  ],
+  [
+    "Kiểm tra hiển thị của menu điều hướng chính trên thiết bị di động (chiều rộng màn hình 360px)",
+    "Đảm bảo menu ban đầu ở trạng thái ẩn",
+    "Nhấp vào biểu tượng 'hamburger' (nút menu)",
+    "Xác minh menu trượt ra từ bên trái màn hình với hiệu ứng chuyển tiếp trong 300ms, có chiều rộng 75% của khung nhìn, chiều cao 100% của khung nhìn, và màu nền #333",
+    "Xác minh các mục menu 'Trang chủ', 'Sản phẩm', 'Liên hệ' hiển thị với màu chữ #ffffff, cỡ chữ 18px và khoảng đệm trong 15px theo chiều dọc",
+    "Xác minh mục menu 'Sản phẩm' hiển thị là đang được chọn với màu nền #007bff và màu chữ #ffffff",
+    "Đảm bảo rằng khi menu hiển thị, một lớp phủ mờ với độ mờ 0.4 xuất hiện trên phần còn lại của màn hình",
+    "Chạm vào lớp phủ mờ",
+    "Xác minh menu ẩn đi trong 300ms"
+  ],
+  [
+    "Xác minh hiển thị của một thẻ sản phẩm trong danh sách kết quả tìm kiếm",
+    "Đảm bảo mỗi thẻ sản phẩm có chiều rộng 250px, chiều cao 350px, với viền 1px màu #e0e0e0, bo góc 8px, và khoảng lề ngoài 15px ở tất cả các phía",
+    "Kiểm tra rằng hình ảnh sản phẩm trong thẻ có nguồn là 'product_thumb_search.jpg', kích thước hiển thị 200x150px, được căn chỉnh trên cùng của thẻ",
+    "Xác minh tên sản phẩm 'Tên sản phẩm ví dụ' có màu chữ #333, cỡ chữ 18px, độ đậm chữ 500, và được căn chỉnh văn bản ở giữa",
+    "Xác minh giá sản phẩm '1.250.000đ' hiển thị ngay bên dưới tên sản phẩm với màu chữ #dc3545, cỡ chữ 16px và độ đậm chữ 700",
+    "Đảm bảo nút 'Xem chi tiết' ở cuối thẻ có màu nền #f8f9fa, màu chữ #007bff, bo góc 4px, với khoảng đệm trong 8px"
+  ],
+  [
+    "Kiểm tra chức năng cuộn trang và tiêu đề cố định",
+    "Đảm bảo thanh điều hướng chính có chiều cao 70px, hiển thị ở trên cùng của trang (top=0) với màu nền #ffffff và viền dưới 1px màu #e0e0e0",
+    "Cuộn trang xuống 200px (scroll-top=200)",
+    "Xác minh thanh điều hướng vẫn cố định ở top=0 và left=0, nhưng màu nền của nó chuyển sang #f8f9fa và độ mờ của viền dưới tăng lên",
+    "Đảm bảo rằng tốc độ cuộn của trang là mượt mà, không có giật lag",
+    "Cuộn lên đến top=0",
+    "Xác minh màu nền và viền của thanh điều hướng trở lại trạng thái ban đầu",
+    "Cuộn trang xuống 300px (scroll-top=300)",
+    "Kiểm tra rằng một nút 'Cuộn lên đầu' xuất hiện ở góc dưới bên phải màn hình (bottom=20px, right=20px), với màu nền #007bff và màu chữ #ffffff"
+  ],
+  [
+    "Xác minh hiển thị của các tab điều hướng",
+    "Đảm bảo có 3 tab: 'Tổng quan', 'Cài đặt', 'Lịch sử'",
+    "Mỗi tab có chiều rộng 120px, chiều cao 40px, với khoảng đệm trong 10px",
+    "Xác minh tab 'Tổng quan' hiển thị là đang được chọn (active) với màu nền #007bff, màu chữ #ffffff, và viền dưới 3px màu #007bff",
+    "Xác minh các tab còn lại có màu nền #f8f9fa, màu chữ #333, và viền dưới 1px màu #dee2e6",
+    "Mỗi tab phải có nhãn aria-label mô tả nội dung của tab, ví dụ: 'Xem tổng quan tài khoản của bạn'",
+    "Nhấp vào tab 'Cài đặt'",
+    "Xác minh tab 'Cài đặt' chuyển sang trạng thái active với màu nền #007bff, màu chữ #ffffff, và viền dưới 3px màu #007bff, trong khi tab 'Tổng quan' trở về trạng thái không được chọn, quá trình chuyển đổi diễn ra trong 200ms"
+  ],
+  [
+    "Kiểm tra hiển thị của biểu đồ tiến độ tải lên tệp",
+    "Đảm bảo thanh tiến độ hiển thị với chiều rộng 100% của khu vực chứa, chiều cao 20px, với bo góc 10px và màu nền #e9ecef ban đầu",
+    "Khi một tệp đang được tải lên, xác minh phần tiến độ đã hoàn thành hiển thị với màu nền #28a745 và chiều rộng tăng dần từ 0% lên 100% trong khoảng thời gian tải lên (ví dụ: 5 giây)",
+    "Xác minh văn bản hiển thị phần trăm tiến độ '50%' hiển thị ngay trên thanh tiến độ với màu chữ #333, cỡ chữ 14px, được căn chỉnh giữa",
+    "Xác minh khi quá trình tải lên hoàn tất, chiều rộng phần tiến độ là 100%, và văn bản chuyển thành 'Hoàn tất'",
+    "Đảm bảo thanh tiến độ có một hiệu ứng hoạt ảnh mượt mà khi chiều rộng của nó thay đổi"
+  ],
+  [
+    "Xác minh hộp tìm kiếm toàn trang",
+    "Đảm bảo trường nhập liệu tìm kiếm có placeholder là 'Tìm kiếm sản phẩm, bài viết...' với màu chữ #6c757d và cỡ chữ 15px",
+    "Trường nhập liệu tìm kiếm có chiều rộng 300px, chiều cao 45px, với viền 1px màu #ccc và bo góc 25px",
+    "Xác minh nút 'Tìm kiếm' bên cạnh trường nhập liệu có biểu tượng kính lúp màu #ffffff, màu nền #007bff, chiều rộng 60px, chiều cao 45px, với bo góc 25px ở phía bên phải",
+    "Nhập 'áo khoác' vào trường tìm kiếm",
+    "Xác minh giá trị của trường nhập liệu hiển thị văn bản 'áo khoác' với màu chữ #333 và cỡ chữ 16px",
+    "Tab đến nút 'Tìm kiếm'",
+    "Xác minh nút 'Tìm kiếm' chuyển sang trạng thái được focus với viền 2px màu #0056b3"
+  ],
+  [
+    "Kiểm tra hiển thị của thẻ thông báo (alert message) khi có lỗi",
+    "Đảm bảo thẻ thông báo 'Lỗi: Vui lòng kiểm tra lại thông tin đã nhập' hiển thị với màu nền #f8d7da, màu chữ #721c24, cỡ chữ 15px và độ đậm chữ 500",
+    "Thẻ thông báo có chiều rộng 400px, chiều cao tự động theo nội dung, với viền 1px màu #f5c6cb, bo góc 4px, khoảng đệm trong 15px ở tất cả các phía và lề ngoài phía trên là 20px",
+    "Nút 'Đóng' (biểu tượng 'x') ở góc trên bên phải của thẻ có màu chữ #721c24 và cỡ chữ 18px",
+    "Thẻ này có nhãn aria-label là 'Thông báo lỗi hệ thống'",
+    "Nhấp vào nút 'Đóng'",
+    "Xác minh thẻ thông báo ẩn đi trong vòng 300ms với hiệu ứng chuyển tiếp độ mờ"
+  ],
+  [
+    "Xác minh hiển thị và tương tác của bộ lọc danh mục sản phẩm",
+    "Đảm bảo danh sách các danh mục hiển thị theo chiều dọc, tổng số danh mục hiển thị là 5, với mỗi danh mục có khoảng lề dưới 5px",
+    "Mỗi danh mục như 'Điện thoại', 'Máy tính bảng', 'Phụ kiện' có màu chữ #333, cỡ chữ 16px, khoảng đệm trong 10px, chiều rộng 200px và chiều cao 35px",
+    "Xác minh danh mục 'Điện thoại' ở trạng thái đang được chọn với màu nền #e9ecef và độ đậm chữ 600",
+    "Xác minh các danh mục còn lại có màu nền #f8f9fa, màu chữ #333, và viền dưới 1px màu #dee2e6",
+    "Nhấp vào danh mục 'Máy tính bảng'",
+    "Xác minh danh mục 'Máy tính bảng' chuyển sang trạng thái đang được chọn với màu nền #e9ecef và độ đậm chữ 600, đồng thời danh mục 'Điện thoại' trở lại trạng thái không được chọn"
+  ],
+  [
+    "Kiểm tra hiển thị của đồng hồ đếm ngược cho ưu đãi đặc biệt",
+    "Đảm bảo văn bản 'Ưu đãi kết thúc sau:' hiển thị với màu chữ #333, cỡ chữ 18px và độ đậm chữ 500",
+    "Xác minh đồng hồ đếm ngược hiển thị dưới dạng các khối số: '00 ngày 00 giờ 00 phút 00 giây'",
+    "Mỗi khối số có màu nền #000000, màu chữ #ffffff, cỡ chữ 24px, độ đậm chữ 700, chiều rộng 50px, chiều height 40px, bo góc 4px, được căn chỉnh giữa và có khoảng lề ngoài 10px giữa chúng",
+    "Đảm bảo rằng các giá trị số cập nhật mỗi 1 giây",
+    "Xác minh khi thời gian đếm ngược về 0, tất cả các khối số hiển thị '00' và văn bản trên cùng đổi thành 'Ưu đãi đã kết thúc' với màu chữ #dc3545",
+    "Sử dụng thuộc tính 'value' để kiểm tra giá trị của bộ đếm"
+  ],
+  [
+    "Xác minh hiển thị của nút 'Xem thêm' để tải thêm nội dung",
+    "Đảm bảo nút này hiển thị với văn bản 'Xem thêm', màu nền #f8f9fa, màu chữ #007bff, cỡ chữ 16px, độ đậm chữ 500, chiều rộng 150px, chiều cao 40px, viền 1px màu #007bff, bo góc 20px và căn chỉnh giữa ở phía dưới danh sách nội dung",
+    "Nhấp vào nút 'Xem thêm'",
+    "Xác minh nút chuyển sang trạng thái disabled, màu nền đổi thành #e9ecef, và văn bản trên nút đổi thành 'Đang tải...' trong 1 giây",
+    "Xác minh sau 1 giây, nút chuyển sang trạng thái enabled trở lại, văn bản quay lại 'Xem thêm'",
+    "Xác minh 5 mục nội dung mới được thêm vào danh sách, mỗi mục mới có chiều cao 100px và khoảng đệm trong 10px",
+    "Nếu không còn nội dung để tải, xác minh nút chuyển sang trạng thái ẩn"
+  ],
+  [
+    "Kiểm tra hình ảnh hồ sơ người dùng",
+    "Đảm bảo hình ảnh có nguồn là 'user_profile_avatar.jpg', kích thước hiển thị là 80x80px, hình dạng tròn (border-radius=50%), có viền 2px màu #007bff, tải hoàn tất trong vòng 500ms và không có watermark",
+    "Di chuột qua hình ảnh",
+    "Xác minh độ mờ của hình ảnh giảm xuống 0.7 trong 200ms",
+    "Xác minh dưới hình ảnh là tên người dùng 'Nguyễn Văn A' với màu chữ #333, cỡ chữ 18px, độ đậm chữ 600, căn chỉnh văn bản ở giữa",
+    "Xác minh bên cạnh tên người dùng là vai trò 'Người dùng cao cấp' với màu chữ #6c757d, cỡ chữ 14px và độ đậm chữ 400"
+  ],
+  [
+    "Xác minh hiển thị của một trường nhập liệu ngày tháng",
+    "Đảm bảo placeholder hiển thị 'Chọn ngày sinh' với màu chữ #6c757d và cỡ chữ 14px",
+    "Trường nhập liệu có chiều rộng 200px, chiều cao 38px, với viền 1px màu #ced4da và bo góc 4px",
+    "Nhấp vào trường nhập liệu",
+    "Xác minh một lịch chọn ngày hiển thị ngay bên dưới trường với vị trí y tăng thêm 40px so với trường, có màu nền #ffffff và viền 1px màu #e0e0e0",
+    "Xác minh các ngày trong lịch có màu chữ #333 và cỡ chữ 14px",
+    "Xác minh ngày hiện tại được đánh dấu với màu nền #007bff và màu chữ #ffffff",
+    "Chọn ngày 15 tháng 10 năm 2023",
+    "Xác minh giá trị của trường nhập liệu cập nhật thành '15/10/2023' với màu chữ #333, cỡ chữ 16px, và lịch ẩn đi"
+  ],
+  [
+    "Kiểm tra hiển thị của một phần tử tooltip",
+    "Đảm bảo tooltip ban đầu ở trạng thái ẩn",
+    "Di chuột qua biểu tượng 'Thông tin' (với nhãn aria-label là 'Hiển thị thông tin bổ sung')",
+    "Xác minh tooltip hiển thị với văn bản 'Đây là thông tin bổ sung về sản phẩm', màu nền #333, màu chữ #ffffff, cỡ chữ 12px và độ đậm chữ 400",
+    "Tooltip có chiều rộng tự động theo nội dung, chiều cao tự động theo nội dung, với khoảng đệm trong 8px và bo góc 4px",
+    "Xác minh vị trí của tooltip ngay phía dưới biểu tượng (y=biểu tượng.y + biểu tượng.height + 10px) và căn giữa theo chiều ngang so với biểu tượng (x=biểu tượng.x + biểu tượng.width/2 - tooltip.width/2)",
+    "Di con trỏ chuột rời khỏi biểu tượng",
+    "Xác minh tooltip ẩn đi trong vòng 200ms với hiệu ứng chuyển tiếp độ mờ từ 1 xuống 0"
+  ],
+  [
+    "Truy cập trang đăng nhập 'https://app.example.com/login'",
+    "Xác minh rằng trường nhập email có placeholder là 'Địa chỉ email của bạn' với cỡ chữ 16px, màu chữ #333333, phông chữ 'Arial', viền 1px màu #cccccc, bo góc 5px và khoảng đệm trong 10px ở tất cả các phía",
+    "Xác minh rằng trường nhập mật khẩu có placeholder là 'Mật khẩu' với cỡ chữ 16px, màu chữ #333333, phông chữ 'Arial', viền 1px màu #cccccc, bo góc 5px và khoảng đệm trong 10px ở tất cả các phía",
+    "Xác minh rằng trường nhập email và trường nhập mật khẩu đều nằm căn giữa theo chiều ngang với chiều rộng 300px, chiều cao 40px và có lề ngoài phía dưới là 15px giữa chúng",
+    "Xác minh rằng nhãn 'Email' hiển thị ngay phía trên trường email với màu văn bản #555555 và cỡ chữ 14px",
+    "Xác minh rằng nhãn 'Mật khẩu' hiển thị ngay phía trên trường mật khẩu với màu văn bản #555555 và cỡ chữ 14px",
+    "Xác minh rằng nút 'Đăng nhập' có màu nền rgb(0, 123, 255), màu chữ #ffffff, độ đậm chữ 600, cỡ chữ 18px, bo góc 6px, chiều rộng 300px, chiều cao 48px, được căn giữa bên dưới hai trường nhập và lề ngoài phía trên là 20px",
+    "Xác minh rằng khi nút 'Đăng nhập' được focus, viền của nút chuyển thành 2px màu #80bdff và bóng đổ mờ",
+    "Xác minh rằng liên kết 'Quên mật khẩu?' hiển thị với màu chữ #007bff, cỡ chữ 14px, nằm ở dưới cùng của form và căn chỉnh văn bản sang phải",
+    "Xác minh rằng không có hoạt ảnh nào đang chạy trên các trường nhập hoặc nút đăng nhập khi trang vừa tải xong",
+    "Xác minh rằng tổng thể khối đăng nhập có chiều rộng 400px, chiều cao 350px, màu nền #f9f9f9, và có viền 1px màu #dddddd, được căn chỉnh giữa màn hình theo cả chiều dọc và chiều ngang, với lề ngoài 50px từ phía trên",
+    "Xác minh rằng biểu tượng khóa nhỏ bên cạnh trường mật khẩu có hình dạng ổ khóa, chiều rộng 18px, chiều cao 18px và màu #6c757d"
+  ],
+  [
+    "Mở trang danh sách sản phẩm 'https://shop.example.com/products'",
+    "Xác minh rằng tiêu đề trang 'Sản Phẩm Của Chúng Tôi' có màu hiển thị #1a1a1a, cỡ chữ 32px, phông chữ 'Helvetica Neue', độ đậm chữ 700, căn chỉnh văn bản ở giữa, có lề ngoài phía trên là 40px và lề dưới là 20px",
+    "Xác minh rằng mỗi ô sản phẩm hiển thị có chiều rộng 280px, chiều cao 400px, màu nền #ffffff, viền 1px màu #e0e0e0, bo góc 10px, khoảng đệm trong 15px ở tất cả các phía và lề ngoài 20px theo mọi phía",
+    "Xác minh rằng hình ảnh sản phẩm trong mỗi ô có nguồn là 'product_thumbnail_[ID].jpg', kích thước hiển thị là 250x180px, đã tải hoàn tất, không có watermark và nằm ở vị trí trên cùng của ô sản phẩm",
+    "Xác minh rằng tên sản phẩm bên dưới hình ảnh có màu chữ #333333, cỡ chữ 18px, độ đậm chữ 500 và căn chỉnh văn bản ở giữa",
+    "Xác minh rằng giá sản phẩm hiển thị ngay dưới tên sản phẩm với màu chữ #dc3545, cỡ chữ 22px, độ đậm chữ 700, có lề ngoài phía trên 10px và căn giữa",
+    "Xác minh rằng nút 'Xem Chi Tiết' trong mỗi ô có màu nền #28a745, màu chữ #ffffff, bo góc 5px, chiều rộng 120px, chiều cao 36px, được căn giữa ở dưới cùng của ô sản phẩm và ở trạng thái bật",
+    "Xác minh rằng khi di chuột qua nút 'Xem Chi Tiết', màu nền của nút thay đổi thành #218838 với hiệu ứng chuyển tiếp kéo dài 200ms",
+    "Xác minh rằng có tổng cộng 12 ô sản phẩm được hiển thị trên trang hiện tại",
+    "Xác minh rằng các nút phân trang phía dưới danh sách sản phẩm có nhãn aria-label là 'Chuyển trang', màu nền #f8f9fa cho trang không hoạt động và màu nền #007bff cho trang đang được chọn"
+  ],
+  [
+    "Truy cập hồ sơ người dùng 'https://app.example.com/profile/john_doe'",
+    "Xác minh rằng ảnh đại diện có nguồn là 'profile_pic_john.jpg', kích thước hiển thị 120x120px, có hình dạng tròn hoàn hảo với bo góc 60px, nằm ở vị trí (x=50, y=50) trên trang và đã tải trong 500ms",
+    "Xác minh rằng tên người dùng 'John Doe' hiển thị với màu chữ #333333, cỡ chữ 24px, phông chữ 'Roboto Slab', độ đậm chữ 700 và căn chỉnh văn bản ở giữa phía dưới ảnh đại diện",
+    "Xác minh rằng email 'john.doe@example.com' hiển thị ngay dưới tên người dùng với màu chữ #6c757d, cỡ chữ 16px, độ đậm chữ 400 và có lề ngoài phía trên là 8px",
+    "Xác minh rằng nút 'Chỉnh sửa hồ sơ' có màu nền #ffc107, màu chữ #212529, bo góc 4px, khoảng đệm trong 10px theo chiều ngang và 8px theo chiều dọc, chiều rộng 150px, chiều cao 40px, ở trạng thái bật và được căn chỉnh bên phải của khối thông tin người dùng",
+    "Xác minh rằng khi nút 'Chỉnh sửa hồ sơ' được nhấn, màu nền của nút chuyển sang #e0a800",
+    "Xác minh rằng phần 'Thông tin liên hệ' có tiêu đề 'Thông tin liên hệ' với cỡ chữ 20px, màu #333333, độ đậm chữ 600, nằm dưới email và có lề ngoài phía trên 30px",
+    "Xác minh rằng các trường nhập số điện thoại và địa chỉ đều có viền 1px màu #ced4da, bo góc 4px và độ mờ 0.8 khi ở trạng thái disabled",
+    "Xác minh rằng nhãn aria-label của trường số điện thoại là 'Số điện thoại của bạn'"
+  ],
+  [
+    "Mở trang cài đặt 'https://app.example.com/settings'",
+    "Xác minh rằng các mục điều hướng bên trái như 'Thông báo', 'Bảo mật' có màu chữ #007bff khi đang được chọn và màu chữ #495057 khi không được chọn, với cỡ chữ 16px, phông chữ 'Segoe UI', độ đậm chữ 500 và khoảng đệm trong 12px theo chiều dọc",
+    "Xác minh rằng phần nội dung chính hiển thị các cài đặt có màu nền #ffffff, viền 1px màu #e9ecef, bo góc 8px, lề ngoài phía trái 20px và chiều rộng 75% của màn hình",
+    "Xác minh rằng nút chuyển đổi 'Bật thông báo email' có màu nền #28a745 khi bật và #6c757d khi tắt, với hình dạng hình chữ nhật bo tròn có chiều rộng 40px, chiều cao 24px và nằm ở vị trí (x=20, y=10) trong phần cài đặt thông báo",
+    "Xác minh rằng nhãn 'Bật thông báo email' hiển thị ngay bên cạnh nút chuyển đổi với màu chữ #333333 và cỡ chữ 15px",
+    "Xác minh rằng trường chọn múi giờ hiển thị giá trị mặc định là '(GMT+7) Hồ Chí Minh', với viền 1px màu #ced4da, bo góc 4px, chiều rộng 200px, chiều cao 38px và ở trạng thái bật",
+    "Xác minh rằng nút 'Lưu thay đổi' có màu nền #007bff, màu chữ #ffffff, độ đậm chữ 600, bo góc 5px, khoảng đệm trong 10px theo chiều ngang và 8px theo chiều dọc, nằm ở cuối trang và được căn chỉnh sang phải",
+    "Xác minh rằng khi không có thay đổi nào được thực hiện, nút 'Lưu thay đổi' phải ở trạng thái disabled với độ mờ 0.6",
+    "Xác minh rằng có nhãn aria-label 'Chọn múi giờ' cho trường chọn múi giờ"
+  ],
+  [
+    "Truy cập trang giỏ hàng 'https://shop.example.com/cart'",
+    "Xác minh rằng tiêu đề 'Giỏ Hàng Của Bạn' có màu hiển thị #343a40, cỡ chữ 28px, độ đậm chữ 700, căn chỉnh văn bản sang trái và có lề ngoài phía trên là 30px",
+    "Xác minh rằng mỗi dòng sản phẩm trong giỏ hàng có màu nền #f8f9fa, viền 1px màu #dee2e6, bo góc 5px, khoảng đệm trong 15px và có lề ngoài phía dưới là 10px",
+    "Xác minh rằng hình ảnh sản phẩm trong giỏ hàng có nguồn là 'cart_item_[ID].jpg', kích thước hiển thị 80x80px, đã tải hoàn tất và nằm ở vị trí trái nhất của dòng sản phẩm",
+    "Xác minh rằng tên sản phẩm hiển thị ngay bên cạnh hình ảnh với màu chữ #007bff, cỡ chữ 16px, độ đậm chữ 500 và có lề ngoài phía trái 15px",
+    "Xác minh rằng trường số lượng sản phẩm có giá trị '2', viền 1px màu #ced4da, chiều rộng 50px, chiều cao 30px, nằm ở bên phải tên sản phẩm và ở trạng thái bật",
+    "Xác minh rằng nút 'Xóa' có biểu tượng thùng rác màu #dc3545, cỡ chữ 14px và nằm ở vị trí phải nhất của dòng sản phẩm",
+    "Xác minh rằng tổng số tiền '500.000 VNĐ' hiển thị ở cuối trang với màu chữ #28a745, cỡ chữ 24px, độ đậm chữ 700 và căn chỉnh văn bản sang phải",
+    "Xác minh rằng nút 'Tiến hành Thanh toán' có màu nền #28a745, màu chữ #ffffff, bo góc 6px, chiều rộng 250px, chiều cao 50px, được căn chỉnh giữa và nằm ở dưới cùng của trang",
+    "Xác minh rằng khi có sự thay đổi về số lượng, nút 'Tiến hành Thanh toán' không có hoạt ảnh"
+  ],
+  [
+    "Mở trang xem video 'https://media.example.com/video/lecture_01'",
+    "Xác minh rằng trình phát video có chiều rộng 800px, chiều cao 450px, nằm ở vị trí (x=100, y=50) trên trang và hiển thị rõ ràng",
+    "Xác minh rằng nút 'Play/Pause' hiển thị ở góc dưới bên trái của trình phát với biểu tượng tam giác màu trắng #ffffff trên nền đen #000000, chiều rộng 48px, chiều cao 48px và bo góc 50%",
+    "Xác minh rằng thanh tiến trình video có màu #007bff cho phần đã phát và màu #e9ecef cho phần chưa phát, chiều cao 8px và nằm ngay phía trên các nút điều khiển",
+    "Xác minh rằng nút 'Tắt tiếng' (Mute) hiển thị với biểu tượng loa màu #ffffff, chiều rộng 36px, chiều cao 36px và video đang ở trạng thái không bị tắt tiếng (muted=false)",
+    "Nhấn nút 'Toàn màn hình'",
+    "Xác minh trình phát video chuyển sang chế độ toàn màn hình, chiếm 100% chiều rộng và chiều cao của màn hình và ẩn các yếu tố giao diện khác",
+    "Xác minh rằng tiêu đề video 'Bài Giảng Giới Thiệu' hiển thị phía trên trình phát với màu chữ #343a40, cỡ chữ 26px, độ đậm chữ 600 và căn chỉnh văn bản sang trái",
+    "Xác minh rằng mô tả video 'Giới thiệu về lập trình web cơ bản.' hiển thị ngay dưới tiêu đề với màu chữ #6c757d và cỡ chữ 16px",
+    "Xác minh rằng nút 'Tải xuống' có nhãn aria-label 'Tải xuống video', màu nền #6c757d, màu chữ #ffffff và bo góc 4px"
+  ],
+  [
+    "Truy cập trang liên hệ 'https://example.com/contact'",
+    "Xác minh rằng tiêu đề 'Liên Hệ Với Chúng Tôi' có màu chữ #0056b3, cỡ chữ 30px, phông chữ 'Georgia', độ đậm chữ 700, căn chỉnh văn bản ở giữa, có lề ngoài phía trên 50px và lề dưới 25px",
+    "Xác minh rằng trường nhập 'Họ và tên' có placeholder là 'Nhập họ và tên của bạn' với cỡ chữ 16px, màu chữ #333333, viền 1px màu #cccccc, bo góc 4px, khoảng đệm trong 12px, chiều rộng 400px, chiều cao 45px và nằm ở vị trí (x=50, y=120)",
+    "Xác minh rằng trường nhập 'Email' có placeholder là 'Nhập địa chỉ email của bạn' với cỡ chữ 16px, màu chữ #333333, viền 1px màu #cccccc, bo góc 4px, khoảng đệm trong 12px, chiều rộng 400px, chiều cao 45px, nằm ngay phía dưới trường 'Họ và tên' và có lề ngoài 15px",
+    "Xác minh rằng trường 'Tin nhắn của bạn' là một textarea với placeholder 'Nhập tin nhắn của bạn...', chiều rộng 400px, chiều cao 150px, viền 1px màu #cccccc, bo góc 4px, khoảng đệm trong 12px, nằm ngay phía dưới trường email và có lề ngoài 15px",
+    "Xác minh rằng khi bất kỳ trường nào được focus, viền của trường đó chuyển thành 2px màu #80bdff",
+    "Xác minh rằng nút 'Gửi' có màu nền #28a745, màu chữ #ffffff, độ đậm chữ 600, cỡ chữ 18px, bo góc 5px, chiều rộng 150px, chiều cao 48px, được căn giữa bên dưới textarea và có lề ngoài phía trên 20px, ở trạng thái bật",
+    "Xác minh rằng văn bản 'Chúng tôi sẽ phản hồi trong 24 giờ.' hiển thị dưới nút 'Gửi' với màu chữ #6c757d, cỡ chữ 14px và căn chỉnh văn bản ở giữa",
+    "Xác minh rằng biểu tượng điện thoại trên trang có hình dạng điện thoại, màu #007bff, chiều rộng 24px và chiều cao 24px"
+  ],
+  [
+    "Mở trang quản lý dự án 'https://app.example.com/projects'",
+    "Xác minh rằng bảng danh sách dự án có tổng cộng 5 cột và 10 hàng dữ liệu, với tiêu đề cột có màu nền #f2f2f2, màu chữ #333333, cỡ chữ 15px, độ đậm chữ 600 và khoảng đệm trong 10px",
+    "Xác minh rằng mỗi ô dữ liệu trong bảng có viền 1px màu #dddddd, khoảng đệm trong 8px, màu chữ #495057 và cỡ chữ 14px",
+    "Xác minh rằng nút 'Thêm Dự án mới' có màu nền #007bff, màu chữ #ffffff, bo góc 6px, khoảng đệm trong 10px theo chiều ngang và 8px theo chiều dọc, chiều rộng 180px, chiều cao 40px, nằm ở góc trên bên phải của bảng và ở trạng thái bật",
+    "Xác minh rằng khi nút 'Thêm Dự án mới' được focus, viền của nút chuyển thành 2px màu #80bdff và có hiệu ứng chuyển tiếp màu nền kéo dài 200ms",
+    "Xác minh rằng trường tìm kiếm dự án có placeholder 'Tìm kiếm dự án...' với viền 1px màu #ced4da, bo góc 4px, chiều rộng 250px, chiều cao 38px và nằm ở góc trên bên trái của bảng",
+    "Xác minh rằng văn bản thay thế (alt text) cho biểu tượng 'Tùy chọn' trong mỗi hàng là 'Thao tác dự án'",
+    "Xác minh rằng trạng thái dự án 'Hoàn thành' hiển thị với màu nền #28a745, màu chữ #ffffff, bo góc 3px, khoảng đệm trong 4px theo chiều ngang và 2px theo chiều dọc, cỡ chữ 12px",
+    "Xác minh rằng nút 'Chỉnh sửa' trong mỗi hàng có biểu tượng bút chì màu #007bff và nút 'Xóa' có biểu tượng thùng rác màu #dc3545, cả hai đều có chiều rộng 20px và chiều cao 20px"
+  ],
+  [
+    "Truy cập trang bản đồ 'https://map.example.com'",
+    "Xác minh rằng bản đồ hiển thị với chiều rộng 100% màn hình, chiều cao 70% màn hình, nằm ở vị trí (x=0, y=0) và không có viền",
+    "Xác minh rằng thanh tìm kiếm địa điểm có placeholder 'Tìm kiếm địa điểm...' với viền 1px màu #cccccc, bo góc 25px, chiều rộng 400px, chiều cao 45px, nằm ở góc trên bên trái của bản đồ và có lề ngoài 20px từ phía trên và 20px từ phía trái",
+    "Xác minh rằng nút 'Tìm' có biểu tượng kính lúp màu #ffffff trên nền màu #007bff, chiều rộng 45px, chiều cao 45px, bo góc 25px, nằm ngay bên phải thanh tìm kiếm và ở trạng thái bật",
+    "Nhấn nút 'Tìm'",
+    "Xác minh nút 'Tìm' có hoạt ảnh quay nhẹ 360 độ trong 500ms",
+    "Xác minh rằng biểu tượng vị trí hiện tại có hình dạng chấm tròn màu xanh lam #007bff, đường kính 20px và nằm ở trung tâm của bản đồ",
+    "Xác minh rằng các điểm đánh dấu trên bản đồ có hình dạng giọt nước màu đỏ #dc3545, chiều rộng 25px, chiều cao 35px và có độ mờ 0.9",
+    "Xác minh rằng thanh trượt thu phóng bản đồ có màu #6c757d, chiều rộng 5px và nằm ở phía dưới bên phải của bản đồ",
+    "Xác minh rằng nhãn aria-label cho nút phóng to là 'Phóng to bản đồ' và cho nút thu nhỏ là 'Thu nhỏ bản đồ'",
+    "Xác minh rằng thanh cuộn ngang và dọc của bản đồ đều ở vị trí 0 (scroll-left=0, scroll-top=0) khi trang tải lần đầu tiên",
+    "Xác minh rằng văn bản chú thích dưới bản đồ hiển thị 'Bản quyền © 2024 Example Maps' với màu chữ #6c757d và cỡ chữ 12px"
+  ],
+  [
+    "Mở trang xem ảnh 'https://gallery.example.com/image/summer_vacation'",
+    "Xác minh rằng hình ảnh chính có nguồn là 'summer_vacation_full.jpg', kích thước hiển thị 800x600px, kích thước gốc 1600x1200px, đã tải trong 1 giây, không có watermark, có alt text là 'Kỳ nghỉ hè tại bãi biển' và nằm ở trung tâm màn hình",
+    "Xác minh rằng các nút điều hướng 'Trước' và 'Tiếp theo' có biểu tượng mũi tên màu #ffffff trên nền màu #333333 với độ mờ 0.7, chiều rộng 50px, chiều cao 50px, bo góc 50%, nằm ở hai bên của hình ảnh chính và ở trạng thái bật",
+    "Xác minh rằng khi di chuột qua các nút điều hướng, độ mờ của chúng tăng lên 1.0 trong 200ms",
+    "Xác minh rằng tiêu đề ảnh 'Kỳ nghỉ Hè Tuyệt Vời' hiển thị phía dưới hình ảnh với màu chữ #1a1a1a, cỡ chữ 26px, độ đậm chữ 600 và căn chỉnh văn bản ở giữa",
+    "Xác minh rằng mô tả ảnh 'Phong cảnh biển đẹp ở bờ biển.' hiển thị ngay dưới tiêu đề với màu chữ #6c757d, cỡ chữ 16px và căn chỉnh văn bản ở giữa",
+    "Xác minh rằng thanh thu nhỏ ảnh hiển thị 5 hình ảnh khác có nguồn 'summer_vacation_thumb_[ID].jpg', mỗi hình có kích thước hiển thị 100x75px, viền 2px màu #007bff cho ảnh đang được chọn và 2px màu #e0e0e0 cho ảnh không được chọn, có lề ngoài 10px giữa các hình",
+    "Xác minh rằng có tổng cộng 5 hình thu nhỏ hiển thị",
+    "Xác minh rằng nhãn aria-label của hình ảnh chính là 'Hình ảnh kỳ nghỉ hè'"
+  ],
+  [
+    "Truy cập trang báo cáo 'https://analytics.example.com/reports/dashboard'",
+    "Xác minh rằng biểu đồ doanh thu có tiêu đề 'Doanh thu hàng tháng' với màu chữ #333333, cỡ chữ 22px, độ đậm chữ 600, căn chỉnh văn bản sang trái và có lề ngoài phía trên 20px",
+    "Xác minh rằng các thanh biểu đồ có màu #007bff, chiều rộng 30px, chiều cao tỷ lệ với giá trị doanh thu và có lề ngoài 5px giữa các thanh",
+    "Xác minh rằng nhãn trục X (tháng) có màu chữ #6c757d, cỡ chữ 14px và nhãn trục Y (doanh thu) có màu chữ #6c757d, cỡ chữ 14px",
+    "Xác minh rằng bảng dữ liệu chi tiết bên dưới biểu đồ có tổng cộng 4 cột và 12 hàng, với màu nền #f8f9fa cho các hàng chẵn và #ffffff cho các hàng lẻ, và viền 1px màu #dee2e6",
+    "Xác minh rằng nút 'Xuất báo cáo' có màu nền #28a745, màu chữ #ffffff, bo góc 4px, khoảng đệm trong 10px theo chiều ngang và 8px theo chiều dọc, chiều rộng 160px, chiều cao 38px, nằm ở góc trên bên phải của bảng dữ liệu và ở trạng thái bật",
+    "Xác minh rằng khi nút 'Xuất báo cáo' được di chuột qua, màu nền của nút thay đổi thành #218838 trong 200ms",
+    "Xác minh rằng trường chọn ngày bắt đầu và ngày kết thúc có giá trị mặc định là '01/01/2024' và '31/01/2024' tương ứng, viền 1px màu #ced4da, bo góc 4px, chiều rộng 120px, chiều cao 36px và ở trạng thái bật",
+    "Xác minh rằng nhãn 'Ngày bắt đầu' cho trường chọn ngày có màu chữ #555555 và cỡ chữ 14px"
+  ],
+  [
+    "Mở trang chỉnh sửa văn bản 'https://editor.example.com/doc/new'",
+    "Xác minh rằng vùng soạn thảo văn bản chính có màu nền #ffffff, màu chữ #1a1a1a, cỡ chữ 16px, phông chữ 'serif', viền 1px màu #cccccc, khoảng đệm trong 20px, chiều rộng 800px, chiều cao 600px và cuộn lên (scroll-top) 0, cuộn sang trái (scroll-left) 0 khi tải",
+    "Xác minh rằng thanh công cụ trên cùng có màu nền #f0f0f0, chiều rộng 100%, chiều cao 50px và nằm ở vị trí trên cùng của màn hình",
+    "Xác minh rằng các nút 'In đậm', 'In nghiêng', 'Gạch chân' trên thanh công cụ có biểu tượng tương ứng màu #333333, chiều rộng 32px, chiều cao 32px, bo góc 4px và có lề ngoài 5px giữa các nút",
+    "Xác minh rằng nút 'In đậm' đang ở trạng thái không được chọn",
+    "Xác minh rằng menu thả xuống 'Phông chữ' hiển thị giá trị 'Arial' với màu nền #ffffff, màu chữ #333333, viền 1px màu #cccccc, bo góc 4px, chiều rộng 150px, chiều cao 36px và nằm ở bên trái của thanh công cụ",
+    "Xác minh rằng thanh cuộn dọc của vùng soạn thảo văn bản hoạt động chính xác và có màu #888888, chiều rộng 8px",
+    "Xác minh rằng nút 'Lưu' có màu nền #007bff, màu chữ #ffffff, độ đậm chữ 600, bo góc 5px, chiều rộng 100px, chiều cao 38px, nằm ở góc trên bên phải của thanh công cụ và ở trạng thái bật",
+    "Xác minh rằng nhãn aria-label cho nút 'In đậm' là 'Chữ in đậm' và nhãn cho nút 'In nghiêng' là 'Chữ in nghiêng'"
+  ],
+  [
+    "Truy cập trang giới thiệu 'https://example.com/about'",
+    "Xác minh rằng tiêu đề chính 'Về Chúng Tôi' có màu chữ #0056b3, cỡ chữ 36px, phông chữ 'Lora', độ đậm chữ 700, căn chỉnh văn bản ở giữa và có lề ngoài phía trên 60px",
+    "Xác minh rằng đoạn văn bản giới thiệu đầu tiên 'Chúng tôi là một công ty công nghệ...' có màu chữ #495057, cỡ chữ 17px, phông chữ 'Merriweather', độ đậm chữ 400, căn chỉnh văn bản sang trái, chiều rộng 800px, có lề ngoài 25px từ phía trên và được căn giữa theo chiều ngang",
+    "Xác minh rằng hình ảnh đội ngũ có nguồn 'team_photo.jpg', kích thước hiển thị 700x450px, đã tải hoàn tất trong 1.2 giây, có alt text 'Đội ngũ của chúng tôi', không có watermark và nằm ở vị trí (x=100, y=300)",
+    "Xác minh rằng các thành viên trong đội ngũ được liệt kê với tên có màu chữ #333333, cỡ chữ 20px, độ đậm chữ 600 và chức danh có màu chữ #6c757d, cỡ chữ 15px",
+    "Xác minh rằng phần 'Giá trị cốt lõi' có tiêu đề 'Giá trị cốt lõi' với cỡ chữ 24px, màu #333333, độ đậm chữ 600, nằm dưới hình ảnh đội ngũ và có lề ngoài phía trên 40px",
+    "Xác minh rằng mỗi giá trị cốt lõi được hiển thị với biểu tượng hình dạng ngôi sao màu vàng #ffc107, chiều rộng 20px, chiều cao 20px và văn bản mô tả có màu chữ #495057, cỡ chữ 16px",
+    "Xác minh rằng có tổng cộng 3 giá trị cốt lõi được hiển thị",
+    "Xác minh rằng nút 'Tìm hiểu thêm' có nhãn aria-label 'Tìm hiểu thêm về công ty', màu nền #007bff, màu chữ #ffffff, bo góc 5px, chiều rộng 150px và chiều cao 45px"
+  ],
+  [
+    "Mở trang sự kiện 'https://events.example.com/upcoming'",
+    "Xác minh rằng tiêu đề trang 'Sự Kiện Sắp Tới' có màu chữ #212529, cỡ chữ 30px, phông chữ 'Montserrat', độ đậm chữ 700, căn chỉnh văn bản sang trái, có lề ngoài phía trên 40px và lề dưới 20px",
+    "Xác minh rằng mỗi thẻ sự kiện hiển thị có màu nền #ffffff, viền 1px màu #e0e0e0, bo góc 12px, khoảng đệm trong 20px, chiều rộng 320px, chiều cao 250px và có lề ngoài 20px theo mọi phía",
+    "Xác minh rằng hình ảnh sự kiện trong mỗi thẻ có nguồn là 'event_thumbnail_[ID].jpg', kích thước hiển thị 300x150px, đã tải hoàn tất, có alt text 'Ảnh sự kiện' và nằm ở vị trí trên cùng của thẻ",
+    "Xác minh rằng tên sự kiện bên dưới hình ảnh có màu chữ #007bff, cỡ chữ 20px, độ đậm chữ 600 và căn chỉnh văn bản sang trái",
+    "Xác minh rằng ngày sự kiện hiển thị là '15/07/2024' với màu chữ #6c757d, cỡ chữ 15px, độ đậm chữ 400, nằm ngay dưới tên sự kiện và có lề ngoài phía trên 8px",
+    "Xác minh rằng nút 'Đăng ký' có màu nền #ffc107, màu chữ #212529, bo góc 6px, chiều rộng 100px, chiều cao 36px, được căn chỉnh bên phải của thẻ và ở trạng thái bật",
+    "Xác minh rằng khi nút 'Đăng ký' được focus, viền của nút chuyển thành 2px màu #e0a800",
+    "Xác minh rằng có tổng cộng 6 thẻ sự kiện được hiển thị trên trang hiện tại",
+    "Xác minh rằng nhãn aria-label cho nút 'Đăng ký' là 'Đăng ký sự kiện'"
+  ],
+  [
+    "Truy cập trang danh mục 'https://shop.example.com/categories/electronics'",
+    "Xác minh rằng tiêu đề danh mục 'Điện Tử' có màu chữ #1a1a1a, cỡ chữ 32px, độ đậm chữ 700, căn chỉnh văn bản sang trái và có lề ngoài phía trên 40px",
+    "Xác minh rằng mỗi danh mục con hiển thị dưới dạng một nút với màu nền #f0f0f0, màu chữ #333333, bo góc 8px, khoảng đệm trong 10px theo chiều ngang và 8px theo chiều dọc, chiều rộng 180px, chiều cao 40px, có lề ngoài 10px theo mọi phía và ở trạng thái bật",
+    "Xác minh rằng các nút danh mục con có hiệu ứng chuyển tiếp màu nền kéo dài 150ms khi di chuột qua, thay đổi màu nền thành #e2e6ea",
+    "Xác minh rằng icon cho mỗi danh mục con có hình dạng tương ứng (ví dụ: hình dạng điện thoại cho 'Điện thoại') với màu #007bff, chiều rộng 24px, chiều cao 24px và nằm ở bên trái của văn bản danh mục",
+    "Xác minh rằng mô tả danh mục 'Các sản phẩm điện tử hiện đại...' hiển thị bên dưới tiêu đề với màu chữ #6c757d, cỡ chữ 16px và căn chỉnh văn bản sang trái",
+    "Xác minh rằng hộp kiểm 'Hiển thị sản phẩm đã hết hàng' có chiều rộng 18px, chiều cao 18px, viền 1px màu #6c757d và ở trạng thái không được chọn",
+    "Xác minh rằng nhãn 'Hiển thị sản phẩm đã hết hàng' hiển thị ngay bên phải hộp kiểm với màu chữ #333333 và cỡ chữ 15px",
+    "Xác minh rằng có tổng cộng 5 danh mục con được hiển thị, bao gồm 'Điện thoại', 'Máy tính bảng', 'Laptop', 'Phụ kiện', 'Thiết bị gia dụng'"
+  ],
+  [
+    "Mở trang tin tức 'https://news.example.com/latest'",
+    "Xác minh rằng tiêu đề trang 'Tin Tức Mới Nhất' có màu chữ #1a1a1a, cỡ chữ 30px, phông chữ 'Roboto', độ đậm chữ 700, căn chỉnh văn bản sang trái và có lề ngoài phía trên 35px",
+    "Xác minh rằng mỗi bài viết tin tức hiển thị có màu nền #ffffff, viền 1px màu #e0e0e0, bo góc 8px, khoảng đệm trong 15px, chiều rộng 700px, chiều cao 200px, có lề ngoài phía dưới 20px và được căn giữa theo chiều ngang",
+    "Xác minh rằng hình ảnh bài viết có nguồn là 'news_image_[ID].jpg', kích thước hiển thị 150x100px, đã tải hoàn tất, có alt text 'Ảnh tin tức' và nằm ở bên trái của bài viết",
+    "Xác minh rằng tiêu đề bài viết hiển thị bên cạnh hình ảnh với màu chữ #007bff, cỡ chữ 20px, độ đậm chữ 600, căn chỉnh văn bản sang trái và có lề ngoài phía trái 15px",
+    "Xác minh rằng đoạn tóm tắt bài viết hiển thị ngay dưới tiêu đề với màu chữ #6c757d, cỡ chữ 15px, độ đậm chữ 400 và văn bản 'Đây là phần tóm tắt ngắn gọn của bài viết...' với tối đa 150 ký tự",
+    "Xác minh rằng ngày đăng bài hiển thị là '10/05/2024' với màu chữ #888888, cỡ chữ 13px và nằm ở góc dưới bên phải của bài viết",
+    "Xác minh rằng nút 'Đọc thêm' có màu nền trong suốt, màu chữ #007bff, cỡ chữ 14px, độ đậm chữ 500, không có viền, nằm ở góc dưới bên trái của bài viết và ở trạng thái bật",
+    "Xác minh rằng khi nút 'Đọc thêm' được focus, có hiệu ứng gạch chân văn bản",
+    "Xác minh rằng thanh cuộn dọc của trang có màu #aaaaaa, chiều rộng 10px và cuộn lên (scroll-top) 0 khi trang tải"
+  ],
+  [
+    "Truy cập trang biểu mẫu khảo sát 'https://forms.example.com/survey'",
+    "Xác minh rằng tiêu đề biểu mẫu 'Khảo Sát Hài Lòng Khách Hàng' có màu chữ #333333, cỡ chữ 28px, độ đậm chữ 600, căn chỉnh văn bản ở giữa và có lề ngoài phía trên 50px",
+    "Xác minh rằng mỗi câu hỏi hiển thị với nhãn có màu chữ #495057, cỡ chữ 18px, độ đậm chữ 500 và có lề ngoài phía trên 25px",
+    "Xác minh rằng các trường nhập văn bản ngắn (ví dụ: 'Tên của bạn') có placeholder 'Nhập câu trả lời của bạn', viền 1px màu #cccccc, bo góc 4px, khoảng đệm trong 10px, chiều rộng 400px, chiều cao 40px và ở trạng thái bật",
+    "Xác minh rằng các nút radio cho câu hỏi 'Bạn có hài lòng với dịch vụ không?' có màu nền #ffffff và màu viền #6c757d, chiều rộng 16px, chiều cao 16px, và nhãn 'Có' và 'Không' với màu chữ #333333, cỡ chữ 16px",
+    "Xác minh rằng trường 'Ngày hoàn thành khảo sát' có giá trị mặc định là ngày hiện tại (ví dụ: '2024-05-15') với viền 1px màu #ced4da, bo góc 4px, chiều rộng 150px, chiều cao 36px và ở trạng thái bật",
+    "Xác minh rằng nút 'Gửi Khảo sát' có màu nền #007bff, màu chữ #ffffff, độ đậm chữ 600, bo góc 5px, chiều rộng 200px, chiều cao 48px, được căn giữa ở dưới cùng của biểu mẫu, có lề ngoài phía trên 30px và ở trạng thái bật",
+    "Xác minh rằng khi tất cả các trường bắt buộc đã được điền, nút 'Gửi Khảo sát' không có độ mờ",
+    "Xác minh rằng nhãn aria-label cho trường 'Tên của bạn' là 'Vui lòng nhập tên của bạn'"
+  ],
+  [
+    "Mở trang dashboard quản trị 'https://admin.example.com/dashboard'",
+    "Xác minh rằng tiêu đề 'Tổng Quan Quản Trị' có màu chữ #1a1a1a, cỡ chữ 34px, độ đậm chữ 700, căn chỉnh văn bản sang trái và có lề ngoài phía trên 30px",
+    "Xác minh rằng mỗi thẻ thông tin (ví dụ: 'Người dùng mới', 'Doanh thu hôm nay') có màu nền #ffffff, viền 1px màu #e0e0e0, bo góc 10px, khoảng đệm trong 20px, chiều rộng 280px, chiều cao 150px và có lề ngoài 20px theo mọi phía",
+    "Xác minh rằng tiêu đề trong mỗi thẻ có màu chữ #333333, cỡ chữ 18px, độ đậm chữ 600 và căn chỉnh văn bản sang trái",
+    "Xác minh rằng giá trị số liệu trong mỗi thẻ (ví dụ: '150 người') có màu chữ #007bff, cỡ chữ 36px, độ đậm chữ 800 và nằm ở vị trí (x=15, y=60) trong thẻ",
+    "Xác minh rằng biểu tượng trong mỗi thẻ có hình dạng tương ứng (ví dụ: hình dạng người dùng cho 'Người dùng mới') với màu #28a745, chiều rộng 36px, chiều cao 36px và nằm ở góc trên bên phải của thẻ",
+    "Xác minh rằng liên kết 'Xem chi tiết' trong mỗi thẻ có màu chữ #007bff, cỡ chữ 14px, nằm ở góc dưới bên trái của thẻ và có hiệu ứng chuyển tiếp gạch chân trong 100ms khi di chuột",
+    "Xác minh rằng có tổng cộng 4 thẻ thông tin được hiển thị",
+    "Xác minh rằng nhãn aria-label cho thẻ 'Người dùng mới' là 'Thống kê người dùng mới'"
+  ],
+  [
+    "Truy cập trang đặt lịch hẹn 'https://booking.example.com/appointment'",
+    "Xác minh rằng tiêu đề 'Đặt Lịch Hẹn' có màu chữ #333333, cỡ chữ 30px, phông chữ 'Playfair Display', độ đậm chữ 700, căn chỉnh văn bản ở giữa và có lề ngoài phía trên 45px",
+    "Xác minh rằng lịch chọn ngày có màu nền #ffffff, viền 1px màu #cccccc, bo góc 8px, khoảng đệm trong 15px, chiều rộng 300px, chiều cao 280px và nằm ở vị trí (x=50, y=100)",
+    "Xác minh rằng các ngày trong lịch có màu chữ #1a1a1a, cỡ chữ 16px, và ngày hiện tại được đánh dấu bằng màu nền #007bff với màu chữ #ffffff, bo góc 50% có đường kính 30px",
+    "Xác minh rằng các khung giờ có sẵn hiển thị là các nút với màu nền #e9ecef, màu chữ #333333, bo góc 4px, khoảng đệm trong 8px theo chiều ngang và 5px theo chiều dọc, chiều rộng 100px, chiều cao 35px và có lề ngoài 10px giữa các khung giờ",
+    "Xác minh rằng khung giờ '10:00 AM' đang ở trạng thái được chọn với màu nền #28a745",
+    "Xác minh rằng trường nhập 'Tên của bạn' có placeholder 'Nhập tên của bạn', viền 1px màu #ced4da, bo góc 4px, chiều rộng 250px, chiều cao 38px, nằm ngay dưới lịch và ở trạng thái bật",
+    "Xác minh rằng nút 'Xác nhận đặt lịch' có màu nền #007bff, màu chữ #ffffff, độ đậm chữ 600, bo góc 6px, chiều rộng 200px, chiều cao 48px, được căn giữa ở dưới cùng của biểu mẫu và ở trạng thái bật",
+    "Xác minh rằng khi nút 'Xác nhận đặt lịch' được di chuột qua, màu nền của nút thay đổi thành #0056b3 trong 300ms",
+    "Xác minh rằng nhãn aria-label cho lịch chọn ngày là 'Chọn một ngày cho cuộc hẹn của bạn'"
+  ],
+  [
+    "Mở trang hỗ trợ trực tuyến 'https://support.example.com/chat'",
+    "Xác minh rằng cửa sổ chat có màu nền #f8f9fa, viền 1px màu #dee2e6, bo góc 10px, chiều rộng 400px, chiều cao 600px, nằm ở góc dưới bên phải của màn hình và có lề ngoài 20px từ phía dưới và 20px từ phía phải",
+    "Xác minh rằng tiêu đề chat 'Hỗ Trợ Trực Tuyến' có màu nền #007bff, màu chữ #ffffff, cỡ chữ 18px, độ đậm chữ 600, căn chỉnh văn bản ở giữa và có khoảng đệm trong 12px theo chiều dọc",
+    "Xác minh rằng các tin nhắn của người dùng hiển thị với màu nền #e2e6ea, màu chữ #333333, bo góc 15px theo 3 góc và 5px ở góc dưới bên phải, khoảng đệm trong 10px, căn chỉnh sang phải và có lề ngoài 8px từ phía trên",
+    "Xác minh rằng các tin nhắn của hỗ trợ viên hiển thị với màu nền #d4edda, màu chữ #155724, bo góc 15px theo 3 góc và 5px ở góc dưới bên trái, khoảng đệm trong 10px, căn chỉnh sang trái và có lề ngoài 8px từ phía trên",
+    "Xác minh rằng trường nhập tin nhắn có placeholder 'Nhập tin nhắn của bạn...', viền 1px màu #cccccc, bo góc 20px, khoảng đệm trong 10px, chiều rộng 320px, chiều cao 40px và nằm ở dưới cùng của cửa sổ chat",
+    "Xác minh rằng nút 'Gửi' có biểu tượng mũi tên màu #ffffff trên nền màu #28a745, chiều rộng 40px, chiều cao 40px, bo góc 20px, nằm ngay bên phải trường nhập tin nhắn và ở trạng thái bật",
+    "Xác minh rằng khi cửa sổ chat có tin nhắn mới, thanh cuộn dọc (scroll-top) phải tự động cuộn xuống dưới cùng để hiển thị tin nhắn mới",
+    "Xác minh rằng nhãn aria-label cho trường nhập tin nhắn là 'Nhập tin nhắn để gửi'"
+  ],
+  [
+    "Mở trang chi tiết đơn hàng 'https://app.example.com/order/ORD001'",
+    "Xác minh rằng tiêu đề 'Chi Tiết Đơn Hàng ORD001' có màu chữ #1a1a1a, cỡ chữ 28px, độ đậm chữ 700, căn chỉnh văn bản sang trái và lề ngoài phía trên 30px",
+    "Kiểm tra trạng thái đơn hàng 'Đang xử lý' hiển thị với màu nền #ffc107, màu chữ #212529, bo góc 4px, khoảng đệm trong 6px theo chiều ngang và 3px theo chiều dọc, cỡ chữ 14px, độ đậm chữ 600, nằm ở góc trên bên phải của khối thông tin đơn hàng",
+    "Đảm bảo bảng các mặt hàng đã đặt có tổng cộng 4 cột và 3 hàng",
+    "Xác minh tiêu đề cột của bảng các mặt hàng đã đặt có màu nền #f2f2f2, màu chữ #333333, cỡ chữ 15px, độ đậm chữ 600 và khoảng đệm trong 10px",
+    "Xác nhận mỗi ô dữ liệu trong bảng có viền 1px màu #dddddd và khoảng đệm trong 8px, màu chữ #495057, cỡ chữ 14px",
+    "Kiểm tra tổng số tiền '1.250.000 VNĐ' hiển thị ở cuối bảng với màu chữ #28a745, cỡ chữ 24px, độ đậm chữ 700 và căn chỉnh văn bản sang phải",
+    "Đảm bảo địa chỉ giao hàng '123 Đường ABC, Quận XYZ, TP HCM' hiển thị với màu chữ #555555, cỡ chữ 16px, nằm trong một khối riêng biệt có viền 1px màu #e0e0e0, bo góc 8px và khoảng đệm trong 15px",
+    "Xác minh nút 'Hủy đơn hàng' hiển thị màu nền #dc3545, màu chữ #ffffff, bo góc 5px, chiều rộng 150px, chiều cao 40px, nằm ở dưới cùng của trang và căn chỉnh sang trái, ở trạng thái bật",
+    "Khi nút 'Hủy đơn hàng' được focus, viền của nút chuyển thành 2px màu #c82333",
+    "Kiểm tra nhãn aria-label cho nút 'Hủy đơn hàng' là 'Hủy đơn hàng này'"
+  ],
+  [
+    "Mở trang tạo bài đăng blog mới 'https://blog.example.com/new-post'",
+    "Xác minh rằng tiêu đề trang 'Tạo Bài Đăng Mới' có màu chữ #1a1a1a, cỡ chữ 30px, độ đậm chữ 700, căn chỉnh văn bản sang trái và lề ngoài phía trên 30px",
+    "Kiểm tra trường nhập tiêu đề bài đăng có placeholder 'Tiêu đề bài viết của bạn' với cỡ chữ 24px, màu chữ #333333, phông chữ 'serif', viền 1px màu #cccccc, bo góc 4px, khoảng đệm trong 15px, chiều rộng 800px, chiều cao 60px và ở trạng thái bật",
+    "Đảm bảo vùng soạn thảo nội dung bài đăng có màu nền #ffffff, màu chữ #1a1a1a, cỡ chữ 16px, phông chữ 'sans-serif', viền 1px màu #cccccc, khoảng đệm trong 20px, chiều rộng 800px, chiều cao 500px và có thanh cuộn dọc",
+    "Xác nhận trường nhập 'Tên tác giả' có placeholder 'Tên của bạn' với viền 1px màu #ced4da, bo góc 4px, chiều rộng 200px, chiều cao 38px, nằm ở bên phải trường tiêu đề",
+    "Kiểm tra nút 'Thêm hình ảnh' có biểu tượng hình ảnh màu #007bff, chiều rộng 36px, chiều cao 36px, bo góc 50%, nằm trong thanh công cụ phía trên vùng soạn thảo nội dung",
+    "Đảm bảo nút 'Đăng bài' có màu nền #28a745, màu chữ #ffffff, độ đậm chữ 600, bo góc 5px, chiều rộng 150px, chiều cao 48px, được căn chỉnh sang phải và nằm ở cuối trang, ở trạng thái bật",
+    "Khi trường tiêu đề trống, nút 'Đăng bài' phải ở trạng thái disabled với độ mờ 0.6",
+    "Xác minh nhãn aria-label cho vùng soạn thảo nội dung là 'Nội dung bài viết'",
+    "Kiểm tra nhãn 'Thời gian xuất bản' có màu chữ #555555, cỡ chữ 14px và trường nhập ngày có giá trị mặc định là ngày hiện tại"
+  ],
+  [
+    "Mở trang sản phẩm 'https://www.example.com/san-pham/laptop-zenith-pro'",
+    "Xác minh hình ảnh chính của sản phẩm có nguồn ảnh là 'laptop_zenith_pro_main.webp' với kích thước hiển thị 800x600px, đã được tải hoàn chỉnh, thời gian tải không vượt quá 1 giây và alt text của nó là 'Laptop Zenith Pro hiệu năng cao'",
+    "Xác nhận tiêu đề sản phẩm hiển thị văn bản 'Laptop Zenith Pro 15 inch', có cỡ chữ 28px, phông chữ 'Segoe UI', màu chữ #1A1A1A và độ đậm chữ 700",
+    "Đảm bảo nút 'Thêm vào giỏ hàng' có màu nền #007bff, màu chữ #FFFFFF, độ bo góc 8px, khoảng đệm trong 12px 24px và ở trạng thái bật (enabled)",
+    "Kiểm tra rằng khi con trỏ di chuyển qua nút 'Thêm vào giỏ hàng', màu nền chuyển từ #007bff sang #0056b3 trong vòng 300ms thông qua hiệu ứng chuyển tiếp mượt mà",
+    "Xác minh nút 'Mua ngay' nằm ở tọa độ x=300px, y=550px với chiều rộng 150px, chiều cao 48px và có viền 1px màu #007bff"
+  ],
+  [
+    "Truy cập trang đăng nhập 'https://www.example.com/dang-nhap'",
+    "Kiểm tra trường nhập liệu email có placeholder hiển thị văn bản 'Địa chỉ email của bạn' với cỡ chữ 16px, phông chữ 'Arial' và màu chữ #A0A0A0",
+    "Nhập 'invalid@email' vào trường nhập liệu email",
+    "Rời khỏi trường nhập liệu email",
+    "Xác minh rằng trường nhập liệu email hiển thị viền màu #FF0000 dày 2px",
+    "Xác minh một thông báo lỗi hiển thị ngay bên dưới trường nhập liệu email với văn bản 'Email không hợp lệ', cỡ chữ 14px và màu chữ #DC3545",
+    "Đảm bảo nút 'Đăng nhập' có màu nền #6C757D và trạng thái bị vô hiệu hóa (disabled) khi cả hai trường email và mật khẩu chưa được điền đầy đủ",
+    "Xác nhận nút 'Quên mật khẩu?' hiển thị với màu chữ #007BFF, cỡ chữ 14px và có căn chỉnh văn bản sang phải",
+    "Kiểm tra hộp thoại thông báo lỗi 'Đăng nhập không thành công' xuất hiện ở vị trí trên cùng của màn hình, với tọa độ x=50%, y=20% và độ mờ 1.0 (hiển thị rõ hoàn toàn), có màu nền #F8D7DA và viền 1px màu #F5C6CB"
+  ],
+  [
+    "Mở trang danh sách sản phẩm 'https://www.example.com/danh-muc/dien-thoai'",
+    "Xác minh thanh điều hướng chính ở phía trên cùng của trang có chiều cao 60px và màu nền #333333",
+    "Kiểm tra mục điều hướng 'Điện thoại' có văn bản 'Điện thoại', cỡ chữ 16px, màu chữ #FFFFFF, và khi đang ở trạng thái được chọn (active) sẽ có màu nền #007bff cùng với khoảng đệm trong là 15px theo chiều dọc và 20px theo chiều ngang",
+    "Đảm bảo mục 'Phụ kiện' có màu chữ #FFFFFF",
+    "Đảm bảo khi di chuột qua mục 'Phụ kiện', màu chữ chuyển sang #FFD700 trong 200ms với hiệu ứng chuyển tiếp tuyến tính",
+    "Xác nhận biểu tượng giỏ hàng hiển thị ở góc trên bên phải của thanh điều hướng, với tọa độ x=90% chiều rộng màn hình và y=10px, có nguồn ảnh 'cart_icon.svg' và kích thước hiển thị 24x24px",
+    "Kiểm tra logo công ty hiển thị ở góc trên bên trái, với tọa độ x=20px, y=10px và kích thước 120x40px, có alt text là 'Logo công ty XYZ'"
+  ],
+  [
+    "Mở trình phát video 'https://www.example.com/video/huong-dan-nau-an'",
+    "Xác minh rằng nút 'Phát/Tạm dừng' có biểu tượng nguồn là 'play_icon.svg' khi video đang ở trạng thái tạm dừng",
+    "Xác minh rằng biểu tượng của nút 'Phát/Tạm dừng' chuyển thành 'pause_icon.svg' khi video đang phát",
+    "Kiểm tra thanh âm lượng ban đầu hiển thị ở mức 75% với màu nền #007bff cho phần đã điều chỉnh",
+    "Nhấp vào biểu tượng loa",
+    "Xác nhận video chuyển sang trạng thái tắt tiếng (muted)",
+    "Xác nhận biểu tượng loa thay đổi thành 'muted_icon.svg' trong 100ms",
+    "Đảm bảo nút 'Toàn màn hình' có biểu tượng 'fullscreen_icon.svg'",
+    "Nhấp vào nút 'Toàn màn hình'",
+    "Đảm bảo trình phát video chuyển sang chế độ toàn màn hình (fullscreen) với chiều rộng và chiều cao bằng 100% kích thước màn hình thiết bị",
+    "Đảm bảo tất cả các điều khiển khác của trình phát video đều bị ẩn (hidden) trong chế độ toàn màn hình ngoại trừ nút thoát toàn màn hình",
+    "Xác minh nút 'Chia sẻ' có màu chữ #CCCCCC và kích thước chữ 12px"
+  ],
+  [
+    "Mở hộp thoại xác nhận 'Xóa tài khoản' tại trang cài đặt hồ sơ",
+    "Kiểm tra hộp thoại xác nhận 'Xóa tài khoản' hiển thị chính giữa màn hình với tọa độ x=50% và y=50% (căn giữa theo cả hai trục), có chiều rộng 400px, chiều cao 250px và độ bo góc 10px",
+    "Xác nhận lớp phủ nền (overlay) phía sau hộp thoại có màu nền rgb(0,0,0) và độ mờ 0.6",
+    "Đảm bảo tiêu đề hộp thoại có văn bản 'Xác nhận xóa tài khoản', cỡ chữ 20px, phông chữ 'Roboto', độ đậm chữ 500 và màu chữ #333333",
+    "Kiểm tra nút 'Hủy' có màu nền #E0E0E0, màu chữ #333333, bo góc 5px và nằm ở bên trái nút 'Xóa'",
+    "Đảm bảo nút 'Xóa' có màu nền #DC3545, màu chữ #FFFFFF, bo góc 5px, khoảng đệm trong 10px 20px và ở trạng thái bật (enabled)",
+    "Xác minh nút đóng (biểu tượng 'X') nằm ở góc trên bên phải của hộp thoại, với tọa độ x=370px và y=15px, có màu chữ #6C757D và cỡ chữ 18px"
+  ],
+  [
+    "Mở trang kết quả tìm kiếm 'https://www.example.com/tim-kiem?q=điện+thoại'",
+    "Kiểm tra thanh phân trang hiển thị ở cuối danh sách kết quả",
+    "Xác minh mỗi số trang trong thanh phân trang có văn bản là số tương ứng, cỡ chữ 16px và màu chữ #007BFF khi không được chọn",
+    "Xác minh trang '2' đang ở trạng thái được chọn (active) và có màu nền #007BFF, màu chữ #FFFFFF, độ bo góc 4px và khoảng đệm trong là 8px 12px",
+    "Đảm bảo nút 'Tiếp theo' (Next) bị vô hiệu hóa (disabled) nếu số trang hiện tại là trang cuối cùng, với độ mờ 0.5 và màu chữ #6C757D",
+    "Kiểm tra nút 'Trước đó' (Previous) có biểu tượng mũi tên trái nguồn 'arrow_left.svg', kích thước hiển thị 16x16px và màu chữ #007BFF khi được bật (enabled)",
+    "Xác nhận tổng số kết quả tìm kiếm được hiển thị với văn bản 'Hiển thị 1-10 trên 100 kết quả', cỡ chữ 14px, màu chữ #6C757D và căn chỉnh văn bản sang trái"
+  ],
+  [
+    "Mở trang chủ 'https://www.example.com/'",
+    "Xác minh trường tìm kiếm chính ở đầu trang có placeholder hiển thị văn bản 'Tìm kiếm sản phẩm, bài viết...' và khoảng đệm trong là 10px theo chiều dọc và 15px theo chiều ngang",
+    "Đảm bảo nút 'Tìm kiếm' liền kề có biểu tượng kính lúp nguồn 'search_icon.svg', kích thước hiển thị 20x20px, màu nền #007BFF, màu chữ #FFFFFF và độ bo góc 4px",
+    "Nhập 'áo thun' vào trường tìm kiếm",
+    "Xác nhận một nút 'Xóa' nhỏ xuất hiện bên trong trường nhập liệu với màu chữ #6C757D, cỡ chữ 14px, nằm ở tọa độ x=95% chiều rộng của trường nhập liệu và y=50% chiều cao của trường nhập liệu (căn giữa theo chiều dọc), độ mờ 1.0 (hiển thị rõ)",
+    "Kiểm tra viền của trường tìm kiếm có màu #CCCCCC dày 1px",
+    "Đảm bảo toàn bộ thanh tìm kiếm có chiều rộng 400px và chiều cao 40px"
+  ],
+  [
+    "Mở trang 'https://www.example.com/quan-ly-don-hang'",
+    "Xác minh tiêu đề cột 'Mã đơn hàng' có văn bản 'Mã đơn hàng', cỡ chữ 14px, độ đậm chữ 600, màu chữ #333333 và căn chỉnh văn bản sang trái",
+    "Đảm bảo mỗi dòng dữ liệu trong bảng có cỡ chữ 13px và màu chữ #555555",
+    "Xác nhận có tổng cộng 10 dòng dữ liệu đơn hàng được hiển thị trong bảng",
+    "Kiểm tra các dòng chẵn trong bảng có màu nền #F8F9FA và các dòng lẻ có màu nền #FFFFFF, tạo hiệu ứng xen kẽ",
+    "Đảm bảo cột 'Tổng tiền' hiển thị giá trị là tiền tệ (ví dụ: '1.250.000 VNĐ') và căn chỉnh văn bản sang phải",
+    "Xác minh rằng bảng có viền 1px màu #E0E0E0 và khoảng đệm trong là 10px cho mỗi ô dữ liệu",
+    "Kiểm tra tiêu đề bảng có văn bản 'Danh sách Đơn hàng', cỡ chữ 24px và màu chữ #000000"
+  ],
+  [
+    "Mở trang hồ sơ người dùng 'https://www.example.com/ho-so/john-doe'",
+    "Xác minh ảnh đại diện của người dùng có nguồn là 'avatar_john_doe.jpg', kích thước hiển thị 120x120px và độ bo góc 50% (hình tròn)",
+    "Đảm bảo tên người dùng hiển thị văn bản 'John Doe', cỡ chữ 24px, độ đậm chữ 700, phông chữ 'Montserrat' và màu chữ #2C3E50",
+    "Kiểm tra mô tả tiểu sử có văn bản 'Nhà phát triển phần mềm đam mê công nghệ...', căn chỉnh văn bản sang trái, lề ngoài phía trên và dưới 15px, lề ngoài phía trái và phải 0px",
+    "Xác nhận nút 'Chỉnh sửa hồ sơ' hiển thị bên dưới thông tin, có màu nền #007BFF, màu chữ #FFFFFF, bo góc 4px và khoảng đệm trong 10px 20px",
+    "Đảm bảo biểu tượng email có nguồn 'email_icon.svg', kích thước 16x16px, nằm bên trái địa chỉ email 'john.doe@example.com' và màu chữ của địa chỉ email là #6C757D"
+  ],
+  [
+    "Mở trang 'https://www.example.com/trung-tam-tro-giup'",
+    "Di chuột qua biểu tượng thông tin",
+    "Xác minh một tooltip hiển thị với độ mờ 1.0 (hoàn toàn hiển thị), chứa văn bản 'Thông tin thêm về tính năng này' có cỡ chữ 12px, màu chữ #FFFFFF, màu nền #333333 và độ bo góc 4px",
+    "Đảm bảo tooltip này xuất hiện ở tọa độ x bằng 50% chiều rộng của biểu tượng thông tin và y bằng -30px so với vị trí biểu tượng (hiển thị phía trên biểu tượng), và có chiều rộng tối đa 150px",
+    "Kiểm tra hiệu ứng hiển thị của tooltip sử dụng hiệu ứng chuyển tiếp độ mờ kéo dài 200ms",
+    "Rời con trỏ chuột khỏi biểu tượng thông tin",
+    "Xác nhận tooltip sẽ biến mất (ẩn) trong vòng 200ms bằng cách chuyển độ mờ về 0",
+    "Đảm bảo viền của tooltip là 1px màu #444444",
+    "Kiểm tra khoảng đệm trong của tooltip là 8px 10px"
+  ],
+  [
+    "Mở trang tải dữ liệu 'https://www.example.com/tai-du-lieu'",
+    "Xác minh biểu tượng tải (loading spinner) hiển thị chính giữa màn hình với tọa độ x=50% và y=50% (căn giữa), có chiều rộng 50px, chiều cao 50px, màu #007BFF và sử dụng hoạt ảnh quay vòng liên tục trong 1 giây mỗi vòng",
+    "Xác nhận lớp phủ nền (overlay) phía sau biểu tượng tải có màu nền rgb(0,0,0) và độ mờ 0.4",
+    "Đảm bảo rằng khi dữ liệu đã được tải hoàn tất (load time dưới 3 giây), biểu tượng tải sẽ bị ẩn (hidden) và một thông báo 'Dữ liệu đã tải thành công' xuất hiện với cỡ chữ 18px, màu chữ #28A745, độ đậm chữ 600 và nằm ở vị trí trung tâm",
+    "Kiểm tra thông báo lỗi 'Tải dữ liệu thất bại' hiển thị nếu thời gian tải vượt quá 5 giây, với màu chữ #DC3545, màu nền #F8D7DA và độ bo góc 4px"
+  ],
+  [
+    "Trên trang quản lý tài khoản",
+    "Khi một thông báo mới xuất hiện 'Thông báo: Bạn có tin nhắn mới!'",
+    "Kiểm tra banner thông báo này hiển thị ở góc trên bên phải của màn hình với tọa độ x=calc(100% - 320px) và y=20px, có chiều rộng 300px, chiều cao 70px, màu nền #28A745, màu chữ #FFFFFF và độ bo góc 8px",
+    "Đảm bảo thông báo tự động biến mất (hidden) sau 5 giây bằng hiệu ứng chuyển tiếp độ mờ và vị trí, di chuyển lên trên 20px và giảm độ mờ về 0",
+    "Kiểm tra nút đóng (biểu tượng 'X') nằm ở góc trên bên phải của banner, có màu chữ #FFFFFF, cỡ chữ 16px, khoảng đệm trong 5px và độ mờ 1.0 (hiển thị rõ)",
+    "Xác nhận văn bản trong banner có căn chỉnh văn bản sang trái và lề ngoài bên trái 15px",
+    "Đảm bảo thông báo có viền 1px màu #218838"
+  ],
+  [
+    "Mở form đặt chỗ tại 'https://www.example.com/dat-cho'",
+    "Xác minh trường nhập liệu ngày có placeholder là 'Chọn ngày đi' và giá trị hiện tại là '15/05/2024'",
+    "Mở trình chọn ngày",
+    "Đảm bảo các số ngày trong tháng có cỡ chữ 14px và màu chữ #333333",
+    "Kiểm tra ngày '15' được chọn có màu nền #007BFF, màu chữ #FFFFFF, hình dạng tròn (bo góc 50%), chiều rộng 32px và chiều cao 32px",
+    "Xác nhận các ngày của tháng trước/sau hiển thị màu chữ #A0A0A0 và không thể chọn (disabled)",
+    "Đảm bảo nút 'Tháng trước' và 'Tháng sau' có biểu tượng mũi tên tương ứng nguồn 'arrow_left.svg' và 'arrow_right.svg', kích thước 12x12px và màu chữ #6C757D",
+    "Kiểm tra toàn bộ lịch có viền 1px màu #CCCCCC và màu nền #FFFFFF"
+  ],
+  [
+    "Mở trang bài viết dài 'https://www.example.com/bai-viet/ki-thuat-moi'",
+    "Cuộn trang xuống 500px từ đỉnh",
+    "Xác minh một nút 'Cuộn lên đầu trang' xuất hiện ở góc dưới bên phải màn hình với tọa độ x=calc(100% - 60px) và y=calc(100% - 60px), có màu nền #007BFF, màu chữ #FFFFFF, độ bo góc 50% (hình tròn), chiều rộng 40px, chiều cao 40px và biểu tượng mũi tên lên nguồn 'arrow_up.svg'",
+    "Kiểm tra nút 'Cuộn lên đầu trang' có độ mờ 0.8 khi hiển thị",
+    "Nhấp vào nút 'Cuộn lên đầu trang'",
+    "Đảm bảo trang sẽ cuộn mượt mà lên vị trí trên cùng (scroll-top: 0) trong 800ms",
+    "Kiểm tra nút 'Cuộn lên đầu trang' có độ mờ 0 khi ẩn",
+    "Xác nhận nội dung bài viết chính có chiều rộng tối đa 800px và căn chỉnh giữa",
+    "Đảm bảo thanh cuộn (scrollbar) có chiều rộng 8px và màu nền #F1F1F1"
+  ],
+  [
+    "Mở giao diện quản lý tệp tin 'https://www.example.com/quan-ly-tep'",
+    "Xác minh mỗi tệp tin có thể kéo (drag) có tên tệp hiển thị văn bản (ví dụ: 'document.pdf'), cỡ chữ 14px, màu chữ #333333 và icon nguồn 'pdf_icon.svg', kích thước 24x24px",
+    "Chọn (focus) một tệp",
+    "Đảm bảo viền xung quanh tệp được chọn có màu #007BFF dày 2px và màu nền #E6F3FF",
+    "Kiểm tra vùng thả (drop zone) có viền đứt nét 2px màu #6C757D và màu nền #F8F8F8 khi không có tệp nào được kéo vào",
+    "Kéo một tệp",
+    "Đảm bảo khi một tệp đang được kéo, vùng thả chuyển sang màu nền #E0F7FA và viền liền nét 2px màu #007BFF",
+    "Xác nhận vị trí ban đầu của tệp 'image.jpg' là x=100px, y=100px",
+    "Thả tệp vào một thư mục",
+    "Xác minh vị trí x,y của tệp đó sẽ cập nhật theo tọa độ của thư mục"
+  ],
+  [
+    "Mở trang cài đặt 'https://www.example.com/cai-dat'",
+    "Xác minh menu thả xuống tại tiêu đề 'Ngôn ngữ' ban đầu bị ẩn (hidden)",
+    "Nhấp vào tiêu đề 'Ngôn ngữ'",
+    "Xác minh menu hiển thị với độ mờ 1.0 (hoàn toàn hiển thị), có màu nền #FFFFFF, viền 1px màu #CCCCCC và độ bo góc 4px",
+    "Đảm bảo mỗi tùy chọn trong menu (ví dụ: 'Tiếng Việt', 'English') có văn bản tương ứng, cỡ chữ 15px, màu chữ #333333, khoảng đệm trong 8px theo chiều dọc và 12px theo chiều ngang",
+    "Kiểm tra tùy chọn 'English' đang ở trạng thái được chọn (selected) và có màu nền #F0F0F0 cùng màu chữ #007BFF",
+    "Xác nhận hiệu ứng hiển thị của menu sử dụng chuyển tiếp chiều cao từ 0px đến 150px trong 200ms",
+    "Đảm bảo menu nằm ở tọa độ x bằng lề trái của tiêu đề 'Ngôn ngữ' và y bằng chiều cao của tiêu đề 'Ngôn ngữ' cộng thêm 5px"
+  ],
+  [
+    "Mở form đăng ký 'https://www.example.com/dang-ky'",
+    "Xác minh hộp kiểm 'Tôi đồng ý với các điều khoản' có nhãn văn bản 'Tôi đồng ý với các điều khoản' với cỡ chữ 14px, màu chữ #333333, viền 1px màu #CCCCCC và màu nền #FFFFFF khi chưa được chọn",
+    "Nhấp vào hộp kiểm 'Tôi đồng ý với các điều khoản'",
+    "Đảm bảo khi hộp kiểm được nhấp và chuyển sang trạng thái được chọn (checked), ô vuông hiển thị màu nền #007BFF và một biểu tượng dấu tích màu trắng nguồn 'check_icon.svg' với kích thước 10x10px",
+    "Kiểm tra nút radio 'Giới tính: Nam' và 'Giới tính: Nữ' có nhãn văn bản tương ứng, cỡ chữ 14px và màu chữ #333333",
+    "Chọn nút radio 'Giới tính: Nam'",
+    "Đảm bảo khi 'Giới tính: Nam' được chọn, vòng tròn radio có màu nền #007BFF và một chấm tròn màu trắng bên trong có đường kính 6px",
+    "Đảm bảo nút radio 'Giới tính: Nữ' có màu nền #FFFFFF và viền 1px màu #CCCCCC khi không được chọn"
+  ],
+  [
+    "Mở thư viện hình ảnh 'https://www.example.com/thu-vien-anh'",
+    "Xác minh có tổng cộng 12 hình ảnh được hiển thị",
+    "Đảm bảo hình ảnh lớn hiện tại có nguồn 'gallery_image_01.jpg', kích thước hiển thị 600x400px, kích thước gốc 1920x1280px và đã được tải hoàn chỉnh",
+    "Kiểm tra nút 'Trước đó' và 'Tiếp theo' có biểu tượng mũi tên trái/phải tương ứng nguồn 'arrow_left.svg' và 'arrow_right.svg', kích thước 24x24px, màu chữ #FFFFFF, màu nền #000000 với độ mờ 0.7, độ bo góc 50% (hình tròn) và nằm ở vị trí căn giữa theo chiều dọc ở hai bên của hình ảnh chính",
+    "Xác nhận nút 'Trước đó' bị vô hiệu hóa (disabled) khi hình ảnh đầu tiên đang hiển thị",
+    "Đảm bảo chú thích ảnh hiển thị văn bản 'Hoàng hôn trên biển' với cỡ chữ 16px, màu chữ #333333 và căn chỉnh văn bản giữa"
+  ],
+  [
+    "Mở 'https://www.example.com/thanh-toan'",
+    "Xác minh nút 'Hoàn tất thanh toán' có văn bản 'Hoàn tất thanh toán', cỡ chữ 18px, độ đậm chữ 600, màu chữ #FFFFFF, màu nền #28A745, độ bo góc 6px, khoảng đệm trong 15px theo chiều dọc và 30px theo chiều ngang, và viền 1px màu #218838",
+    "Xác minh nút 'Hoàn tất thanh toán' nằm ở vị trí dưới cùng bên phải của form thanh toán, với lề ngoài bên phải 20px và lề ngoài bên dưới 20px",
+    "Kiểm tra khi người dùng di chuột qua nút 'Hoàn tất thanh toán', màu nền chuyển từ #28A745 sang #218838 trong 250ms bằng hiệu ứng chuyển tiếp màu nền",
+    "Xác nhận khi thông tin thanh toán không hợp lệ, nút 'Hoàn tất thanh toán' chuyển sang trạng thái bị vô hiệu hóa (disabled) với độ mờ 0.6, màu nền #6C757D và màu chữ #E0E0E0"
+  ],
+  [
+    "Mở 'https://www.example.com/dang-ky-dich-vu'",
+    "Xác minh trường nhập liệu 'Tên người dùng' có thuộc tính aria-label được đặt thành 'Nhập tên người dùng của bạn'",
+    "Kiểm tra nhãn 'Tên người dùng' hiển thị phía trên trường nhập liệu với cỡ chữ 14px và màu chữ #333333",
+    "Đảm bảo khi trường nhập liệu 'Tên người dùng' được focus, nó hiển thị viền màu #007BFF dày 2px và đổ bóng nhẹ 0 0 5px #007BFF (thông qua hoạt ảnh focus)",
+    "Xác nhận nút 'Tiếp tục' có màu chữ #FFFFFF, màu nền #007BFF, độ bo góc 4px, chiều rộng 120px và chiều cao 40px",
+    "Kiểm tra khi người dùng nhấn phím Tab, thứ tự focus di chuyển từ 'Tên người dùng' sang 'Mật khẩu' rồi đến 'Email' và cuối cùng là nút 'Tiếp tục', với mỗi phần tử được focus sẽ hiển thị viền xanh dương 2px",
+    "Đảm bảo biểu tượng trợ giúp có aria-label 'Tìm hiểu thêm về tên người dùng'"
+  ],
+  [
+    "Đặt chiều rộng màn hình thành 1280px",
+    "Mở 'https://app.example.com/login'",
+    "Xác minh trường nhập liệu 'Email' có placeholder là 'Nhập địa chỉ email của bạn' với cỡ chữ 14px, màu văn bản #888888, phông chữ 'Roboto', viền 1px màu #cccccc và bo góc 4px",
+    "Kiểm tra trường 'Mật khẩu' có placeholder là 'Nhập mật khẩu của bạn', độ lớn phông 14px, màu chữ #888888, viền 1px màu #cccccc và bo góc 4px",
+    "Nút 'Đăng nhập' hiển thị văn bản 'Đăng nhập' với kiểu chữ 'Roboto', độ đậm chữ 700, màu chữ #FFFFFF, màu nền #007bff, bo góc 8px, khoảng đệm trong 12px theo chiều dọc và 24px theo chiều ngang, chiều rộng 200px, chiều cao 48px, được căn chỉnh giữa và có lề trên 20px so với trường mật khẩu",
+    "Xác minh khi nút 'Đăng nhập' được focus, viền của nó chuyển sang màu #0056b3 dày 2px trong vòng 300ms, và màu nền chuyển sang #0056b3",
+    "Đảm bảo logo ứng dụng ở vị trí x=50, y=50 với kích thước hiển thị 150x50px, có nguồn hình ảnh là 'https://app.example.com/assets/logo.png', alt text là 'Logo ứng dụng của tôi', và đã tải hoàn tất trong 500ms",
+    "Nhãn 'Email' và 'Mật khẩu' phía trên mỗi trường nhập liệu phải có màu chữ #333333, cỡ chữ 13px và độ đậm chữ 500"
+  ],
+  [
+    "Đặt chiều rộng màn hình thành 768px",
+    "Truy cập 'https://shop.example.com/products'",
+    "Kiểm tra thẻ sản phẩm đầu tiên có nền hiển thị màu trắng #FFFFFF, viền 1px màu #e0e0e0, bo góc 6px và khoảng đệm trong 15px",
+    "Tên sản phẩm hiển thị văn bản 'Áo thun phong cách' với màu chữ #333333, cỡ chữ 16px, độ đậm chữ 600 và căn chỉnh văn bản ở giữa",
+    "Hình ảnh sản phẩm có nguồn 'https://shop.example.com/assets/ao_thun_01.jpg', kích thước hiển thị là 200x200px và đã tải trong 300ms",
+    "Nút 'Thêm vào giỏ' có nền màu #28a745, màu chữ #FFFFFF, độ đậm chữ 500, bo góc 4px, khoảng đệm trong 10px theo chiều dọc và 20px theo chiều ngang, chiều rộng 100% của thẻ sản phẩm và chiều cao 40px",
+    "Khi nút 'Thêm vào giỏ' được chọn, nó có màu nền #218838 và viền 2px màu #1e7e34",
+    "Tổng số sản phẩm được liệt kê phải là 24",
+    "Mỗi thẻ sản phẩm có lề dưới là 20px và lề phải là 15px khi căn chỉnh lưới"
+  ],
+  [
+    "Mở 'https://shop.example.com/product/xyz'",
+    "Xác minh rằng hình ảnh chính của sản phẩm có nguồn là 'https://shop.example.com/assets/main_product_image.jpg', kích thước hiển thị 600x450px, kích thước gốc 1200x900px, đã tải hoàn tất trong 800ms và có alt text là 'Hình ảnh chính của sản phẩm'",
+    "Carousel hình ảnh hiển thị 5 hình ảnh thu nhỏ, mỗi hình có chiều rộng 100px và chiều cao 75px, nằm ở vị trí x=50, y=550",
+    "Khi di chuyển qua hình thu nhỏ thứ 3, nó sẽ có một hiệu ứng chuyển tiếp tăng độ mờ lên 100% trong 200ms và có viền 2px màu #007bff",
+    "Một watermark 'Bản quyền ©' phải hiển thị rõ ràng với độ mờ 70% ở góc dưới bên phải của hình ảnh chính",
+    "Các nút điều hướng 'Trước' và 'Tiếp theo' của carousel phải có chiều rộng 30px, chiều cao 60px và vị trí trái/phải tương ứng ở 10px so với cạnh hình ảnh chính, chúng hiển thị màu chữ #000000 trên nền trong suốt"
+  ],
+  [
+    "Mở 'https://shop.example.com/cart'",
+    "Kiểm tra tổng số mặt hàng là 3, với tổng giá trị hiển thị là '1.500.000 VNĐ'",
+    "Mỗi hàng mục trong giỏ hàng phải có màu nền #f8f9fa và lề dưới 10px",
+    "Tên sản phẩm có màu chữ #333333, cỡ chữ 16px và độ đậm chữ 500",
+    "Nút 'Xóa' bên cạnh mỗi sản phẩm phải có màu chữ #dc3545, cỡ chữ 14px, không có viền và khoảng đệm trong 5px",
+    "Khi nút 'Xóa' ở trạng thái hoạt động, nó sẽ có màu chữ #c82333",
+    "Trường nhập liệu số lượng cho mỗi sản phẩm phải có giá trị là 1 hoặc 2, có chiều rộng 60px, chiều cao 30px và viền 1px màu #ced4da",
+    "Nút 'Thanh toán' ở cuối trang có màu nền #007bff, màu chữ #FFFFFF, độ đậm chữ 700, bo góc 5px, khoảng đệm trong 15px, chiều rộng 250px, chiều cao 50px, nằm ở vị trí x=900, y=800, và có nhãn aria-label là 'Hoàn tất quá trình mua hàng'"
+  ],
+  [
+    "Điều hướng đến 'https://shop.example.com/checkout'",
+    "Xác minh trường 'Họ và tên' có placeholder là 'Nhập họ và tên của bạn' với cỡ chữ 14px, phông chữ 'Segoe UI', màu văn bản #495057, viền 1px màu #ced4da, bo góc 4px và khoảng đệm trong 10px",
+    "Trường 'Địa chỉ giao hàng' có chiều rộng 100% của khu vực chứa, chiều cao 80px và lề dưới 15px",
+    "Khi trường 'Địa chỉ giao hàng' được focus, nó có viền màu #80bdff dày 2px với hiệu ứng chuyển tiếp trong 200ms",
+    "Trường chọn ngày 'Ngày giao hàng mong muốn' có giá trị mặc định là ngày hiện tại, màu nền #f8f9fa và nhãn hiển thị 'Ngày giao hàng'",
+    "Các trường nhập liệu này phải ở trạng thái bật",
+    "Các nhãn hiển thị tương ứng bên trên các trường nhập liệu phải có cỡ chữ 13px, màu chữ #333333 và độ đậm chữ 500"
+  ],
+  [
+    "Đặt chiều rộng màn hình thành 1024px",
+    "Kiểm tra thanh điều hướng chính tại 'https://app.example.com/dashboard'",
+    "Xác minh liên kết 'Trang chủ' có màu chữ #FFFFFF, cỡ chữ 16px, độ đậm chữ 500 và khoảng đệm trong 15px theo chiều ngang, 10px theo chiều dọc",
+    "Thanh điều hướng có màu nền #343a40, chiều rộng 100% và chiều cao 60px",
+    "Liên kết 'Sản phẩm' phải ở trạng thái đang được chọn với màu nền #007bff, màu chữ #FFFFFF và có một hoạt ảnh gạch chân từ trái sang phải kéo dài 300ms",
+    "Thay đổi chiều rộng màn hình xuống 360px",
+    "Thanh điều hướng chính phải ẩn đi",
+    "Một biểu tượng 'hamburger' (hình dạng 3 gạch ngang màu trắng) xuất hiện ở vị trí x=15, y=15, với nhãn aria-label là 'Mở menu điều hướng'"
+  ],
+  [
+    "Truy cập 'https://media.example.com/video/lecture'",
+    "Xác minh trình phát video hiển thị với chiều rộng 800px, chiều cao 450px và nằm ở vị trí x=100, y=100",
+    "Nút 'Phát/Tạm dừng' phải có hình dạng tròn với đường kính 40px, màu nền #333333 và biểu tượng màu trắng, ở trạng thái bật",
+    "Video phải ở trạng thái tắt tiếng mặc định",
+    "Nút 'Toàn màn hình' phải hiển thị",
+    "Nhấp vào nút 'Toàn màn hình'",
+    "Xác minh video chuyển sang chế độ toàn màn hình, chiếm 100% chiều rộng và chiều cao của viewport",
+    "Các thanh điều khiển video phải hiển thị trong 3 giây sau khi di chuột qua video và sau đó ẩn đi với hiệu ứng chuyển tiếp độ mờ trong 500ms",
+    "Thanh tiến trình video có màu chính là #dc3545 và chiều cao 5px",
+    "Các nút điều khiển âm lượng phải có chiều rộng 30px và chiều cao 30px, hiển thị ở phía dưới bên trái của trình phát"
+  ],
+  [
+    "Mở 'https://app.example.com/settings'",
+    "Kích hoạt hộp thoại modal 'Đăng xuất'",
+    "Xác minh hộp thoại modal 'Đăng xuất' có màu nền #FFFFFF, viền 1px màu #dee2e6, bo góc 8px, khoảng đệm trong 30px, nằm ở vị trí trung tâm màn hình, có chiều rộng 400px và chiều cao 200px",
+    "Hộp thoại modal phải hiển thị với độ mờ 100% sau hiệu ứng chuyển tiếp trong 300ms",
+    "Tiêu đề 'Xác nhận Đăng xuất' phải có màu chữ #333333, cỡ chữ 18px và độ đậm chữ 600",
+    "Văn bản nội dung 'Bạn có chắc chắn muốn đăng xuất không?' có màu chữ #6c757d và cỡ chữ 14px",
+    "Nút 'Hủy' có màu nền #6c757d, màu chữ #FFFFFF, bo góc 4px, khoảng đệm trong 10px, chiều rộng 80px, chiều cao 36px và lề phải 10px",
+    "Nút 'Đăng xuất' có màu nền #dc3545, màu chữ #FFFFFF, bo góc 4px, khoảng đệm trong 10px, chiều rộng 80px, chiều cao 36px và phải ở trạng thái được chọn theo mặc định"
+  ],
+  [
+    "Mở 'https://app.example.com/calendar'",
+    "Xác minh rằng ngày '15' của tháng hiện tại được đánh dấu là đang được chọn với màu nền #007bff, màu chữ #FFFFFF, bo góc 50% (hình dạng tròn) và cỡ chữ 14px",
+    "Các ngày trong tháng hiện tại phải có màu chữ #333333 và độ đậm chữ 400",
+    "Các ngày không thuộc tháng hiện tại phải hiển thị với độ mờ 50%, màu chữ #cccccc và ở trạng thái tắt",
+    "Bộ chọn ngày có viền 1px màu #ced4da, màu nền #FFFFFF, bo góc 6px và khoảng đệm trong 10px",
+    "Các nút điều hướng 'Tháng trước' và 'Tháng sau' phải có chiều rộng 30px, chiều cao 30px, màu chữ #007bff và không có viền",
+    "Bộ chọn ngày phải nằm ở vị trí x=200, y=150 và hiển thị đầy đủ, có chiều rộng 280px và chiều cao 300px"
+  ],
+  [
+    "Mở 'https://app.example.com/contact'",
+    "Gửi một biểu mẫu không hợp lệ",
+    "Xác minh rằng thông báo lỗi 'Vui lòng điền đầy đủ thông tin bắt buộc.' hiển thị ngay lập tức",
+    "Thông báo lỗi này phải có màu chữ #dc3545, màu nền #f8d7da, viền 1px màu #f5c6cb, bo góc 4px, khoảng đệm trong 15px, cỡ chữ 14px, độ đậm chữ 500, nằm ở vị trí x=50, y=500, với chiều rộng 90% của container cha và chiều cao tự động theo nội dung",
+    "Nó phải hiển thị với độ mờ 100% sau hiệu ứng hoạt ảnh trượt từ trên xuống dưới trong 250ms, và sau đó tự động ẩn đi sau 5 giây với hiệu ứng mờ dần trong 500ms"
+  ],
+  [
+    "Mở 'https://app.example.com/profile'",
+    "Kiểm tra khu vực tải ảnh đại diện",
+    "Hình ảnh đại diện hiện tại có nguồn là 'https://app.example.com/users/avatar/current.jpg', kích thước hiển thị 120x120px, kích thước gốc 240x240px, đã tải trong 400ms",
+    "Hình đại diện phải có hình dạng tròn với bo góc 50% và viền 2px màu #007bff",
+    "Nút 'Thay đổi ảnh đại diện' có màu nền #007bff, màu chữ #FFFFFF, độ đậm chữ 500, bo góc 4px, khoảng đệm trong 8px, chiều rộng 150px, chiều cao 36px và phải ở trạng thái bật",
+    "Một watermark 'Ví dụ' phải hiển thị mờ với độ mờ 30% ở góc dưới bên phải của hình ảnh đại diện nếu hình ảnh là ảnh mặc định",
+    "Nhãn 'Ảnh đại diện' phải có màu chữ #333333 và cỡ chữ 14px"
+  ],
+  [
+    "Mở 'https://example.com'",
+    "Xác minh thanh tìm kiếm có placeholder là 'Tìm kiếm sản phẩm, dịch vụ...' với cỡ chữ 14px, phông chữ 'Arial', màu văn bản #6c757d, màu nền #FFFFFF, viền 1px màu #ced4da, bo góc 20px, khoảng đệm trong 10px theo chiều dọc và 20px theo chiều ngang",
+    "Thanh tìm kiếm có chiều rộng 400px, chiều cao 40px và nằm ở vị trí x=300, y=30",
+    "Khi trường tìm kiếm được focus, viền của nó chuyển sang màu #007bff dày 2px",
+    "Nhập ít nhất 3 ký tự vào thanh tìm kiếm",
+    "Một danh sách gợi ý tìm kiếm (autocomplete) phải hiển thị ngay bên dưới thanh tìm kiếm với nền màu trắng, viền 1px màu #ced4da và hiển thị tối đa 5 kết quả",
+    "Văn bản của các gợi ý tìm kiếm có cỡ chữ 14px và màu chữ #333333"
+  ],
+  [
+    "Mở 'https://app.example.com/upload'",
+    "Tải lên một tập tin",
+    "Kiểm tra thanh tiến trình tải lên có chiều rộng 300px, chiều cao 10px, bo góc 5px và nằm ở vị trí x=200, y=300",
+    "Phần nền của thanh tiến trình có màu #e9ecef",
+    "Phần hiển thị tiến độ có màu #28a745, và chiều rộng của nó phải tăng từ 0% lên 100% trong khoảng thời gian tải lên với hiệu ứng chuyển tiếp mượt mà trong 400ms",
+    "Một văn bản hiển thị phần trăm (ví dụ: '75% đã tải lên') phải xuất hiện ở giữa thanh tiến trình, với màu chữ #FFFFFF và cỡ chữ 12px",
+    "Thanh tiến trình phải hiển thị với độ mờ 100% khi hoạt động",
+    "Thanh tiến trình phải ẩn đi với độ mờ 0% sau khi tải lên hoàn tất trong 500ms"
+  ],
+  [
+    "Mở 'https://app.example.com/customers'",
+    "Xác minh tiêu đề bảng 'Danh sách khách hàng' có màu chữ #333333, cỡ chữ 20px và độ đậm chữ 700",
+    "Mỗi hàng trong bảng có khoảng đệm trong 12px cho mỗi ô, với viền dưới 1px màu #dee2e6",
+    "Văn bản trong các ô dữ liệu phải có phông chữ 'Open Sans', cỡ chữ 14px, màu chữ #495057 và căn chỉnh văn bản sang trái",
+    "Hàng tiêu đề của bảng có màu nền #f8f9fa và độ đậm chữ 600",
+    "Có tổng cộng 10 khách hàng được hiển thị trên mỗi trang",
+    "Khi một hàng được chọn, nó phải có màu nền #e2e6ea với một hiệu ứng chuyển tiếp trong 150ms",
+    "Cột 'Email' có chiều rộng 200px",
+    "Cột 'Số điện thoại' có chiều rộng 150px"
+  ],
+  [
+    "Mở 'https://app.example.com/settings'",
+    "Di chuột qua biểu tượng 'Thông tin'",
+    "Kiểm tra rằng một tooltip hiển thị",
+    "Tooltip phải có nền màu #343a40, màu chữ #FFFFFF, cỡ chữ 12px, bo góc 4px, khoảng đệm trong 8px, nằm ở vị trí x=100, y=50, ngay phía trên biểu tượng, với chiều rộng tự động và chiều cao tự động theo nội dung",
+    "Tooltip phải hiển thị với độ mờ 100% sau hiệu ứng chuyển tiếp 200ms",
+    "Văn bản trong tooltip phải là 'Đây là thông tin bổ sung về cài đặt của bạn.'",
+    "Rời con trỏ chuột khỏi biểu tượng 'Thông tin'",
+    "Tooltip phải ẩn đi với hiệu ứng chuyển tiếp độ mờ 0% trong 200ms"
+  ],
+  [
+    "Đặt chiều rộng màn hình thành 360px",
+    "Xác minh menu bên (side menu) ban đầu ở trạng thái ẩn (visible: false) và nằm ở vị trí trái -250px",
+    "Biểu tượng 'hamburger' có chiều rộng 30px, chiều cao 24px, nằm ở vị trí x=10, y=10 trên thanh tiêu đề và có màu nền trong suốt",
+    "Nhấp vào biểu tượng 'hamburger'",
+    "Menu bên phải hiển thị với chiều rộng 250px, chiều cao 100% của viewport, màu nền #343a40, và trượt vào từ bên trái đến vị trí trái 0px với hiệu ứng chuyển tiếp trong 300ms",
+    "Các mục menu bên trong có màu chữ #FFFFFF, cỡ chữ 16px và khoảng đệm trong 15px",
+    "Mục 'Bảng điều khiển' phải ở trạng thái đang được chọn với màu nền #007bff"
+  ],
+  [
+    "Mở 'https://app.example.com/upload-document'",
+    "Kiểm tra nhãn 'Chọn tập tin của bạn' có màu chữ #333333, cỡ chữ 14px và độ đậm chữ 500",
+    "Nút 'Duyệt' có màu nền #007bff, màu chữ #FFFFFF, bo góc 4px, khoảng đệm trong 10px, chiều rộng 120px, chiều cao 36px và phải ở trạng thái bật",
+    "Chọn 2 tập tin",
+    "Văn bản hiển thị bên cạnh nút phải là '2 tập tin đã chọn' với cỡ chữ 13px và màu chữ #28a745",
+    "Biểu tượng 'tệp đính kèm' có nguồn icon 'https://cdn.example.com/icons/attachment.svg', chiều rộng 20px, chiều cao 20px và nằm ở vị trí x=10, y=10",
+    "Khi nút 'Tải lên' bị vô hiệu hóa, nó phải có độ mờ 50% và màu nền #6c757d"
+  ],
+  [
+    "Mở 'https://shop.example.com/product/123/reviews'",
+    "Kiểm tra rằng có 5 ngôi sao hiển thị, mỗi ngôi sao có hình dạng ngôi sao và màu #ffc107 khi được lấp đầy, và màu #e0e0e0 khi chưa được lấp đầy",
+    "Điểm đánh giá trung bình là 4.5 sao, được hiển thị với cỡ chữ 24px và màu chữ #333333",
+    "Di chuột qua ngôi sao thứ 3",
+    "3 ngôi sao đầu tiên phải chuyển sang trạng thái đang được chọn (màu #ffc107) và có một hoạt ảnh nhỏ (nhấp nháy màu) trong 100ms",
+    "Nhãn 'Số lượng đánh giá' phải hiển thị tổng cộng '120 đánh giá' với màu chữ #6c757d, cỡ chữ 13px",
+    "Nút 'Gửi đánh giá' phải ở trạng thái bật và có màu nền #28a745, nằm ở vị trí x=50, y=500"
+  ],
+  [
+    "Mở 'https://blog.example.com/long-article'",
+    "Cuộn xuống 500px",
+    "Xác minh nút 'Cuộn lên đầu' xuất hiện, có hình dạng tròn, đường kính 48px, nằm cố định ở vị trí bên phải 20px và dưới 20px của viewport, có màu nền #007bff, biểu tượng mũi tên màu trắng, bo góc 50%, độ mờ 100% sau hiệu ứng chuyển tiếp trong 300ms, và có nhãn aria-label là 'Cuộn lên đầu trang'",
+    "Cuộn trở lại đầu trang (scroll-top: 0)",
+    "Xác minh nút 'Cuộn lên đầu' ẩn đi với độ mờ 0% trong 200ms"
+  ],
+  [
+    "Mở 'https://map.example.com/locations'",
+    "Xác minh bản đồ hiển thị với chiều rộng 100%, chiều cao 600px, nằm ở vị trí x=0, y=0, và tải các ô bản đồ từ nguồn 'https://tiles.example.com/{z}/{x}/{y}.png'",
+    "Xác minh có tổng cộng 5 điểm đánh dấu vị trí hiển thị trên bản đồ, mỗi điểm đánh dấu có nhãn là tên địa điểm và hiển thị với một hoạt ảnh nảy lên nhẹ nhàng kéo dài 500ms khi trang được tải",
+    "Xác minh khi di chuột qua một điểm đánh dấu, nó có độ mờ 100% và thông tin chi tiết địa điểm hiển thị trong một popup có nền màu #FFFFFF và viền 1px màu #333333",
+    "Xác minh các nút điều khiển thu phóng có chiều rộng 30px, chiều cao 30px, và nằm ở góc trên bên phải của bản đồ"
+  ]
+]
